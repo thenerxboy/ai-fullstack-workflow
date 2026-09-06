@@ -1,0 +1,131 @@
+# 🚀 `ai-fullstack-workflow`
+
+Universal, Enterprise-Grade 5-Phase AI Agent Workflow for Building Multi-Surface Applications across Expo (React Native) and Next.js (App Router) inside a Turborepo Monorepo.
+
+---
+
+## 📖 Overview
+
+`ai-fullstack-workflow` is an agent-agnostic, open-standard AI agent skill suite. It equips AI coding assistants (Antigravity, Claude Code, Cursor, Windsurf, ChatGPT) with procedural knowledge and interactive discovery loops to take any software project from a rough idea or video transcript all the way to a published App Store and Web release.
+
+---
+
+## 🗺️ 5-Phase Sequential Workflow Map
+
+```
++-----------------------------------------------------------------------------------+
+| Phase 0: Market Research & 20 App Ideas Pitch (/app-idea)                          |
++-----------------------------------------------------------------------------------+
+                                         │
+                                         ▼
++-----------------------------------------------------------------------------------+
+| Phase 1: Creative Vibe Jamming & Google Fonts Selection (/app-brief)               |
+| Outputs: docs/01-app-brief/APP-BRIEF.md                                           |
++-----------------------------------------------------------------------------------+
+                                         │
+                                         ▼
++-----------------------------------------------------------------------------------+
+| Phase 2: Product Strategy, ASO & System PRD Architecture (/prd)                    |
+| Outputs: docs/02-prd-research/ARCH-PRD.md & aso_keywords.json                    |
++-----------------------------------------------------------------------------------+
+                                         │
+                                         ▼
++-----------------------------------------------------------------------------------+
+| Phase 3: Monorepo Architecture & Feature-First Stack (tech-stack)                 |
+| Outputs: docs/03-tech-stack/app-features.md & TECH-STACK.md                       |
++-----------------------------------------------------------------------------------+
+                                         │
+                                         ▼
++-----------------------------------------------------------------------------------+
+| Phase 4: Stitch UI Prompts, Dual App Icons & Screenshots (/ui-flow, /app-icon)     |
+| Outputs: app-screens/prompts/, app-screens/images/, docs/04-ui-design/DESIGN-MEMORY |
++-----------------------------------------------------------------------------------+
+                                         │
+                                         ▼
++-----------------------------------------------------------------------------------+
+| Phase 5: Monorepo Code Generation & Delivery (app-coder)                          |
+| Outputs: apps/native, apps/web, packages/*                                        |
++-----------------------------------------------------------------------------------+
+```
+
+---
+
+## ⚡ Shortcut Commands & Trigger Flags
+
+| Phase / Trigger | Shortcut Command | Action / Description | Output Artifact / Standard |
+| :--- | :--- | :--- | :--- |
+| **Onboarding** | **`/start-workflow`** | Launches interactive onboarding map & menu for new users. | Interactive Guide |
+| **Phase 0** | **`/app-idea`** | Researches market trends, competitor gaps, YouTube transcripts, and pitches 20 data-backed app ideas. | 20 App Ideas Table |
+| **Phase 1** | **`/app-brief`** | Creative vibe jamming for brand identity, mascot, color psychology, and Google Fonts specimen preview selection. | `docs/01-app-brief/APP-BRIEF.md` |
+| **Phase 2** | **`/prd`** | Executes 8-question discovery loop for ASO keywords, web surface models, compliance triad, and V1 scope. | `docs/02-prd-research/ARCH-PRD.md` |
+| **Phase 3** | **`tech-stack`** | Feature-first stack decomposition across 8 Turborepo monorepo layers and DB client schemas. | `docs/03-tech-stack/TECH-STACK.md` |
+| **Phase 4** | **`/ui-flow`** | Compiles UI screen prompt blueprints organized by user flow (Onboarding, Auth, Paywall, Main Tabs, Happy Path). | **Google Stitch Prompt ONLY** |
+| **Phase 4** | **`/app-icon`** | Generates 5 logo exploration concept canvases (Mascot, Metaphor, Lettermark, Geometric, Wordmark). | **Dual-Prompt Standard** (Stitch + Midjourney) |
+| **Phase 4** | **`/app-screenshots`** | Generates 5 panoramic App Store marketing screenshots + 1 Next.js web storefront hero screen. | **Dual-Prompt Standard** (Stitch + Midjourney) |
+| **Phase 5** | **`app-coder`** | Generates production TypeScript code, Expo Router screens, Convex/Supabase client DB schemas, and Next.js App Router landing pages. | Monorepo Source Code |
+
+---
+
+## 📂 Repository Directory Structure
+
+```
+ai-fullstack-workflow/
+├── README.md                          <── Root Documentation & Quick-Start Guide
+│
+├── 00-workflow-guide/                 <── Interactive Onboarding Skill (/start-workflow)
+│   └── SKILL.md
+│
+├── 01-prd-skill/                      <── Phase 0, 1, 2: Ideation, Vibe Brief & PRD (/app-idea, /app-brief, /prd)
+│   ├── SKILL.md
+│   └── README.md
+│
+├── 02-tech-stack/                     <── Phase 3: Monorepo Stack & DB Schemas (tech-stack)
+│   ├── SKILL.md
+│   └── README.md
+│
+├── 03-stitch-ui-skill/                <── Phase 4: Stitch UI Prompts, App Icons & Screenshots (/ui-flow, /app-icon, /app-screenshots)
+│   ├── SKILL.md
+│   ├── README.md
+│   ├── scripts/                        <── CLI Prompt Formatter & Blueprint Extractor Helper Scripts
+│   └── resources/                      <── Color-Agnostic Blueprint Catalog (design_catalog.json)
+│
+└── 04-app-coder/                      <── Phase 5: Codebase Builder & Monorepo Delivery (app-coder)
+    └── SKILL.md
+```
+
+---
+
+## 🚀 Installation & Quick Start
+
+### 1. Install into Your Workspace Monorepo
+Clone this repository directly into your project's `.agents/skills/` directory:
+
+```bash
+git clone https://github.com/thenerxboy/ai-fullstack-workflow.git .agents/skills/ai-fullstack-workflow
+```
+
+### 2. Launch the Workflow
+Ask your AI assistant:
+> *"Run `/start-workflow` to guide me through building my app"*
+
+Or jump directly to any specific phase:
+> *"Run `/app-idea` to research 20 app ideas for productivity"*  
+> *"Run `/app-brief` to jam on my app vibe and choose Google Fonts"*  
+> *"Run `/prd` to generate the system PRD"*  
+> *"Run `/ui-flow` to build Google Stitch UI prompt blueprints"*
+
+---
+
+## 🎨 Key Features & Operational Guardrails
+
+- **Zero Memory Collision Policy**: Tracks UI design system locks, registered SVG icons, and screen versions in `docs/04-ui-design/DESIGN-MEMORY.md` to guarantee zero collisions with main agent memory.
+- **Dual-Prompt Standard**: Generates Dual Prompts (Google Stitch vector spec + ChatGPT / Midjourney prompt) for App Icons (`/app-icon`) and Storefront Screenshots (`/app-screenshots`).
+- **Google Fonts Pairing Engine**: Suggests 2–3 curated font combinations with clickable specimen preview links (`https://fonts.google.com/specimen/...`) for explicit user approval.
+- **PRD Content Extraction Mandate**: Strictly ingests real domain copy, CTAs, and metrics from `docs/` with zero placeholder text ("Lorem Ipsum", "John Doe", "$99").
+- **Canonical Turborepo Monorepo Architecture**: Enforces `apps/native` (Expo Router), `apps/web` (Next.js App Router), `packages/ui`, `packages/db`, and `packages/auth`.
+
+---
+
+## 📄 License
+
+MIT License. Free for open-source and commercial software development.
