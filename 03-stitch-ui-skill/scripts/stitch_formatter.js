@@ -5,15 +5,20 @@
  *   node scripts/stitch_formatter.js [category] [id] [--theme=theme_name] [--app_domain="Target App"]
  * 
  * Examples:
- *   node .agents/skills/stitch-ui-skill/scripts/stitch_formatter.js home home_personalized_greeting_mood_tracker_grid --app_domain="To-Do App"
+ *   node .agents/skills/03-stitch-ui-skill/scripts/stitch_formatter.js home home_personalized_greeting_mood_tracker_grid --app_domain="To-Do App"
  */
 
 const fs = require('fs');
 const path = require('path');
 
-const localCatalog = path.join(process.cwd(), 'design_catalog.json');
-const skillCatalog = path.join(__dirname, '..', 'resources', 'design_catalog.json');
-const CATALOG_PATH = fs.existsSync(localCatalog) ? localCatalog : skillCatalog;
+const candidateCatalogs = [
+  path.join(process.cwd(), 'design_catalog.json'),
+  path.join(__dirname, '..', 'resources', 'design_catalog.json'),
+  path.join(__dirname, '..', '..', '03-stitch-ui-skill', 'resources', 'design_catalog.json'),
+  path.join(__dirname, '..', '..', 'stitch-ui-skill', 'resources', 'design_catalog.json')
+];
+
+const CATALOG_PATH = candidateCatalogs.find(p => fs.existsSync(p)) || candidateCatalogs[1];
 const THEME_PATH = path.join(process.cwd(), 'app_theme.json');
 
 function loadJSON(filePath) {

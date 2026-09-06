@@ -5,10 +5,14 @@
 const fs = require('fs');
 const path = require('path');
 
-const localCatalog = path.join(process.cwd(), 'design_catalog.json');
-const skillCatalog = path.join(__dirname, '..', 'resources', 'design_catalog.json');
-const catalogPath = fs.existsSync(localCatalog) ? localCatalog : skillCatalog;
+const candidateCatalogs = [
+  path.join(process.cwd(), 'design_catalog.json'),
+  path.join(__dirname, '..', 'resources', 'design_catalog.json'),
+  path.join(__dirname, '..', '..', '03-stitch-ui-skill', 'resources', 'design_catalog.json'),
+  path.join(__dirname, '..', '..', 'stitch-ui-skill', 'resources', 'design_catalog.json')
+];
 
+const catalogPath = candidateCatalogs.find(p => fs.existsSync(p)) || candidateCatalogs[1];
 const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
 
 const newBlueprints = [

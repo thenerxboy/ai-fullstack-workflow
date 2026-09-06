@@ -4,9 +4,17 @@ Universal, Enterprise-Grade 5-Phase AI Agent Workflow for Building Multi-Surface
 
 ---
 
-## 📖 Overview
+## ⚡ Quick-Start Installation (1 Command)
 
-`ai-fullstack-workflow` is an agent-agnostic, open-standard AI agent skill suite. It equips AI coding assistants (Antigravity, Claude Code, Cursor, Windsurf, ChatGPT) with procedural knowledge and interactive discovery loops to take any software project from a rough idea or video transcript all the way to a published App Store and Web release.
+Install the entire workflow suite directly into your project's `.agents/skills/` directory without creating any extra wrapper folders:
+
+```bash
+git clone https://github.com/thenerxboy/ai-fullstack-workflow.git .agents/skills
+```
+
+Once installed, open your project in your AI assistant (Antigravity, Claude Code, Cursor, Windsurf) and type:
+
+> **`"Run /start-workflow to guide me through building my app"`**
 
 ---
 
@@ -92,27 +100,6 @@ ai-fullstack-workflow/
 └── 04-app-coder/                      <── Phase 5: Codebase Builder & Monorepo Delivery (app-coder)
     └── SKILL.md
 ```
-
----
-
-## 🚀 Installation & Quick Start
-
-### 1. Install into Your Workspace Monorepo
-Clone this repository directly into your project's `.agents/skills/` directory:
-
-```bash
-git clone https://github.com/thenerxboy/ai-fullstack-workflow.git .agents/skills/ai-fullstack-workflow
-```
-
-### 2. Launch the Workflow
-Ask your AI assistant:
-> *"Run `/start-workflow` to guide me through building my app"*
-
-Or jump directly to any specific phase:
-> *"Run `/app-idea` to research 20 app ideas for productivity"*  
-> *"Run `/app-brief` to jam on my app vibe and choose Google Fonts"*  
-> *"Run `/prd` to generate the system PRD"*  
-> *"Run `/ui-flow` to build Google Stitch UI prompt blueprints"*
 
 ---
 

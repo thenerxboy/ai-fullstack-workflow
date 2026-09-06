@@ -9,6 +9,21 @@ Universal AI agent skill for transforming system PRDs (`ARCH-PRD.md`), tech stac
 
 ---
 
+## 📁 Document Path & Fallback Protocol
+
+Agents MUST search for input context files using this prioritized path resolution hierarchy:
+
+| Ingested Document | Primary Input Path | Fallback Path 1 | Fallback Path 2 |
+| :--- | :--- | :--- | :--- |
+| **App Brief** | `docs/01-app-brief/APP-BRIEF.md` | `docs/APP-BRIEF.md` | `./APP-BRIEF.md` |
+| **System ARCH-PRD** | `docs/02-prd-research/ARCH-PRD.md` | `docs/ARCH-PRD.md` | `./ARCH-PRD.md` |
+| **App Features Map** | `docs/03-tech-stack/app-features.md` | `docs/app-features.md` | `./app-features.md` |
+| **Tech Stack Spec** | `docs/03-tech-stack/TECH-STACK.md` | `docs/TECH-STACK.md` | `./TECH-STACK.md` |
+| **UI Design Memory** | `docs/04-ui-design/DESIGN-MEMORY.md` | `docs/DESIGN-MEMORY.md` | `./DESIGN-MEMORY.md` |
+| **Approved UI Prompts** | `app-screens/prompts/*.md` | `app-screens/*.md` | `./*.md` |
+
+---
+
 ## ⚡ Trigger Flags & Capabilities
 
 - **`app-coder`**: Launches Phase 5 (Full-Stack Monorepo Code Generation).
