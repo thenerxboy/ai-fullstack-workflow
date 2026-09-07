@@ -102,8 +102,13 @@ The agent—NOT the human—generates the project-level `./AGENTS.md` file by in
 ### Execution Workflow for `/init-agents`:
 1. **Ingest Documentation**: Read `docs/01-app-brief/APP-BRIEF.md`, `docs/02-prd-research/ARCH-PRD.md`, `docs/03-tech-stack/TECH-STACK.md` & `app-features.md`, and `docs/04-ui-design/DESIGN-MEMORY.md`.
 2. **Extract Real Attributes**: Extract the app's real name, tagline, core features (In Scope), explicit out-of-scope defense list, monorepo package paths, database schemas, approved Google Fonts pairings, and locked stadium pill navbar specs.
-3. **File Generation Proposal**: Ask gatekeeper question: *"I am ready to generate your project-tailored `./AGENTS.md` file at the root. Do you approve?"*
-4. **File Output**: Upon user approval, write the complete, unabridged `./AGENTS.md` file to the project root.
+3. **GitHub Remote Verification Gate**: Check if workspace root has an active remote origin (`git remote get-url origin`). If NO remote is set up yet, guide the user using their locked real product name:
+   > 🚀 **Phase 5 GitHub Remote Setup**:
+   > Now that we have locked your product name as **[PRODUCT_NAME]**, let's link your workspace to GitHub before creating feature branches:
+   > 1. Create repository `[product-name]` on GitHub.
+   > 2. Run in terminal: `git remote add origin https://github.com/your-username/[product-name].git`
+4. **File Generation Proposal**: Ask gatekeeper question: *"I am ready to generate your project-tailored `./AGENTS.md` file at the root. Do you approve?"*
+5. **File Output**: Upon user approval, write the complete, unabridged `./AGENTS.md` file to the project root.
 
 ---
 

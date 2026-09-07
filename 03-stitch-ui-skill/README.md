@@ -84,7 +84,6 @@ Add this repository as a Git Submodule into your project's `.agents/skills/` dir
 
 ```bash
 git init
-git remote add origin https://github.com/your-username/my-app.git
 git submodule add https://github.com/thenerxboy/ai-fullstack-workflow.git .agents/skills/ai-fullstack-workflow
 ```
 

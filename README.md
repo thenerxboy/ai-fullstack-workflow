@@ -9,10 +9,9 @@ Universal, Enterprise-Grade 5-Phase AI Agent Workflow for Building Multi-Surface
 To ensure your app code commits ONLY to your app repository while keeping `design_catalog.json` learnings linked, initialize your app repository first and add the workflow as a Git Submodule:
 
 ```bash
-# 1. Create and initialize your app repository
+# 1. Create folder & initialize local git repository
 mkdir my-app && cd my-app
 git init
-git remote add origin https://github.com/your-username/my-app.git
 
 # 2. Add the workflow as a Git Submodule
 git submodule add https://github.com/thenerxboy/ai-fullstack-workflow.git .agents/skills/ai-fullstack-workflow

@@ -27,10 +27,9 @@ Before presenting the onboarding sitemap or executing workflow commands, the age
 > - **Repo Isolation**: Guarantees your app code commits ONLY to your project repository (`my-app.git`).
 > - **Catalog Learnings**: Allows `design_catalog.json` updates from `/ui-extract` to commit back to `ai-fullstack-workflow.git`.
 > 
-> **Run this 3-step setup in your project terminal to fix**:
+> **Run this 2-step setup in your project terminal to fix**:
 > ```bash
 > git init
-> git remote add origin https://github.com/your-username/my-app.git
 > git submodule add https://github.com/thenerxboy/ai-fullstack-workflow.git .agents/skills/ai-fullstack-workflow
 > ```
 
