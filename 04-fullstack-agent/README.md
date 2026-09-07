@@ -22,8 +22,16 @@ Universal AI Agent Coding Skill based on **Vibe Engineering** and **Practical Vi
 
 ---
 
-### 🚀 How to Use
+### 🚀 Installation & Usage
 
+#### 1. Install Skill into Your Monorepo Workspace
+Add this repository as a Git Submodule into your project's `.agents/skills/` directory:
+
+```bash
+git submodule add https://github.com/thenerxboy/fullstack-agent-workflow.git .agents/skills/fullstack-agent-workflow
+```
+
+#### 2. How to Use
 Invoke the skill in any AI assistant:
 
 ```markdown

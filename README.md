@@ -17,6 +17,19 @@ git init
 git submodule add https://github.com/thenerxboy/fullstack-agent-workflow.git .agents/skills/fullstack-agent-workflow
 ```
 
+### 🔄 Working with Submodules (Existing Repos & Updates)
+
+```bash
+# Clone an existing project with the workflow submodule included:
+git clone --recursive <your-app-repo-url>
+
+# Or if you already cloned without submodules, initialize it:
+git submodule update --init --recursive
+
+# Update the workflow skill to the latest version at any time:
+git submodule update --remote --merge
+```
+
 Once installed, open your project in your AI assistant (Antigravity, Claude Code, Cursor, Windsurf) and type:
 
 > **`"Run /start-workflow to guide me through building my app"`**

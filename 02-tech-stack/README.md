@@ -15,10 +15,10 @@ Universal, agent-agnostic AI skill for feature-first stack decomposition, 8-laye
 ## 🚀 Installation & Usage
 
 ### 1. Install Skill into Your Monorepo
-Clone this repository directly into your project's `.agents/skills/` directory:
+Add the `fullstack-agent-workflow` repository as a Git Submodule into your project's `.agents/skills/` directory:
 
 ```bash
-git clone https://github.com/thenerxboy/tech-stack.git .agents/skills/tech-stack
+git submodule add https://github.com/thenerxboy/fullstack-agent-workflow.git .agents/skills/fullstack-agent-workflow
 ```
 
 ### 2. Invoke the Skill
