@@ -38,8 +38,12 @@ Here is our 5-Phase Production Journey:
    - Compiles Google Stitch UI prompts, Dual-Prompt App Icons, and panoramic App Store marketing screenshots.
    - Outputs: `app-screens/prompts/`, `app-screens/images/`, `docs/04-ui-design/DESIGN-MEMORY.md`
 
-6️⃣ **Phase 5: Monorepo Code Generation & Delivery** (`app-coder`)
-   - Generates production TypeScript code, Expo Router native tabs, DB client schemas, and Next.js App Router landing pages.
+6️⃣ **Phase 5: Tailored AGENTS.md Setup & External Skills Mapping** (`/init-agents`)
+   - Ingests `docs/` to generate a 100% project-tailored `./AGENTS.md` at project root.
+   - Maps framework/dependency skills and caches docs in `docs/05-external-skills/`.
+
+7️⃣ **Phase 5 (Build): Vibe Engineering Monorepo Code Generation** (`app-coder`)
+   - Executes 8-step Vibe Engineering loop, writes plans to `prompts/<task>.md`, and generates TypeScript code.
 
 ---
 
@@ -49,6 +53,7 @@ Here is our 5-Phase Production Journey:
 - Type **`/app-brief`** if you already have an app idea and want to jam on the vibe, mascot, and Google Fonts!
 - Type **`/prd`** if you have `APP-BRIEF.md` ready and want to build the System PRD.
 - Type **`/ui-flow`** if your PRD is locked and you want to generate Google Stitch UI prompt blueprints!
+- Type **`/init-agents`** if your design system and PRD are ready and you want to generate your tailored `./AGENTS.md` file!
 ```
 
 ---
@@ -63,4 +68,5 @@ Here is our 5-Phase Production Journey:
 - **`/ui-flow`**: Compiles Phase 4 UI screen prompt blueprints.
 - **`/app-icon`**: Generates Phase 4 Dual-Prompt logo exploration canvases.
 - **`/app-screenshots`**: Generates Phase 4 Dual-Prompt App Store marketing screenshots.
+- **`/init-agents`**: Ingests `docs/` and generates a 100% project-tailored `./AGENTS.md` file.
 - **`app-coder`**: Launches Phase 5 full-stack code generation.

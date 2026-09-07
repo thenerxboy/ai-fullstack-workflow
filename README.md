@@ -51,8 +51,14 @@ Once installed, open your project in your AI assistant (Antigravity, Claude Code
                                          │
                                          ▼
 +-----------------------------------------------------------------------------------+
-| Phase 5: Monorepo Code Generation & Delivery (app-coder)                          |
-| Outputs: apps/native, apps/web, packages/*                                        |
+| Phase 5: Autonomous Tailored AGENTS.md & External Skills Mapping (/init-agents)   |
+| Outputs: ./AGENTS.md, docs/05-external-skills/<library>.md                        |
++-----------------------------------------------------------------------------------+
+                                         │
+                                         ▼
++-----------------------------------------------------------------------------------+
+| Phase 5 (Build): Vibe Engineering Monorepo Code Generation (app-coder)            |
+| Outputs: prompts/<task>.md ──> apps/native, apps/web, packages/*                  |
 +-----------------------------------------------------------------------------------+
 ```
 
@@ -70,7 +76,8 @@ Once installed, open your project in your AI assistant (Antigravity, Claude Code
 | **Phase 4** | **`/ui-flow`** | Compiles UI screen prompt blueprints organized by user flow (Onboarding, Auth, Paywall, Main Tabs, Happy Path). | **Google Stitch Prompt ONLY** |
 | **Phase 4** | **`/app-icon`** | Generates 5 logo exploration concept canvases (Mascot, Metaphor, Lettermark, Geometric, Wordmark). | **Dual-Prompt Standard** (Stitch + Midjourney) |
 | **Phase 4** | **`/app-screenshots`** | Generates 5 panoramic App Store marketing screenshots + 1 Next.js web storefront hero screen. | **Dual-Prompt Standard** (Stitch + Midjourney) |
-| **Phase 5** | **`app-coder`** | Generates production TypeScript code, Expo Router screens, Convex/Supabase client DB schemas, and Next.js App Router landing pages. | Monorepo Source Code |
+| **Phase 5 (Setup)** | **`/init-agents`** | Ingests `docs/` and autonomously generates a 100% project-tailored `./AGENTS.md` file at the root. | Tailored `./AGENTS.md` |
+| **Phase 5 (Build)** | **`app-coder`** | Executes Vibe Engineering 8-step loop, maps dependency skills (`docs/05-external-skills/`), and builds monorepo TypeScript code. | `prompts/<task>.md` & Code |
 
 ---
 
@@ -97,14 +104,17 @@ ai-fullstack-workflow/
 │   ├── scripts/                        <── CLI Prompt Formatter & Blueprint Extractor Helper Scripts
 │   └── resources/                      <── Color-Agnostic Blueprint Catalog (design_catalog.json)
 │
-└── 04-app-coder/                      <── Phase 5: Codebase Builder & Monorepo Delivery (app-coder)
-    └── SKILL.md
+└── 04-app-coder/                      <── Phase 5: Codebase Builder & AGENTS.md Generator (/init-agents, app-coder)
+    ├── SKILL.md
+    └── README.md
 ```
 
 ---
 
 ## 🎨 Key Features & Operational Guardrails
 
+- **Autonomous `AGENTS.md` Generator (`/init-agents`)**: Compiles a 100% project-tailored `./AGENTS.md` at the project root by ingesting completed `docs/` artifacts.
+- **External Skill & Doc Mapping Engine (`docs/05-external-skills/`)**: Maps required framework/dependency skills (Clerk, Convex, Expo, Stripe, Supabase), checks local cache, guides developer on missing skills/docs, and stores doc snippets for permanent future reference.
 - **Zero Memory Collision Policy**: Tracks UI design system locks, registered SVG icons, and screen versions in `docs/04-ui-design/DESIGN-MEMORY.md` to guarantee zero collisions with main agent memory.
 - **Dual-Prompt Standard**: Generates Dual Prompts (Google Stitch vector spec + ChatGPT / Midjourney prompt) for App Icons (`/app-icon`) and Storefront Screenshots (`/app-screenshots`).
 - **Google Fonts Pairing Engine**: Suggests 2–3 curated font combinations with clickable specimen preview links (`https://fonts.google.com/specimen/...`) for explicit user approval.

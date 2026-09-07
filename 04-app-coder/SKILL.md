@@ -1,14 +1,14 @@
 ---
 name: app-coder
-description: Monorepo code generation, Expo Router mobile components, Next.js App Router storefronts, Convex/Supabase client DB schemas, Vibe Engineering loop, and full-stack codebase builder.
+description: Monorepo code generation, Expo Router mobile components, Next.js App Router storefronts, Convex/Supabase client DB schemas, tailored AGENTS.md generator (/init-agents), external skills & doc mapper (docs/05-external-skills/), Vibe Engineering loop, and full-stack codebase builder.
 ---
 
 # 💻 Monorepo Code Generation & Delivery Skill (`app-coder`)
 
-Universal, agent-agnostic AI coding skill based on **Vibe Engineering** and **Practical Vibe Coding** principles. It equips AI coding agents with the procedural rules, 8-step execution loop, 10-step build-in-order roadmap, 4-part prompt templates, and hardcoded cheatsheets to build production-ready software inside an enterprise Turborepo monorepo.
+Universal, agent-agnostic AI coding skill based on **Vibe Engineering** and **Practical Vibe Coding** principles. It equips AI coding agents with the procedural rules, autonomous project-tailored `AGENTS.md` generation, external skill/doc mapping engine (`docs/05-external-skills/`), 8-step execution loop, 10-step build-in-order roadmap, 4-part prompt templates, and hardcoded cheatsheets to build production-ready software inside an enterprise Turborepo monorepo.
 
 > [!IMPORTANT]
-> **AGENT MANDATE**: Any agent executing a feature build, code generation, refactoring, or bug fix task **MUST ALWAYS read this SKILL.md file first** (`view_file`). The agent must follow the 8-Step Vibe Engineering Loop: write an implementation plan to `prompts/<task-name>.md` first, get human approval, implement feature-by-feature, run automated typecheck/lint checks, and share exact manual verification steps.
+> **AGENT MANDATE**: Any agent executing a feature build, code generation, refactoring, or bug fix task **MUST ALWAYS read this SKILL.md file first** (`view_file`). The agent must follow the 8-Step Vibe Engineering Loop: write an implementation plan to `prompts/<task-name>.md` first, check `docs/05-external-skills/` for required dependency skills/docs, get human approval, implement feature-by-feature, run automated typecheck/lint checks, and share exact manual verification steps.
 
 ---
 
@@ -24,14 +24,73 @@ Agents MUST search for input context files and write output artifacts using this
 | **App Features Map** | `docs/03-tech-stack/app-features.md` | `docs/app-features.md` | `./app-features.md` |
 | **Tech Stack Spec** | `docs/03-tech-stack/TECH-STACK.md` | `docs/TECH-STACK.md` | `./TECH-STACK.md` |
 | **UI Design Memory** | `docs/04-ui-design/DESIGN-MEMORY.md` | `docs/DESIGN-MEMORY.md` | `./DESIGN-MEMORY.md` |
+| **External Skills & Docs Cache** | `docs/05-external-skills/*.md` | `docs/external-skills/*.md` | `./skills/*.md` |
 | **Approved UI Screen Prompts** | `app-screens/prompts/<screen_id>.md` | `app-screens/<screen_id>.md` | `./<screen_id>.md` |
 | **AI Implementation Plans** | `prompts/<task_name>.md` | `docs/prompts/<task_name>.md` | `./prompts/<task_name>.md` |
 
 ---
 
-## ⚡ Trigger Flags & Capabilities
+## ⚡ Shortcut Commands & Trigger Flags
 
-- **`app-coder`** (or **`/code`**, **`/build`**, **`/plan`**): Launches Phase 5 (Full-Stack Monorepo Code Generation).
+- **`/init-agents`**: Ingests `docs/` (App Brief, PRD, Tech Stack, UI Design Memory) and generates a 100% project-tailored `./AGENTS.md` file at the root.
+- **`app-coder`** (or **`/code`**, **`/build`**, **`/plan`**): Launches Phase 5 (Full-Stack Monorepo Code Generation & Feature Building).
+
+---
+
+## 🌟 Feature A: Autonomous Tailored `AGENTS.md` Generator (`/init-agents`)
+
+The agent—NOT the human—generates the project-level `./AGENTS.md` file by ingesting the completed project artifacts from earlier workflow stages.
+
+### Execution Workflow for `/init-agents`:
+1. **Ingest Documentation**: Read `docs/01-app-brief/APP-BRIEF.md`, `docs/02-prd-research/ARCH-PRD.md`, `docs/03-tech-stack/TECH-STACK.md` & `app-features.md`, and `docs/04-ui-design/DESIGN-MEMORY.md`.
+2. **Extract Real Attributes**: Extract the app's real name, tagline, core features (In Scope), explicit out-of-scope defense list, monorepo package paths, database schemas, approved Google Fonts pairings, and locked stadium pill navbar specs.
+3. **File Generation Proposal**: Ask gatekeeper question: *"I am ready to generate your project-tailored `./AGENTS.md` file at the root. Do you approve?"*
+4. **File Output**: Upon user approval, write the complete, unabridged `./AGENTS.md` file to the project root.
+
+---
+
+## 🌟 Feature B: External Skill & Documentation Mapping Engine (`docs/05-external-skills/`)
+
+When a developer requests a feature, integration, or bug fix, `app-coder` MUST map and verify the required dependency and framework skills/documentation (e.g. `clerk`, `convex`, `expo-camera`, `stripe`, `supabase`) BEFORE writing code.
+
+```
++-------------------------------------------------------------------+
+| Feature Request (e.g., "Integrate Stripe subscription billing")    |
++-------------------------------------------------------------------+
+                                  │
+                                  ▼
++-------------------------------------------------------------------+
+| Step 1: Map Required Framework & Dependency Skills/Docs           |
+| (Identifies need for stripe-node / clerk / expo-camera docs)      |
++-------------------------------------------------------------------+
+                                  │
+                                  ▼
++-------------------------------------------------------------------+
+| Step 2: Query Local Cache (docs/05-external-skills/<library>.md)  |
++-------------------------------------------------------------------+
+                 │                                   │
+                 ▼ (Found)                           ▼ (Missing)
++-----------------------------------+ +-----------------------------------+
+| Load local docs into context      | | Provide Guidance in Plan & Chat:  |
+| Ground plan in real API specs     | | 1. "Run npx skills add <lib>"    |
+|                                   | | 2. "Or paste doc snippet to save|
+|                                   | |    to docs/05-external-skills/"|
++-----------------------------------+ +-----------------------------------+
+                                                     │
+                                                     ▼
+                                      +-----------------------------------+
+                                      | Save to docs/05-external-skills/  |
+                                      | Cached for all future prompts!    |
+                                      +-----------------------------------+
+```
+
+### Protocol & Directives for External Skills:
+1. **Plan Mapping**: In `prompts/<task-name>.md`, include a dedicated section: **`## External Skills & Documentation Status`**.
+2. **Local Cache Check**: Search `docs/05-external-skills/<library_name>.md`. If found, load it into context to ground code in real documentation.
+3. **On-Demand User Guidance**: If a required library doc/skill is missing:
+   - Provide the CLI installation command: `npx skills add <library>/skills`
+   - Provide official documentation URLs.
+   - Offer to save any pasted documentation snippet directly into `docs/05-external-skills/<library_name>.md` for permanent future reference.
 
 ---
 
@@ -53,9 +112,9 @@ For EVERY feature or code generation task, the AI agent MUST execute this exact 
 [1. Read Rules & Context] ➔ [2. Receive Short Task] ➔ [3. Write Plan to prompts/] ➔ [4. Human Review] ➔ [5. Human Approval] ➔ [6. Build Code] ➔ [7. Run Automated Checks] ➔ [8. Share Manual Verification Steps]
 ```
 
-1. **Read Rules Once**: Read `./AGENTS.md`, `DESIGN-MEMORY.md`, and named skill files (`app-coder`, `stitch-ui-skill`, `tech-stack`).
+1. **Read Rules Once**: Read `./AGENTS.md`, `docs/04-ui-design/DESIGN-MEMORY.md`, and named skill files (`app-coder`, `stitch-ui-skill`, `tech-stack`).
 2. **Receive Short Prompt**: Accept a single-feature prompt with a defined scope.
-3. **Write Detailed Implementation Plan**: Write the complete plan file to `prompts/<task-name>.md`.
+3. **Write Detailed Implementation Plan**: Write the complete plan file to `prompts/<task-name>.md` (including External Skills mapping).
 4. **Human Review**: Hit pause and ask the user to review `prompts/<task-name>.md`.
 5. **Human Approval**: Wait for explicit user approval ("yes", "approved", "go ahead").
 6. **AI Build**: Implement the feature code according to the approved plan.
@@ -83,29 +142,30 @@ Order matters. Building out of order creates UI decisions before data exists or 
 
 ---
 
-## 📄 Hardcoded Cheatsheet 1: Master `AGENTS.md` Template
+## 📄 Hardcoded Cheatsheet 1: Tailored `AGENTS.md` Template (`/init-agents`)
 
-When bootstrapping or reading project conventions, `AGENTS.md` at the project root serves as the single source of truth:
+When generating or reading `./AGENTS.md`, the file serves as the single source of truth:
 
 ```markdown
 # AGENTS.md — Master Project Rules & Conventions
 
 You are a principal-level software engineer building [PRODUCT_NAME], a [ONE_LINE_DESCRIPTION].
-Your job: understand the request, inspect relevant code, read named skills, write a detailed implementation plan to prompts/<task-name>.md, get human approval, then implement.
+Your job: understand the request, inspect relevant code, read named skills in docs/05-external-skills/, write a detailed implementation plan to prompts/<task-name>.md, get human approval, then implement.
 
 ## 1. Workflow
 1. Read AGENTS.md and relevant skills first before writing code.
-2. Inspect relevant existing files.
-3. Ask a focused question ONLY if there is real ambiguity.
-4. Write a detailed implementation plan to `prompts/<task-name>.md`.
-5. Ask: "I prepared the implementation prompt at prompts/<task-name>.md. Good to execute?"
-6. Implement ONLY after human approval.
-7. Run typecheck (`tsc`) and lint checks.
-8. Share exact manual verification steps.
+2. Check `docs/05-external-skills/` for cached dependency documentation.
+3. Inspect relevant existing files.
+4. Ask a focused question ONLY if there is real ambiguity.
+5. Write a detailed implementation plan to `prompts/<task-name>.md`.
+6. Ask: "I prepared the implementation prompt at prompts/<task-name>.md. Good to execute?"
+7. Implement ONLY after human approval.
+8. Run typecheck (`tsc`) and lint checks.
+9. Share exact manual verification steps.
 
 ## 2. Product Scope
-- **In Scope**: [FEATURE_LIST]
-- **Out of Scope (CRITICAL DEFENSE)**: [OUT_OF_SCOPE_LIST] (Do NOT overbuild or invent unrequested features!)
+- **In Scope**: [REAL_FEATURE_LIST_FROM_PRD]
+- **Out of Scope (CRITICAL DEFENSE)**: [REAL_OUT_OF_SCOPE_LIST_FROM_PRD] (Do NOT overbuild or invent unrequested features!)
 
 ## 3. Architecture
 - `apps/native`: Expo Router mobile app screens and routes.
@@ -118,6 +178,7 @@ Your job: understand the request, inspect relevant code, read named skills, writ
 - **Framework**: Expo (React Native) + Next.js (App Router)
 - **Language**: TypeScript (Strict mode, zero `any`)
 - **Styling**: NativeWind (Tailwind CSS)
+- **Typography**: [APPROVED_GOOGLE_FONTS_PAIRING]
 - **State**: Zustand (global client state) + AsyncStorage (persistence)
 - **Database**: Convex / Supabase PostgreSQL
 - **Auth**: Clerk (Do NOT build custom auth!)
@@ -146,32 +207,37 @@ Every implementation plan generated by `app-coder` MUST use this exact template:
 [One sentence describing what this task accomplishes.]
 
 ## 2. What It Read
-- [List of skills inspected, e.g., @.agents/skills/ai-fullstack-workflow/04-app-coder]
+- [List of workflow skills inspected, e.g., @.agents/skills/ai-fullstack-workflow/04-app-coder]
+- [List of external skills/docs loaded from docs/05-external-skills/]
 - [List of existing project files inspected, e.g., apps/native/app/(tabs)/index.tsx]
 
-## 3. Assumptions & Resolved Ambiguities
+## 3. External Skills & Documentation Status
+- [ ] Loaded from `docs/05-external-skills/<library>.md`
+- [ ] MISSING: [Library Name] ──> Run `npx skills add <library>/skills` or paste docs into `docs/05-external-skills/<library>.md`
+
+## 4. Assumptions & Resolved Ambiguities
 - [Explicit list of any ambiguous decisions resolved on its own for review]
 
-## 4. Files That Will Change
+## 5. Files That Will Change
 - [NEW] `apps/native/components/FeatureCard.tsx`
 - [MODIFY] `apps/native/app/(tabs)/index.tsx`
 
-## 5. Implementation Requirements
+## 6. Implementation Requirements
 - [Concrete requirement 1]
 - [Concrete requirement 2]
 
-## 6. Security & Server/Client Boundaries
+## 7. Security & Server/Client Boundaries
 - [State server vs client boundaries and how secrets are kept safe]
 
-## 7. Acceptance Criteria
+## 8. Acceptance Criteria
 - [ ] Criterion 1
 - [ ] Criterion 2
 
-## 8. Checks to Run
+## 9. Checks to Run
 - `npx tsc --noEmit`
 - `npm run lint`
 
-## 9. How to Verify It
+## 10. How to Verify It
 - [Exact step-by-step manual testing steps for human review]
 - [For UI tasks: exact layout, spacing, typography, colors, and responsiveness expectations]
 ```
@@ -184,7 +250,7 @@ Every prompt written or executed follows these 4 parts in order:
 1. **Anchor**: Read `AGENTS.md` / `DESIGN-MEMORY.md` first and follow it strictly.
 2. **Task**: One feature, one screen, or one integration. Not three.
 3. **Constraints**: Protected files and rules not to break.
-4. **Reference**: Attached design image, PRD excerpt, or library documentation.
+4. **Reference**: Attached design image, PRD excerpt, or loaded doc from `docs/05-external-skills/`.
 
 ### Template 1: Building a UI Screen
 ```markdown
@@ -214,13 +280,14 @@ Do not expose secrets in client code.
 ```markdown
 Read AGENTS.md first and follow it strictly.
 
+Check docs/05-external-skills/[library].md for official guidance.
 Study the existing [related code], then [task] by following the [library] documentation provided below.
 
 Keep existing UI and navigation flow intact.
 Do not change the screen design.
 Do not expose any secret keys in the client app.
 
-[paste library documentation]
+[paste library documentation or reference docs/05-external-skills/[library].md]
 ```
 
 ### Template 4: Fixing a Specific Issue
@@ -286,8 +353,8 @@ Do not change any other behavior or layout.
 
 Before saying "yes" to build a feature, verify:
 - [ ] Is the feature defined clearly enough to direct, not script?
-- [ ] Do the rules it needs already live in `AGENTS.md` / `DESIGN-MEMORY.md`?
-- [ ] Are the required skills loaded and referenced?
+- [ ] Are the project rules defined in `./AGENTS.md` (via `/init-agents`)?
+- [ ] Are external library skills/docs checked in `docs/05-external-skills/`?
 - [ ] Did the AI save a detailed plan to `prompts/<task-name>.md` and ask for approval?
 - [ ] Did you read the plan, including assumptions and test steps?
 - [ ] Are server/client boundaries and secrets handled safely?
