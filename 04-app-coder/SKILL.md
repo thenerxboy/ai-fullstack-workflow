@@ -1,14 +1,14 @@
 ---
 name: app-coder
-description: Monorepo code generation, Expo Router mobile components, Next.js App Router storefronts, Convex/Supabase client DB schemas, tailored AGENTS.md generator (/init-agents), external skills & doc mapper (docs/05-external-skills/), Vibe Engineering loop, and full-stack codebase builder.
+description: Monorepo code generation, Expo Router mobile components, Next.js App Router storefronts, Convex/Supabase client DB schemas, tailored AGENTS.md generator (/init-agents), external skills & doc mapper (docs/05-external-skills/), mandatory TECH-STACK.md ingestion gate, feature-branch & CodeRabbit PR workflow, Vibe Engineering loop, and full-stack codebase builder.
 ---
 
 # 💻 Monorepo Code Generation & Delivery Skill (`app-coder`)
 
-Universal, agent-agnostic AI coding skill based on **Vibe Engineering** and **Practical Vibe Coding** principles. It equips AI coding agents with the procedural rules, autonomous project-tailored `AGENTS.md` generation, external skill/doc mapping engine (`docs/05-external-skills/`), 8-step execution loop, 10-step build-in-order roadmap, 4-part prompt templates, and hardcoded cheatsheets to build production-ready software inside an enterprise Turborepo monorepo.
+Universal, agent-agnostic AI coding skill based on **Vibe Engineering** and **Practical Vibe Coding** principles. It equips AI coding agents with procedural rules, autonomous project-tailored `AGENTS.md` generation (`/init-agents`), external skill/doc mapping (`docs/05-external-skills/`), mandatory `TECH-STACK.md` ingestion gates, feature-branch & CodeRabbit PR workflows, 8-step execution loops, 10-step build-in-order roadmaps, and hardcoded cheatsheets to build production-ready software inside an enterprise Turborepo monorepo.
 
 > [!IMPORTANT]
-> **AGENT MANDATE**: Any agent executing a feature build, code generation, refactoring, or bug fix task **MUST ALWAYS read this SKILL.md file first** (`view_file`). The agent must follow the 8-Step Vibe Engineering Loop: write an implementation plan to `prompts/<task-name>.md` first, check `docs/05-external-skills/` for required dependency skills/docs, get human approval, implement feature-by-feature, run automated typecheck/lint checks, and share exact manual verification steps.
+> **AGENT MANDATE**: Any agent executing a feature build, code generation, refactoring, or bug fix task **MUST ALWAYS read this SKILL.md file first** (`view_file`). The agent must follow the 8-Step Vibe Engineering Loop: write an implementation plan to `prompts/<task-name>.md` first, inspect `docs/03-tech-stack/TECH-STACK.md` for real schemas, check `docs/05-external-skills/` for dependency docs, execute on a dedicated feature branch, run typecheck/lint checks, handle CodeRabbit PR reviews, and sync local `main`.
 
 ---
 
@@ -22,7 +22,7 @@ Agents MUST search for input context files and write output artifacts using this
 | **App Brief** | `docs/01-app-brief/APP-BRIEF.md` | `docs/APP-BRIEF.md` | `./APP-BRIEF.md` |
 | **System ARCH-PRD** | `docs/02-prd-research/ARCH-PRD.md` | `docs/ARCH-PRD.md` | `./ARCH-PRD.md` |
 | **App Features Map** | `docs/03-tech-stack/app-features.md` | `docs/app-features.md` | `./app-features.md` |
-| **Tech Stack Spec** | `docs/03-tech-stack/TECH-STACK.md` | `docs/TECH-STACK.md` | `./TECH-STACK.md` |
+| **Tech Stack Spec (MANDATORY)** | `docs/03-tech-stack/TECH-STACK.md` | `docs/TECH-STACK.md` | `./TECH-STACK.md` |
 | **UI Design Memory** | `docs/04-ui-design/DESIGN-MEMORY.md` | `docs/DESIGN-MEMORY.md` | `./DESIGN-MEMORY.md` |
 | **External Skills & Docs Cache** | `docs/05-external-skills/*.md` | `docs/external-skills/*.md` | `./skills/*.md` |
 | **Approved UI Screen Prompts** | `app-screens/prompts/<screen_id>.md` | `app-screens/<screen_id>.md` | `./<screen_id>.md` |
@@ -34,6 +34,49 @@ Agents MUST search for input context files and write output artifacts using this
 
 - **`/init-agents`**: Ingests `docs/` (App Brief, PRD, Tech Stack, UI Design Memory) and generates a 100% project-tailored `./AGENTS.md` file at the root.
 - **`app-coder`** (or **`/code`**, **`/build`**, **`/plan`**): Launches Phase 5 (Full-Stack Monorepo Code Generation & Feature Building).
+
+---
+
+## 🛡️ Mandatory `TECH-STACK.md` Ingestion & Anti-Drift Engine
+
+To ensure the AI agent **NEVER ignores `TECH-STACK.md` or forgets it exists**:
+
+1. **Mandatory Ingestion Gate**: Before drafting ANY implementation plan in `prompts/<task-name>.md`, the agent **MUST ALWAYS read and inspect `docs/03-tech-stack/TECH-STACK.md` and `docs/03-tech-stack/app-features.md`**.
+2. **Proof of Read in Implementation Plans**: In `prompts/<task-name>.md`, the agent MUST explicitly record:
+   ```markdown
+   ## 2. What It Read
+   - [x] `docs/03-tech-stack/TECH-STACK.md` (Inspected Section X: Data Model & Package Rules)
+   - [x] `docs/03-tech-stack/app-features.md` (Inspected Feature Y Monorepo Mapping)
+   ```
+   *If `docs/03-tech-stack/TECH-STACK.md` is missing from "What It Read", the user MUST reject the plan!*
+3. **Anti-Drift Tech Stack Constraint Line**:
+   > *"Do NOT reach for unapproved libraries or alternative patterns from training data. All backend schemas, package boundaries, and allowed tools MUST strictly match `docs/03-tech-stack/TECH-STACK.md`."*
+
+---
+
+## 🌿 Feature-Branch & CodeRabbit PR Review Protocol
+
+For EVERY feature or bug fix, the agent MUST follow this 7-step isolated Git lifecycle:
+
+```
+[1. Feature Branch] ➔ [2. Build & Test] ➔ [3. Stage & Commit] ➔ [4. Push Branch] ➔ [5. CodeRabbit PR Review] ➔ [6. Merge to Main] ➔ [7. Sync Local Main]
+```
+
+1. **Step 1: Feature Branch Isolation**: Create and check out a dedicated branch named after the feature (e.g. `feature/profile-legal-pages` or `git checkout -b feature/<task-name>`). Never write code directly on `main` / `master`!
+2. **Step 2: Local Feature Build & Automated Checks**: Implement feature code strictly scoped to the plan. Execute `npx tsc --noEmit` (TypeScript typecheck) and `npm run lint`.
+3. **Step 3: Stage & Structured Commit**: Stage changes (`git add .`) and create a concise commit message (e.g. `feat(profile): implement profile & web legal pages`).
+4. **Step 4: Push Branch to GitHub**: Propose pushing the feature branch to GitHub (`git push -u origin feature/<task-name>`).
+5. **Step 5: CodeRabbit AI PR Review Gate**:
+   - Create a Pull Request (PR) on GitHub.
+   - When **CodeRabbit AI** scans the PR diffs and posts inline review comments (flagging edge cases, missing error handlers, security risks, or type mismatches), inspect CodeRabbit's feedback.
+   - Write a targeted fix prompt, update the feature branch locally, push the fixes, and confirm CodeRabbit's re-check passes.
+6. **Step 6: Merge PR into `main`**: Confirm merge on GitHub to integrate the feature into remote `main`. Option to delete remote feature branch.
+7. **Step 7: Sync Local Workspace `main`**: Return to terminal and run:
+   ```bash
+   git checkout main
+   git pull origin main
+   ```
+   *Environment is left completely clean and ready for the next feature branch!*
 
 ---
 
@@ -53,42 +96,11 @@ The agent—NOT the human—generates the project-level `./AGENTS.md` file by in
 
 When a developer requests a feature, integration, or bug fix, `app-coder` MUST map and verify the required dependency and framework skills/documentation (e.g. `clerk`, `convex`, `expo-camera`, `stripe`, `supabase`) BEFORE writing code.
 
-```
-+-------------------------------------------------------------------+
-| Feature Request (e.g., "Integrate Stripe subscription billing")    |
-+-------------------------------------------------------------------+
-                                  │
-                                  ▼
-+-------------------------------------------------------------------+
-| Step 1: Map Required Framework & Dependency Skills/Docs           |
-| (Identifies need for stripe-node / clerk / expo-camera docs)      |
-+-------------------------------------------------------------------+
-                                  │
-                                  ▼
-+-------------------------------------------------------------------+
-| Step 2: Query Local Cache (docs/05-external-skills/<library>.md)  |
-+-------------------------------------------------------------------+
-                 │                                   │
-                 ▼ (Found)                           ▼ (Missing)
-+-----------------------------------+ +-----------------------------------+
-| Load local docs into context      | | Provide Guidance in Plan & Chat:  |
-| Ground plan in real API specs     | | 1. "Run npx skills add <lib>"    |
-|                                   | | 2. "Or paste doc snippet to save|
-|                                   | |    to docs/05-external-skills/"|
-+-----------------------------------+ +-----------------------------------+
-                                                     │
-                                                     ▼
-                                      +-----------------------------------+
-                                      | Save to docs/05-external-skills/  |
-                                      | Cached for all future prompts!    |
-                                      +-----------------------------------+
-```
-
 ### Protocol & Directives for External Skills:
 1. **Plan Mapping**: In `prompts/<task-name>.md`, include a dedicated section: **`## External Skills & Documentation Status`**.
 2. **Local Cache Check**: Search `docs/05-external-skills/<library_name>.md`. If found, load it into context to ground code in real documentation.
 3. **On-Demand User Guidance**: If a required library doc/skill is missing:
-   - Provide the CLI installation command: `npx skills add <library>/skills`
+   - Provide CLI installation command: `npx skills add <library>/skills`
    - Provide official documentation URLs.
    - Offer to save any pasted documentation snippet directly into `docs/05-external-skills/<library_name>.md` for permanent future reference.
 
@@ -109,17 +121,17 @@ When a developer requests a feature, integration, or bug fix, `app-coder` MUST m
 For EVERY feature or code generation task, the AI agent MUST execute this exact loop:
 
 ```
-[1. Read Rules & Context] ➔ [2. Receive Short Task] ➔ [3. Write Plan to prompts/] ➔ [4. Human Review] ➔ [5. Human Approval] ➔ [6. Build Code] ➔ [7. Run Automated Checks] ➔ [8. Share Manual Verification Steps]
+[1. Read Rules & Tech Stack] ➔ [2. Receive Short Task] ➔ [3. Write Plan to prompts/] ➔ [4. Human Review] ➔ [5. Human Approval] ➔ [6. Build Code on Branch] ➔ [7. Run Automated Checks] ➔ [8. CodeRabbit PR & Main Sync]
 ```
 
-1. **Read Rules Once**: Read `./AGENTS.md`, `docs/04-ui-design/DESIGN-MEMORY.md`, and named skill files (`app-coder`, `stitch-ui-skill`, `tech-stack`).
+1. **Read Rules & Tech Stack**: Read `./AGENTS.md`, `docs/03-tech-stack/TECH-STACK.md`, `docs/04-ui-design/DESIGN-MEMORY.md`, and named skills (`app-coder`, `stitch-ui-skill`, `tech-stack`).
 2. **Receive Short Prompt**: Accept a single-feature prompt with a defined scope.
-3. **Write Detailed Implementation Plan**: Write the complete plan file to `prompts/<task-name>.md` (including External Skills mapping).
+3. **Write Detailed Implementation Plan**: Write the complete plan file to `prompts/<task-name>.md` (including Proof of Read & External Skills mapping).
 4. **Human Review**: Hit pause and ask the user to review `prompts/<task-name>.md`.
 5. **Human Approval**: Wait for explicit user approval ("yes", "approved", "go ahead").
-6. **AI Build**: Implement the feature code according to the approved plan.
+6. **AI Build on Feature Branch**: Create feature branch (`git checkout -b feature/<name>`) and implement code.
 7. **Run Automated Checks**: Execute `tsc` (TypeScript typecheck), `lint`, and build scripts.
-8. **Share Manual Verification**: Share step-by-step instructions for the user to verify the feature on device/browser.
+8. **CodeRabbit PR & Main Sync**: Push branch, review CodeRabbit feedback on PR, merge to `main`, and run `git checkout main && git pull origin main`.
 
 ---
 
@@ -144,24 +156,22 @@ Order matters. Building out of order creates UI decisions before data exists or 
 
 ## 📄 Hardcoded Cheatsheet 1: Tailored `AGENTS.md` Template (`/init-agents`)
 
-When generating or reading `./AGENTS.md`, the file serves as the single source of truth:
-
 ```markdown
 # AGENTS.md — Master Project Rules & Conventions
 
 You are a principal-level software engineer building [PRODUCT_NAME], a [ONE_LINE_DESCRIPTION].
-Your job: understand the request, inspect relevant code, read named skills in docs/05-external-skills/, write a detailed implementation plan to prompts/<task-name>.md, get human approval, then implement.
+Your job: understand the request, inspect relevant code, read docs/03-tech-stack/TECH-STACK.md, read named skills in docs/05-external-skills/, write a detailed implementation plan to prompts/<task-name>.md, get human approval, then implement on a feature branch.
 
 ## 1. Workflow
-1. Read AGENTS.md and relevant skills first before writing code.
+1. Read AGENTS.md, `docs/03-tech-stack/TECH-STACK.md`, and relevant skills first before writing code.
 2. Check `docs/05-external-skills/` for cached dependency documentation.
 3. Inspect relevant existing files.
 4. Ask a focused question ONLY if there is real ambiguity.
 5. Write a detailed implementation plan to `prompts/<task-name>.md`.
 6. Ask: "I prepared the implementation prompt at prompts/<task-name>.md. Good to execute?"
-7. Implement ONLY after human approval.
+7. Implement ONLY after human approval on a dedicated feature branch (`feature/<name>`).
 8. Run typecheck (`tsc`) and lint checks.
-9. Share exact manual verification steps.
+9. Push branch, handle CodeRabbit PR review, merge to main, and sync local main (`git checkout main && git pull`).
 
 ## 2. Product Scope
 - **In Scope**: [REAL_FEATURE_LIST_FROM_PRD]
@@ -180,7 +190,7 @@ Your job: understand the request, inspect relevant code, read named skills in do
 - **Styling**: NativeWind (Tailwind CSS)
 - **Typography**: [APPROVED_GOOGLE_FONTS_PAIRING]
 - **State**: Zustand (global client state) + AsyncStorage (persistence)
-- **Database**: Convex / Supabase PostgreSQL
+- **Database**: Convex / Supabase PostgreSQL (Strictly match `docs/03-tech-stack/TECH-STACK.md`)
 - **Auth**: Clerk (Do NOT build custom auth!)
 - **Analytics**: PostHog
 - **DO NOT USE**: Custom auth solutions, inline StyleSheet (unless on exception list), unapproved state libraries.
@@ -207,9 +217,10 @@ Every implementation plan generated by `app-coder` MUST use this exact template:
 [One sentence describing what this task accomplishes.]
 
 ## 2. What It Read
-- [List of workflow skills inspected, e.g., @.agents/skills/ai-fullstack-workflow/04-app-coder]
-- [List of external skills/docs loaded from docs/05-external-skills/]
-- [List of existing project files inspected, e.g., apps/native/app/(tabs)/index.tsx]
+- [x] `docs/03-tech-stack/TECH-STACK.md` (Inspected Section X: Data Model & Package Rules)
+- [x] `docs/03-tech-stack/app-features.md` (Inspected Feature Y Monorepo Mapping)
+- [x] `@.agents/skills/ai-fullstack-workflow/04-app-coder`
+- [ ] `docs/05-external-skills/<library>.md`
 
 ## 3. External Skills & Documentation Status
 - [ ] Loaded from `docs/05-external-skills/<library>.md`
@@ -247,57 +258,10 @@ Every implementation plan generated by `app-coder` MUST use this exact template:
 ## 📄 Hardcoded Cheatsheet 3: The 4-Part Prompt Structure & Everyday Templates
 
 Every prompt written or executed follows these 4 parts in order:
-1. **Anchor**: Read `AGENTS.md` / `DESIGN-MEMORY.md` first and follow it strictly.
+1. **Anchor**: Read `AGENTS.md` / `TECH-STACK.md` first and follow it strictly.
 2. **Task**: One feature, one screen, or one integration. Not three.
 3. **Constraints**: Protected files and rules not to break.
 4. **Reference**: Attached design image, PRD excerpt, or loaded doc from `docs/05-external-skills/`.
-
-### Template 1: Building a UI Screen
-```markdown
-Read AGENTS.md first and follow it strictly.
-
-Implement the [screen_name] screen as shown in the attached design exactly, using assets from constants/images.ts.
-
-[Optional navigation requirement, e.g., "Add a navigation link from the home route."]
-
-Do not change [thing_to_preserve].
-[attached design image or Google Stitch prompt spec]
-```
-
-### Template 2: Adding Application State
-```markdown
-Read AGENTS.md first and follow it strictly.
-
-Integrate [feature] state. Store [data] using Zustand with @react-native-async-storage/async-storage.
-
-[Behavior rule, e.g., "If an authenticated user has no selected streak, route them to onboarding."]
-
-Preserve the existing UI exactly.
-Do not expose secrets in client code.
-```
-
-### Template 3: Integrating a Library or External Service
-```markdown
-Read AGENTS.md first and follow it strictly.
-
-Check docs/05-external-skills/[library].md for official guidance.
-Study the existing [related code], then [task] by following the [library] documentation provided below.
-
-Keep existing UI and navigation flow intact.
-Do not change the screen design.
-Do not expose any secret keys in the client app.
-
-[paste library documentation or reference docs/05-external-skills/[library].md]
-```
-
-### Template 4: Fixing a Specific Issue
-```markdown
-Read AGENTS.md first and follow it strictly.
-
-The [component/feature] is currently [actual_behavior]. It should [correct_behavior].
-
-Do not change any other behavior or layout.
-```
 
 ---
 
@@ -336,16 +300,18 @@ Do not change any other behavior or layout.
 - `"Do not introduce new major libraries without asking."`
 - `"Do not modify files outside [folder]."`
 - `"Do not refactor existing unrelated code."`
+- `"All backend schemas and tools MUST strictly match docs/03-tech-stack/TECH-STACK.md."`
 
 ---
 
 ## 🚫 Common Mistakes to Avoid
 
+- ❌ **Ignoring TECH-STACK.md**: Never write code without reading `docs/03-tech-stack/TECH-STACK.md`.
+- ❌ **Direct Commits to Main**: Never code directly on `main` / `master`. Always use feature branches.
 - ❌ **Bundling Multiple Features**: Never attempt 3 features in 1 prompt.
 - ❌ **Full App Generation**: Never ask for an entire app in a single prompt.
 - ❌ **Over-Engineering**: Never add unrequested abstractions, extra helpers, or unrequested libraries.
 - ❌ **Unverified Output**: Never declare success without running `tsc` typecheck and linting.
-- ❌ **Describing UI in Words**: Never describe UI in plain prose when a visual design image or Google Stitch prompt spec is available.
 
 ---
 
@@ -353,10 +319,11 @@ Do not change any other behavior or layout.
 
 Before saying "yes" to build a feature, verify:
 - [ ] Is the feature defined clearly enough to direct, not script?
-- [ ] Are the project rules defined in `./AGENTS.md` (via `/init-agents`)?
+- [ ] Are project rules defined in `./AGENTS.md` (via `/init-agents`)?
+- [ ] Did the AI inspect `docs/03-tech-stack/TECH-STACK.md` and list it under "What It Read"?
 - [ ] Are external library skills/docs checked in `docs/05-external-skills/`?
+- [ ] Did the AI create a feature branch (`feature/<name>`)?
 - [ ] Did the AI save a detailed plan to `prompts/<task-name>.md` and ask for approval?
-- [ ] Did you read the plan, including assumptions and test steps?
 - [ ] Are server/client boundaries and secrets handled safely?
 
-*If all six are yes, approve the plan and let it build!*
+*If all seven are yes, approve the plan and let it build!*

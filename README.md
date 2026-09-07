@@ -58,7 +58,7 @@ Once installed, open your project in your AI assistant (Antigravity, Claude Code
                                          ▼
 +-----------------------------------------------------------------------------------+
 | Phase 5 (Build): Vibe Engineering Monorepo Code Generation (app-coder)            |
-| Outputs: prompts/<task>.md ──> apps/native, apps/web, packages/*                  |
+| Feature Branch ──> CodeRabbit PR Review ──> Merge to Main ──> Sync Local Main     |
 +-----------------------------------------------------------------------------------+
 ```
 
@@ -77,7 +77,7 @@ Once installed, open your project in your AI assistant (Antigravity, Claude Code
 | **Phase 4** | **`/app-icon`** | Generates 5 logo exploration concept canvases (Mascot, Metaphor, Lettermark, Geometric, Wordmark). | **Dual-Prompt Standard** (Stitch + Midjourney) |
 | **Phase 4** | **`/app-screenshots`** | Generates 5 panoramic App Store marketing screenshots + 1 Next.js web storefront hero screen. | **Dual-Prompt Standard** (Stitch + Midjourney) |
 | **Phase 5 (Setup)** | **`/init-agents`** | Ingests `docs/` and autonomously generates a 100% project-tailored `./AGENTS.md` file at the root. | Tailored `./AGENTS.md` |
-| **Phase 5 (Build)** | **`app-coder`** | Executes Vibe Engineering 8-step loop, maps dependency skills (`docs/05-external-skills/`), and builds monorepo TypeScript code. | `prompts/<task>.md` & Code |
+| **Phase 5 (Build)** | **`app-coder`** | Executes Vibe Engineering 8-step loop, Feature-Branch & CodeRabbit PR workflow, and builds monorepo TypeScript code. | `prompts/<task>.md` & Code |
 
 ---
 
@@ -113,6 +113,8 @@ ai-fullstack-workflow/
 
 ## 🎨 Key Features & Operational Guardrails
 
+- **Feature-Branch & CodeRabbit PR Protocol**: 7-step isolated Git lifecycle (Feature Branch $\rightarrow$ Build & Test $\rightarrow$ Stage & Commit $\rightarrow$ Push Branch $\rightarrow$ CodeRabbit PR AI Review $\rightarrow$ Merge to Main $\rightarrow$ Sync Local Main).
+- **Mandatory `TECH-STACK.md` Ingestion Gate**: Compels agents to inspect `docs/03-tech-stack/TECH-STACK.md` before planning and record proof under `## 2. What It Read` in `prompts/<task-name>.md`.
 - **Autonomous `AGENTS.md` Generator (`/init-agents`)**: Compiles a 100% project-tailored `./AGENTS.md` at the project root by ingesting completed `docs/` artifacts.
 - **External Skill & Doc Mapping Engine (`docs/05-external-skills/`)**: Maps required framework/dependency skills (Clerk, Convex, Expo, Stripe, Supabase), checks local cache, guides developer on missing skills/docs, and stores doc snippets for permanent future reference.
 - **Zero Memory Collision Policy**: Tracks UI design system locks, registered SVG icons, and screen versions in `docs/04-ui-design/DESIGN-MEMORY.md` to guarantee zero collisions with main agent memory.
