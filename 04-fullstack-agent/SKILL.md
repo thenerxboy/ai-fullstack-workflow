@@ -107,17 +107,25 @@ The agent—NOT the human—generates the project-level `./AGENTS.md` file by in
    > Now that we have locked your product name as **[PRODUCT_NAME]**, let's link your workspace to GitHub before creating feature branches:
    > 1. Create repository `[product-name]` on GitHub.
    > 2. Run in terminal: `git remote add origin https://github.com/your-username/[product-name].git`
-4. **File Generation Proposal**: Ask gatekeeper question: *"I am ready to generate your project-tailored `./AGENTS.md` file at the root. Do you approve?"*
-5. **File Output**: Upon user approval, write the complete, unabridged `./AGENTS.md` file to the project root.
+4. **Minimum Environment Bootstrap**:
+   - Generate `./AGENTS.md` (master project rules & scope).
+   - Ensure clean `.gitignore` (protecting `.env`, `.env.local`, `node_modules/`, `.expo/`, `.next/`).
+   - Generate starting `.env.example` with bare minimum starting vars (`EXPO_PUBLIC_APP_NAME`, `EXPO_PUBLIC_DEV_URL`).
+   - Create initial `docs/00-workflow-guide/ENVIRONMENT-CHECKLIST.md` tracking initial setup status.
+5. **File Generation Proposal**: Ask gatekeeper question: *"I am ready to generate your project-tailored `./AGENTS.md` and starting environment files. Do you approve?"*
+6. **File Output**: Upon user approval, write the files to the project root.
 
 ---
 
-## 🌟 Feature B: External Skill & Documentation Mapping Engine (`docs/05-external-skills/`)
+## 🌟 Feature B: Progressive Environment & Skill Unlocking Engine (`docs/05-external-skills/`)
 
-When a developer requests a feature, integration, or bug fix, `app-coder` MUST map and verify the required dependency and framework skills/documentation (e.g. `clerk`, `convex`, `expo-camera`, `stripe`, `supabase`) BEFORE writing code.
+Environment variables and framework skills (`clerk`, `convex`, `stripe`, `supabase`, `expo-camera`) are **NEVER dumped all at once**. They are unlocked **Just-in-Time** as you progress through feature development:
 
-### Protocol & Directives for External Skills:
-1. **Plan Mapping**: In `prompts/<task-name>.md`, include a dedicated section: **`## External Skills & Documentation Status`**.
+### Progressive Unlocking Protocol:
+1. **Feature-Level Assessment**: When a developer requests a feature, inspect `prompts/<task-name>.md` to identify ONLY the environment additions required for *this specific feature*.
+2. **Just-in-Time `.env` Key Prompting**: If building Auth (Step 3), prompt for Clerk/Supabase keys. If building DB (Step 4), prompt for Convex URL. If building UI screens (Step 1-2), require ZERO keys!
+3. **Just-in-Time Skill Doc Mapping**: Check `docs/05-external-skills/<library_name>.md`. Load cached docs into context or prompt the developer to add missing docs ONLY when building that specific library integration.
+4. **Checklist Update**: Cross off completed environment items in `docs/00-workflow-guide/ENVIRONMENT-CHECKLIST.md` as features progress.
 2. **Local Cache Check**: Search `docs/05-external-skills/<library_name>.md`. If found, load it into context to ground code in real documentation.
 3. **On-Demand User Guidance**: If a required library doc/skill is missing:
    - Provide CLI installation command: `npx skills add <library>/skills`
