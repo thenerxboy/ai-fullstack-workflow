@@ -36,14 +36,14 @@ Here is our 5-Phase Production Journey:
 
 5️⃣ **Phase 4: Stitch UI Prompts, Dual App Icons & Screenshots** (`/ui-flow`, `/app-icon`, `/app-screenshots`)
    - Compiles Google Stitch UI prompts, Dual-Prompt App Icons, and panoramic App Store marketing screenshots.
-   - Outputs: `app-screens/prompts/`, `app-screens/images/`, `docs/04-ui-design/DESIGN-MEMORY.md`
+   - Outputs: `app-screens/*.png` (reference screens), `app-screens/prompts/<screen_id>.md`, `docs/04-ui-design/DESIGN-MEMORY.md`
 
 6️⃣ **Phase 5: Tailored AGENTS.md Setup & External Skills Mapping** (`/init-agents`)
    - Ingests `docs/` to generate a 100% project-tailored `./AGENTS.md` at project root.
    - Maps framework/dependency skills and caches docs in `docs/05-external-skills/`.
 
-7️⃣ **Phase 5 (Build): Vibe Engineering Monorepo Code Generation** (`app-coder`)
-   - Executes 8-step Vibe Engineering loop, writes plans to `prompts/<task>.md`, and generates TypeScript code.
+7️⃣ **Phase 5 (Build): Vibe Engineering & Visual AI Diff Micro-Loop** (`app-coder`)
+   - Executes 8-step Vibe Engineering loop, writes plans to `prompts/<task>.md`, runs Visual AI Diff Loop (Build ──> Screenshot ──> Compare ──> Refine) against `app-screens/*.png`, and merges feature branch after CodeRabbit PR review.
 
 ---
 

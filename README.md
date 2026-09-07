@@ -46,7 +46,7 @@ Once installed, open your project in your AI assistant (Antigravity, Claude Code
                                          ▼
 +-----------------------------------------------------------------------------------+
 | Phase 4: Stitch UI Prompts, Dual App Icons & Screenshots (/ui-flow, /app-icon)     |
-| Outputs: app-screens/prompts/, app-screens/images/, docs/04-ui-design/DESIGN-MEMORY |
+| Outputs: app-screens/*.png, app-screens/prompts/, docs/04-ui-design/DESIGN-MEMORY |
 +-----------------------------------------------------------------------------------+
                                          │
                                          ▼
@@ -57,8 +57,8 @@ Once installed, open your project in your AI assistant (Antigravity, Claude Code
                                          │
                                          ▼
 +-----------------------------------------------------------------------------------+
-| Phase 5 (Build): Vibe Engineering Monorepo Code Generation (app-coder)            |
-| Feature Branch ──> CodeRabbit PR Review ──> Merge to Main ──> Sync Local Main     |
+| Phase 5 (Build): Vibe Engineering & Visual AI Diff Micro-Loop (app-coder)         |
+| Feature Branch ──> Visual AI Diff (100%) ──> CodeRabbit PR ──> Merge to Main      |
 +-----------------------------------------------------------------------------------+
 ```
 
@@ -114,6 +114,7 @@ ai-fullstack-workflow/
 ## 🎨 Key Features & Operational Guardrails
 
 - **Feature-Branch & CodeRabbit PR Protocol**: 7-step isolated Git lifecycle (Feature Branch $\rightarrow$ Build & Test $\rightarrow$ Stage & Commit $\rightarrow$ Push Branch $\rightarrow$ CodeRabbit PR AI Review $\rightarrow$ Merge to Main $\rightarrow$ Sync Local Main).
+- **Pixel-Perfect Visual AI Diff Micro-Loop (Module 6)**: 4-step visual verification loop (Build $\rightarrow$ Screenshot $\rightarrow$ Compare $\rightarrow$ Refine) using `app-screens/<screen_id>.png` as target reference, powered by a Dual-Mode Screenshot Capture Protocol (iOS `xcrun`, Android `adb`, Web `Playwright` + User fallback) and a 10-Point Multimodal Comparison Matrix.
 - **Mandatory `TECH-STACK.md` Ingestion Gate**: Compels agents to inspect `docs/03-tech-stack/TECH-STACK.md` before planning and record proof under `## 2. What It Read` in `prompts/<task-name>.md`.
 - **Autonomous `AGENTS.md` Generator (`/init-agents`)**: Compiles a 100% project-tailored `./AGENTS.md` at the project root by ingesting completed `docs/` artifacts.
 - **External Skill & Doc Mapping Engine (`docs/05-external-skills/`)**: Maps required framework/dependency skills (Clerk, Convex, Expo, Stripe, Supabase), checks local cache, guides developer on missing skills/docs, and stores doc snippets for permanent future reference.

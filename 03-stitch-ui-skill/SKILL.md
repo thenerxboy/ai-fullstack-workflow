@@ -24,7 +24,7 @@ Agents MUST search for input context files and write output artifacts using this
 | **Ingested Tech Stack** | `docs/03-tech-stack/TECH-STACK.md` | `docs/TECH-STACK.md` | `./TECH-STACK.md` |
 | **UI Design Memory Log** | `docs/04-ui-design/DESIGN-MEMORY.md` | `docs/DESIGN-MEMORY.md` | `./DESIGN-MEMORY.md` |
 | **Approved Prompts Archive** | `app-screens/prompts/<screen_id>.md` | `app-screens/<screen_id>.md` | `./<screen_id>.md` |
-| **UI Screenshots Archive** | `app-screens/images/<screen_id>.png` | `app-screens/<screen_id>.png` | `./<screen_id>.png` |
+| **UI Screenshots Archive** | `app-screens/<screen_id>.png` | `app-screens/images/<screen_id>.png` | `./<screen_id>.png` |
 | **Theme & SVG Registry** | `./app-theme.json` | `./app_theme.json` | `resources/app_theme.json` |
 
 ### 🛠️ CLI Formatter Catalog Lookup Fallback Array (`scripts/stitch_formatter.js`)
@@ -114,10 +114,12 @@ Confirm foundational components (Nav Bar, Action Buttons, Headers) from `app_the
 3. **Branch B (No Reference Provided)**: Query `design_catalog.json` by `domain_tags` $\rightarrow$ Select best blueprint $\rightarrow$ Adapt domain copy from `docs/` $\rightarrow$ Compile prompt.
 4. **Single Active Theme Delivery**: Output ONE prompt matching the active theme profile.
 
-### Phase 3: Screen Approval, Archiving & Versioning Protocol (`app-screens/`)
-1. Save approved screen prompt to primary path `app-screens/prompts/<screen_id>.md` (fallback `app-screens/<screen_id>.md`).
-2. Update `docs/04-ui-design/DESIGN-MEMORY.md` (fallback `docs/DESIGN-MEMORY.md`).
-3. Single Active File Overwrite Mandate: Replace previous version files (`_v1`) upon layout approval.
+### Phase 3: Screen Approval, Archiving & Visual Hand-off Protocol (`app-screens/`)
+1. Save generated/approved visual screen image to `app-screens/<screen_id>.png`.
+2. Save approved screen prompt spec to `app-screens/prompts/<screen_id>.md` (fallback `app-screens/<screen_id>.md`).
+3. Update `docs/04-ui-design/DESIGN-MEMORY.md` (fallback `docs/DESIGN-MEMORY.md`).
+4. **Visual Hand-off to `04-app-coder`**: Screen images in `app-screens/<screen_id>.png` serve as the target design references for `04-app-coder`'s Visual AI Diff Loop (Build ──> Screenshot ──> Compare ──> Refine).
+5. Single Active File Overwrite Mandate: Replace previous version files (`_v1`) upon layout approval.
 
 ### Phase 4: Hand-Curated Component Library Policy
 Save component snippets to `design_catalog.json.components` only when explicitly approved by user.

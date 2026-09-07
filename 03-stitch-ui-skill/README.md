@@ -48,8 +48,8 @@ stitch-ui-skill/ (GitHub Skill Repository Root)
 ├── app_theme.json           <── Local App Theme, Google Fonts & SVG Registry
 ├── design_catalog.json      <── Local Copy of Master Blueprint Library
 ├── app-screens/             <── Active Screen Prompts & Screenshots Directory
-│   ├── prompts/             <── Compiled Google Stitch Prompt Blueprints (.md)
-│   └── images/              <── Rendered UI Screenshots (.png / .jpg)
+│   ├── <screen_id>.png      <── Rendered / Reference UI Screenshots (.png / .jpg)
+│   └── prompts/             <── Compiled Google Stitch Prompt Blueprints (.md)
 └── docs/
     ├── 01-app-brief/        <── Product Identity, Mascot, Vibe & Copy
     ├── 02-prd-research/     <── ARCH-PRD System Architecture & Features

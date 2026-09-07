@@ -121,7 +121,7 @@ When a developer requests a feature, integration, or bug fix, `app-coder` MUST m
 For EVERY feature or code generation task, the AI agent MUST execute this exact loop:
 
 ```
-[1. Read Rules & Tech Stack] ➔ [2. Receive Short Task] ➔ [3. Write Plan to prompts/] ➔ [4. Human Review] ➔ [5. Human Approval] ➔ [6. Build Code on Branch] ➔ [7. Run Automated Checks] ➔ [8. CodeRabbit PR & Main Sync]
+[1. Read Rules & Stack] ➔ [2. Short Task] ➔ [3. Write Plan to prompts/] ➔ [4. Human Review] ➔ [5. Human Approval] ➔ [6. Build on Branch] ➔ [7. Visual AI Diff Loop] ➔ [8. Typecheck & CodeRabbit PR]
 ```
 
 1. **Read Rules & Tech Stack**: Read `./AGENTS.md`, `docs/03-tech-stack/TECH-STACK.md`, `docs/04-ui-design/DESIGN-MEMORY.md`, and named skills (`app-coder`, `stitch-ui-skill`, `tech-stack`).
@@ -130,8 +130,52 @@ For EVERY feature or code generation task, the AI agent MUST execute this exact 
 4. **Human Review**: Hit pause and ask the user to review `prompts/<task-name>.md`.
 5. **Human Approval**: Wait for explicit user approval ("yes", "approved", "go ahead").
 6. **AI Build on Feature Branch**: Create feature branch (`git checkout -b feature/<name>`) and implement code.
-7. **Run Automated Checks**: Execute `tsc` (TypeScript typecheck), `lint`, and build scripts.
-8. **CodeRabbit PR & Main Sync**: Push branch, review CodeRabbit feedback on PR, merge to `main`, and run `git checkout main && git pull origin main`.
+7. **Visual AI Diff Loop (Module 6)**: Capture simulator/browser screenshot, perform 10-point multimodal visual comparison against `app-screens/<screen_id>.png`, and refine until 100% pixel-perfect.
+8. **CodeRabbit PR & Main Sync**: Run `tsc`/`lint`, push branch, review CodeRabbit feedback on PR, merge to `main`, and run `git checkout main && git pull origin main`.
+
+---
+
+## 🔮 Module 6: The Pixel-Perfect Visual AI Diff & Verification Micro-Loop
+
+For all UI components, screens, and layout changes, the agent MUST NOT ask *"Does this look right?"*. It MUST execute the 4-step Visual Verification Loop:
+
+```
+╔═════════════╗      ╔══════════════════════╗      ╔═══════════════════════╗      ╔════════════════════════╗
+║   1. BUILD  ║ ───> ║  2. TAKE SCREENSHOT  ║ ───> ║  3. COMPARE TO DESIGN ║ ───> ║  4. IDENTICAL? (100%)  ║
+╚═════════════╝      ╚══════════════════════╝      ╚═══════════════════════╝      ╚════════════════════════╝
+       ▲                                                                                      │
+       │                                    ❌ NO (Refine Code)                               │
+       └──────────────────────────────────────────────────────────────────────────────────────┘
+                                                                                              │
+                                                                                      ✅ YES (100% Match)
+                                                                                              │
+                                                                                              ▼
+                                                                                   [CodeRabbit PR & Merge]
+```
+
+### 📸 Dual-Mode Screenshot Capture Protocol
+
+1. **Mode A (Autonomous CLI Capture)**: If running on a command-line enabled simulator, emulator, or web browser, capture the screenshot via `run_command`:
+   - **iOS Simulator**: `xcrun simctl io booted screenshot docs/04-ui-design/verification/<screen_id>-actual.png`
+   - **Android Emulator**: `adb exec-out screencap -p > docs/04-ui-design/verification/<screen_id>-actual.png`
+   - **Web / Next.js**: `node scripts/capture-screen.js http://localhost:3000/<route> docs/04-ui-design/verification/<screen_id>-actual.png`
+2. **Mode B (User-Assisted Fallback)**: If CLI capture is unavailable or testing on physical hardware, prompt the user:
+   > *"Initial UI build complete. Please take a screenshot on your device and save/upload it to `docs/04-ui-design/verification/<screen_id>-actual.png` so I can run the visual diff check."*
+
+### 📋 10-Point Multimodal Visual Comparison Matrix
+During Step 3 (Compare to Design), evaluate `app-screens/<screen_id>.png` (Target) vs `docs/04-ui-design/verification/<screen_id>-actual.png` (Actual) across:
+1. **Layout & Spacing**: Container padding, item margins, vertical/horizontal gap alignment.
+2. **Typography**: Font size, font weight (bold/medium/regular), line height, letter spacing.
+3. **Colors & Gradients**: Hex code accuracy, background contrast, gradient direction & opacity.
+4. **Button Styles**: Height, padding, label centering, active/pressed states.
+5. **Input Fields**: Border color, placeholder text position, field height, icon padding.
+6. **Border Radius**: Corner curvature matching across cards, buttons, and inputs.
+7. **Shadows & Depth**: Elevation, shadow color blur, spread radius, soft drop-shadows.
+8. **Icons & Imagery**: Asset scaling, icon size, aspect ratio, image cropping.
+9. **Alignment**: Flexbox/grid alignment (left, center, space-between).
+10. **Visual Hierarchy**: Primary vs. secondary element prominence, overall layout balance.
+
+*If any item scores <100% match, apply visual fixes, update code, capture a new screenshot, and repeat until 100% identical.*
 
 ---
 
@@ -170,8 +214,9 @@ Your job: understand the request, inspect relevant code, read docs/03-tech-stack
 5. Write a detailed implementation plan to `prompts/<task-name>.md`.
 6. Ask: "I prepared the implementation prompt at prompts/<task-name>.md. Good to execute?"
 7. Implement ONLY after human approval on a dedicated feature branch (`feature/<name>`).
-8. Run typecheck (`tsc`) and lint checks.
-9. Push branch, handle CodeRabbit PR review, merge to main, and sync local main (`git checkout main && git pull`).
+8. For UI tasks: Execute Visual AI Diff Loop (Build ──> Screenshot ──> Compare ──> Refine) against `app-screens/<screen_id>.png` until 100% match.
+9. Run typecheck (`tsc`) and lint checks.
+10. Push branch, handle CodeRabbit PR review, merge to main, and sync local main (`git checkout main && git pull`).
 
 ## 2. Product Scope
 - **In Scope**: [REAL_FEATURE_LIST_FROM_PRD]
@@ -250,7 +295,7 @@ Every implementation plan generated by `app-coder` MUST use this exact template:
 
 ## 10. How to Verify It
 - [Exact step-by-step manual testing steps for human review]
-- [For UI tasks: exact layout, spacing, typography, colors, and responsiveness expectations]
+- [x] Visual AI Diff Loop Status: Compare target app-screens/[screen_id].png vs captured docs/04-ui-design/verification/[screen_id]-actual.png across 10-Point Matrix until 100% match.
 ```
 
 ---
@@ -262,6 +307,37 @@ Every prompt written or executed follows these 4 parts in order:
 2. **Task**: One feature, one screen, or one integration. Not three.
 3. **Constraints**: Protected files and rules not to break.
 4. **Reference**: Attached design image, PRD excerpt, or loaded doc from `docs/05-external-skills/`.
+
+### Template 1: Pixel-Perfect UI Re-creation & Visual AI Diff Trigger Prompt
+```markdown
+Read AGENTS.md and TECH-STACK.md first and follow them strictly.
+
+Build the [screen_name] screen by closely recreating the UI from app-screens/[screen_id].png.
+Your goal is to match the reference design as accurately as possible, including:
+- Layout and spacing
+- Typography, font sizes, and font weights
+- Colors and gradients
+- Button styles & state styling
+- Input fields & padding
+- Border radius
+- Shadows and depth
+- Icons (embedded mathematical SVG)
+- Alignment and padding
+- Overall visual hierarchy
+
+Use the existing project structure and styling system (NativeWind). Do not redesign or improvise unless something is missing from the reference.
+
+After implementing the first version, execute Module 6 Visual Verification:
+1. Capture simulator/browser screenshot to docs/04-ui-design/verification/[screen_id]-actual.png.
+2. Compare the captured screenshot against app-screens/[screen_id].png across the 10-Point Visual Matrix.
+3. Identify all visual differences (margins, font sizes, colors, alignment).
+4. Update the implementation code.
+5. Capture another simulator screenshot and compare again.
+6. Repeat until the implemented screen and reference design are visually identical (100% match).
+
+Be strict with the comparison. Pay attention to small details like spacing, text positioning, button height, shadows, image cropping, and color accuracy.
+Do not stop after the first implementation. Keep refining until the screenshot and reference design look nearly identical.
+```
 
 ---
 
@@ -308,6 +384,7 @@ Every prompt written or executed follows these 4 parts in order:
 
 - ❌ **Ignoring TECH-STACK.md**: Never write code without reading `docs/03-tech-stack/TECH-STACK.md`.
 - ❌ **Direct Commits to Main**: Never code directly on `main` / `master`. Always use feature branches.
+- ❌ **Skipping Visual AI Diff**: Never declare UI complete without screenshot comparison against `app-screens/<screen_id>.png`.
 - ❌ **Bundling Multiple Features**: Never attempt 3 features in 1 prompt.
 - ❌ **Full App Generation**: Never ask for an entire app in a single prompt.
 - ❌ **Over-Engineering**: Never add unrequested abstractions, extra helpers, or unrequested libraries.
@@ -324,6 +401,7 @@ Before saying "yes" to build a feature, verify:
 - [ ] Are external library skills/docs checked in `docs/05-external-skills/`?
 - [ ] Did the AI create a feature branch (`feature/<name>`)?
 - [ ] Did the AI save a detailed plan to `prompts/<task-name>.md` and ask for approval?
+- [ ] Will the AI execute the Visual AI Diff Loop (Build ──> Screenshot ──> Compare ──> Refine) against `app-screens/<screen_id>.png`?
 - [ ] Are server/client boundaries and secrets handled safely?
 
-*If all seven are yes, approve the plan and let it build!*
+*If all eight are yes, approve the plan and let it build!*
