@@ -1,4 +1,4 @@
-# 💻 `app-coder`
+# 💻 `fullstack-agent`
 
 Universal AI Agent Coding Skill based on **Vibe Engineering** and **Practical Vibe Coding** principles for building production-grade mobile and web applications inside a Turborepo monorepo.
 
@@ -6,7 +6,7 @@ Universal AI Agent Coding Skill based on **Vibe Engineering** and **Practical Vi
 
 ### 📖 Overview
 
-`app-coder` equips AI coding agents with procedural rules, autonomous project-tailored `AGENTS.md` generation (`/init-agents`), external skill/doc mapping engine (`docs/05-external-skills/`), mandatory `TECH-STACK.md` ingestion gates, feature-branch & CodeRabbit PR workflows, 8-step execution loops, 10-step build-in-order roadmaps, and hardcoded cheatsheets to build software feature-by-feature without unwanted rewrites, hallucinated imports, or security leaks.
+`fullstack-agent` equips AI coding agents with procedural rules, autonomous project-tailored `AGENTS.md` generation (`/init-agents`), external skill/doc mapping engine (`docs/05-external-skills/`), mandatory `TECH-STACK.md` ingestion gates, feature-branch & CodeRabbit PR workflows, 8-step execution loops, 10-step build-in-order roadmaps, and hardcoded cheatsheets to build software feature-by-feature without unwanted rewrites, hallucinated imports, or security leaks.
 
 ---
 
@@ -27,6 +27,8 @@ Universal AI Agent Coding Skill based on **Vibe Engineering** and **Practical Vi
 Invoke the skill in any AI assistant:
 
 ```markdown
+Run /fullstack-agent-help to view the complete Phase 5 manual & operational guide.
+Run /fullstack-agent-shortcuts to see all trigger shortcuts.
 Run /init-agents to generate your project-tailored AGENTS.md file.
-Run app-coder to build <feature_name> using @.agents/skills/ai-fullstack-workflow/04-app-coder.
+Run fullstack-agent to build <feature_name> using @.agents/skills/ai-fullstack-workflow/04-fullstack-agent.
 ```

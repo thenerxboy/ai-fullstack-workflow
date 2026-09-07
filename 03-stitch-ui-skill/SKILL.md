@@ -38,10 +38,10 @@ When running prompt compilation scripts, the script dynamically evaluates candid
 
 ## ⚡ Shortcut Slash Commands & Help Triggers
 
-| Command / Shortcut | Action / Behavior | Output Prompt Standard |
+| Command / Shortcut | Alias Flag | Action / Behavior |
 | :--- | :--- | :--- |
-| **`/ui-help`** | Displays a complete manual overview: what the skill does, file explanations (`app_theme.json`, `design_catalog.json`, `scripts/stitch_formatter.js`, `app-screens/`, `docs/04-ui-design/DESIGN-MEMORY.md`), workflow phases, CLI flags, and rules. | Summary Text |
-| **`/ui-shortcuts`** | Displays a fast reference list of all available `/ui-*` shortcut triggers and what they do. | Summary Text |
+| **`/stitch-ui-help`** | `/stitch-ui --help`, `/ui-help` | Displays complete manual overview: what the skill does, file schemas (`app_theme.json`, `design_catalog.json`), phases, and rules. |
+| **`/stitch-ui-shortcuts`** | `/stitch-ui --shortcuts`, `/ui-shortcuts` | Displays fast reference list of all available UI shortcut triggers and what they do. |
 | **`/ui-flow`** | Generates UI screen prompt blueprints organized by single user flow (Onboarding & Auth, Activation & Paywall, Main App Tabs, Happy Path Core Loop). Ingests `docs/` for real copy. | **Google Stitch Prompt ONLY** |
 | **`/app-icon`** | Generates 5 distinct logo exploration concept canvases (Mascot, Metaphor, Lettermark, Geometric, Wordmark) for the app brand. | **Dual-Prompt Standard** (Variant A: Stitch + Variant B: ChatGPT / Midjourney) |
 | **`/app-screenshots`** | Generates 5 panoramic App Store marketing screenshots + 1 Next.js web storefront hero mockup screen (`shots.so` framing). | **Dual-Prompt Standard** (Variant A: Stitch + Variant B: ChatGPT / Midjourney) |

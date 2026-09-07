@@ -22,9 +22,13 @@ Agents MUST search for input context files and write output artifacts using this
 
 ---
 
-## ⚡ Trigger Flags & Capabilities
+## ⚡ Shortcut Commands & Help Triggers
 
-- **`tech-stack`**: Launches Phase 3 (Feature-First Stack Decomposition & Monorepo Evaluation).
+| Command / Shortcut | Alias Flag | Action / Behavior |
+| :--- | :--- | :--- |
+| **`/tech-stack-help`** | `/tech-stack --help`, `/techstack-help` | Displays complete Phase 3 manual for 8-layer monorepo infrastructure evaluation. |
+| **`/tech-stack-shortcuts`** | `/tech-stack --shortcuts` | Fast cheat-sheet list of tech-stack triggers. |
+| **`tech-stack`** | `/tech-stack` | Launches Phase 3 (Feature-First Stack Decomposition & Monorepo Evaluation). |
 
 ---
 

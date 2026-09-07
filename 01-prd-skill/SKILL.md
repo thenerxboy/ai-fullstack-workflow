@@ -24,11 +24,15 @@ Agents MUST search for and output documents using this prioritized path resoluti
 
 ---
 
-## ⚡ Shortcut Commands & Trigger Flags
+## ⚡ Shortcut Commands & Help Triggers
 
-- **`/app-idea`**: Launches **Phase 0** (Researches market trends, YouTube resources, competitor gaps, and pitches 20 data-backed app ideas).
-- **`/app-brief`**: Launches **Phase 1** (Creative Vibe Jamming for identity, mascot, Google Fonts selection, color psychology, and 20-section `APP-BRIEF.md`).
-- **`/prd`**: Launches **Phase 2** (Ingests `APP-BRIEF.md`, executes the 8-question discovery loop, locks typography spec, and generates `ARCH-PRD.md`).
+| Command / Shortcut | Alias Flag | Action / Behavior |
+| :--- | :--- | :--- |
+| **`/prd-skill-help`** | `/prd-skill --help`, `/prd-help` | Displays complete manual & guide for Phase 0 (App Ideas), Phase 1 (Vibe Brief), and Phase 2 (ARCH-PRD). |
+| **`/prd-skill-shortcuts`** | `/prd-skill --shortcuts` | Fast cheat-sheet list of all PRD skill shortcuts. |
+| **`/app-idea`** | N/A | Launches **Phase 0** (Researches market trends, YouTube resources, competitor gaps, and pitches 20 data-backed app ideas). |
+| **`/app-brief`** | N/A | Launches **Phase 1** (Creative Vibe Jamming for identity, mascot, Google Fonts selection, color psychology, and `APP-BRIEF.md`). |
+| **`/prd`** | N/A | Launches **Phase 2** (Ingests `APP-BRIEF.md`, executes 8-question discovery loop, locks typography, and generates `ARCH-PRD.md`). |
 
 ---
 

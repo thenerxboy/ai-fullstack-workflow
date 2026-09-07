@@ -70,11 +70,11 @@ Once installed, open your project in your AI assistant (Antigravity, Claude Code
 
 ---
 
-## ⚡ Shortcut Commands & Trigger Flags
-
 | Phase / Trigger | Shortcut Command | Action / Description | Output Artifact / Standard |
 | :--- | :--- | :--- | :--- |
-| **Onboarding** | **`/start-workflow`** | Launches interactive onboarding map & menu for new users. | Interactive Guide |
+| **Universal Help** | **`/help`** *(alias: `/workflow-help`)* | Master Directory of ALL commands across all 5 skills. | Complete Help Menu |
+| **Universal Shortcuts** | **`/shortcuts`** | Fast cheat-sheet list of all skill shortcuts. | Shortcut Table |
+| **Onboarding** | **`/start-workflow`** | Runs Submodule Pre-Flight Audit Gate & interactive sitemap. | Interactive Guide |
 | **Phase 0** | **`/app-idea`** | Researches market trends, competitor gaps, YouTube transcripts, and pitches 20 data-backed app ideas. | 20 App Ideas Table |
 | **Phase 1** | **`/app-brief`** | Creative vibe jamming for brand identity, mascot, color psychology, and Google Fonts specimen preview selection. | `docs/01-app-brief/APP-BRIEF.md` |
 | **Phase 2** | **`/prd`** | Executes 8-question discovery loop for ASO keywords, web surface models, compliance triad, and V1 scope. | `docs/02-prd-research/ARCH-PRD.md` |
@@ -83,7 +83,7 @@ Once installed, open your project in your AI assistant (Antigravity, Claude Code
 | **Phase 4** | **`/app-icon`** | Generates 5 logo exploration concept canvases (Mascot, Metaphor, Lettermark, Geometric, Wordmark). | **Dual-Prompt Standard** (Stitch + Midjourney) |
 | **Phase 4** | **`/app-screenshots`** | Generates 5 panoramic App Store marketing screenshots + 1 Next.js web storefront hero screen. | **Dual-Prompt Standard** (Stitch + Midjourney) |
 | **Phase 5 (Setup)** | **`/init-agents`** | Ingests `docs/` and autonomously generates a 100% project-tailored `./AGENTS.md` file at the root. | Tailored `./AGENTS.md` |
-| **Phase 5 (Build)** | **`app-coder`** | Executes Vibe Engineering 8-step loop, Feature-Branch & CodeRabbit PR workflow, and builds monorepo TypeScript code. | `prompts/<task>.md` & Code |
+| **Phase 5 (Build)** | **`fullstack-agent`** | Executes Vibe Engineering 8-step loop, Feature-Branch & CodeRabbit PR workflow, and builds monorepo TypeScript code. | `prompts/<task>.md` & Code |
 
 ---
 
@@ -93,24 +93,24 @@ Once installed, open your project in your AI assistant (Antigravity, Claude Code
 ai-fullstack-workflow/
 ├── README.md                          <── Root Documentation & Quick-Start Guide
 │
-├── 00-workflow-guide/                 <── Interactive Onboarding Skill (/start-workflow)
+├── 00-workflow-guide/                 <── Interactive Onboarding Skill (/start-workflow, /help)
 │   └── SKILL.md
 │
-├── 01-prd-skill/                      <── Phase 0, 1, 2: Ideation, Vibe Brief & PRD (/app-idea, /app-brief, /prd)
+├── 01-prd-skill/                      <── Phase 0, 1, 2: Ideation, Vibe Brief & PRD (/app-idea, /app-brief, /prd, /prd-skill-help)
 │   ├── SKILL.md
 │   └── README.md
 │
-├── 02-tech-stack/                     <── Phase 3: Monorepo Stack & DB Schemas (tech-stack)
+├── 02-tech-stack/                     <── Phase 3: Monorepo Stack & DB Schemas (tech-stack, /tech-stack-help)
 │   ├── SKILL.md
 │   └── README.md
 │
-├── 03-stitch-ui-skill/                <── Phase 4: Stitch UI Prompts, App Icons & Screenshots (/ui-flow, /app-icon, /app-screenshots)
+├── 03-stitch-ui-skill/                <── Phase 4: Stitch UI Prompts, App Icons & Screenshots (/ui-flow, /stitch-ui-help)
 │   ├── SKILL.md
 │   ├── README.md
 │   ├── scripts/                        <── CLI Prompt Formatter & Blueprint Extractor Helper Scripts
 │   └── resources/                      <── Color-Agnostic Blueprint Catalog (design_catalog.json)
 │
-└── 04-app-coder/                      <── Phase 5: Codebase Builder & AGENTS.md Generator (/init-agents, app-coder)
+└── 04-fullstack-agent/                <── Phase 5: Codebase Builder & AGENTS.md Generator (/init-agents, fullstack-agent, /fullstack-agent-help)
     ├── SKILL.md
     └── README.md
 ```

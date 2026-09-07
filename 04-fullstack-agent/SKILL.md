@@ -1,9 +1,9 @@
 ---
-name: app-coder
+name: fullstack-agent
 description: Monorepo code generation, Expo Router mobile components, Next.js App Router storefronts, Convex/Supabase client DB schemas, tailored AGENTS.md generator (/init-agents), external skills & doc mapper (docs/05-external-skills/), mandatory TECH-STACK.md ingestion gate, feature-branch & CodeRabbit PR workflow, Vibe Engineering loop, and full-stack codebase builder.
 ---
 
-# 💻 Monorepo Code Generation & Delivery Skill (`app-coder`)
+# 💻 Full-Stack Monorepo Code Generation & Delivery Skill (`fullstack-agent`)
 
 Universal, agent-agnostic AI coding skill based on **Vibe Engineering** and **Practical Vibe Coding** principles. It equips AI coding agents with procedural rules, autonomous project-tailored `AGENTS.md` generation (`/init-agents`), external skill/doc mapping (`docs/05-external-skills/`), mandatory `TECH-STACK.md` ingestion gates, feature-branch & CodeRabbit PR workflows, 8-step execution loops, 10-step build-in-order roadmaps, and hardcoded cheatsheets to build production-ready software inside an enterprise Turborepo monorepo.
 
@@ -30,10 +30,14 @@ Agents MUST search for input context files and write output artifacts using this
 
 ---
 
-## ⚡ Shortcut Commands & Trigger Flags
+## ⚡ Shortcut Commands & Help Triggers
 
-- **`/init-agents`**: Ingests `docs/` (App Brief, PRD, Tech Stack, UI Design Memory) and generates a 100% project-tailored `./AGENTS.md` file at the root.
-- **`app-coder`** (or **`/code`**, **`/build`**, **`/plan`**): Launches Phase 5 (Full-Stack Monorepo Code Generation & Feature Building).
+| Command / Shortcut | Alias Flag | Action / Behavior |
+| :--- | :--- | :--- |
+| **`/fullstack-agent-help`** | `/fullstack-agent --help`, `/coder-help` | Displays complete Phase 5 manual: Vibe Engineering loop, `./AGENTS.md` rules, feature branch PRs, and Visual AI Diff. |
+| **`/fullstack-agent-shortcuts`** | `/fullstack-agent --shortcuts` | Fast cheat-sheet list of all Phase 5 trigger shortcuts. |
+| **`/init-agents`** | N/A | Ingests `docs/` (App Brief, PRD, Tech Stack, UI Design Memory) and generates a 100% project-tailored `./AGENTS.md` file at root. |
+| **`fullstack-agent`** | `/code`, `/build`, `/plan` | Launches Phase 5 (Full-Stack Monorepo Code Generation & Feature Building on dedicated branch). |
 
 ---
 

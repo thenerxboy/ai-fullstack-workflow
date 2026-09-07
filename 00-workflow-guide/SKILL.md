@@ -82,15 +82,30 @@ Here is our 5-Phase Production Journey:
 
 ---
 
-## ⚡ Shortcut Commands Reference
+## ⚡ Master Help & Shortcut Commands Directory
 
-- **`/start-workflow`**: Displays this interactive onboarding sitemap and prompt menu.
-- **`/app-idea`**: Launches Phase 0 (20 App Ideas Pitch).
-- **`/app-brief`**: Launches Phase 1 (Creative Vibe Brief & Google Fonts Selection).
-- **`/prd`**: Launches Phase 2 (System ARCH-PRD & ASO Keywords).
-- **`tech-stack`**: Launches Phase 3 (Monorepo Infrastructure & DB Schemas).
-- **`/ui-flow`**: Compiles Phase 4 UI screen prompt blueprints.
-- **`/app-icon`**: Generates Phase 4 Dual-Prompt logo exploration canvases.
-- **`/app-screenshots`**: Generates Phase 4 Dual-Prompt App Store marketing screenshots.
-- **`/init-agents`**: Ingests `docs/` and generates a 100% project-tailored `./AGENTS.md` file.
-- **`app-coder`**: Launches Phase 5 full-stack code generation.
+| Command / Shortcut | Alias Flag | Action / Description |
+| :--- | :--- | :--- |
+| **`/help`** | `/workflow-help` | **Master Directory**: Displays complete interactive help menu for ALL 5 skills. |
+| **`/shortcuts`** | `/workflow-shortcuts` | **Master Shortcuts**: Fast cheat-sheet table of all available triggers across all 5 skills. |
+| **`/workflow-guide-help`** | `/workflow-guide --help` | Displays help guide for `00-workflow-guide`. |
+| **`/workflow-guide-shortcuts`** | `/workflow-guide --shortcuts` | Shortcut list for `00-workflow-guide`. |
+| **`/start-workflow`** | N/A | Runs Submodule Pre-Flight Audit Gate & interactive onboarding sitemap. |
+| **`/prd-skill-help`** | `/prd-skill --help`, `/prd-help` | Displays help guide for `01-prd-skill` (Phases 0, 1, 2). |
+| **`/prd-skill-shortcuts`** | `/prd-skill --shortcuts` | Shortcut list for `01-prd-skill`. |
+| **`/app-idea`** | N/A | Launches Phase 0 (20 App Ideas Pitch). |
+| **`/app-brief`** | N/A | Launches Phase 1 (Creative Vibe Brief & Google Fonts Selection). |
+| **`/prd`** | N/A | Launches Phase 2 (System ARCH-PRD & ASO Keywords). |
+| **`/tech-stack-help`** | `/tech-stack --help` | Displays help guide for `02-tech-stack` (Phase 3). |
+| **`/tech-stack-shortcuts`** | `/tech-stack --shortcuts` | Shortcut list for `02-tech-stack`. |
+| **`tech-stack`** | `/tech-stack` | Launches Phase 3 (Monorepo Infrastructure & DB Schemas). |
+| **`/stitch-ui-help`** | `/stitch-ui --help`, `/ui-help` | Displays help guide for `03-stitch-ui-skill` (Phase 4). |
+| **`/stitch-ui-shortcuts`** | `/stitch-ui --shortcuts`, `/ui-shortcuts` | Shortcut list for `03-stitch-ui-skill`. |
+| **`/ui-flow`** | N/A | Compiles Phase 4 UI screen prompt blueprints. |
+| **`/app-icon`** | N/A | Generates Phase 4 Dual-Prompt logo exploration canvases. |
+| **`/app-screenshots`** | N/A | Generates Phase 4 Dual-Prompt App Store marketing screenshots. |
+| **`/ui-extract`** | N/A | Extracts screenshot into catalog blueprint (`design_catalog.json`). |
+| **`/fullstack-agent-help`**| `/fullstack-agent --help`, `/coder-help` | Displays help guide for `04-fullstack-agent` (Phase 5). |
+| **`/fullstack-agent-shortcuts`**| `/fullstack-agent --shortcuts` | Shortcut list for `04-fullstack-agent`. |
+| **`/init-agents`** | N/A | Ingests `docs/` and generates project-tailored `./AGENTS.md` file. |
+| **`fullstack-agent`** | `/code`, `/build`, `/plan` | Launches Phase 5 full-stack monorepo code generation on feature branch. |
