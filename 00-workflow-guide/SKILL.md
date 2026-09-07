@@ -12,6 +12,30 @@ This skill acts as the interactive onboarding sitemap and phase navigator for th
 
 ---
 
+## 🛡️ Git Submodule Pre-Flight Audit Gate
+
+Before presenting the onboarding sitemap or executing workflow commands, the agent **MUST ALWAYS check the workspace Git & Submodule status**:
+
+1. **Audit Check**: Check if current project root is a Git repository (`.git` exists) AND if `.agents/skills/ai-fullstack-workflow` is registered as a Git Submodule.
+2. **If Validated (Submodule Confirmed)**: Display status badge:
+   `✅ App Workspace Initialized | ✅ Skills Submodule Linked (.agents/skills/ai-fullstack-workflow)`
+3. **If NOT a Submodule (Warning Blueprint)**: If the workspace root is not a Git repo or if skills are cloned without submodule status, display this prominent warning before proceeding:
+
+> ⚠️ **Git Submodule Pre-Flight Warning**: Your project folder is not set up with `ai-fullstack-workflow` as a Git Submodule.
+> 
+> **Why this matters**:
+> - **Repo Isolation**: Guarantees your app code commits ONLY to your project repository (`my-app.git`).
+> - **Catalog Learnings**: Allows `design_catalog.json` updates from `/ui-extract` to commit back to `ai-fullstack-workflow.git`.
+> 
+> **Run this 3-step setup in your project terminal to fix**:
+> ```bash
+> git init
+> git remote add origin https://github.com/your-username/my-app.git
+> git submodule add https://github.com/thenerxboy/ai-fullstack-workflow.git .agents/skills/ai-fullstack-workflow
+> ```
+
+---
+
 ## 🗺️ Interactive Onboarding Response Blueprint
 
 ```markdown

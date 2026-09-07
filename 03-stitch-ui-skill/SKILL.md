@@ -124,6 +124,26 @@ Confirm foundational components (Nav Bar, Action Buttons, Headers) from `app_the
 ### Phase 4: Hand-Curated Component Library Policy
 Save component snippets to `design_catalog.json.components` only when explicitly approved by user.
 
+### Phase 5: Catalog Learner Commit Protocol (`.agents/skills/ai-fullstack-workflow`)
+When `/ui-extract` appends a newly extracted UI blueprint to `design_catalog.json`, the agent **MUST explicitly state the Catalog Learner Commit Protocol**:
+
+```markdown
+#### 📍 Design Catalog Commit Specification:
+- **Target File**: `03-stitch-ui-skill/resources/design_catalog.json`
+- **Execution Path**: `.agents/skills/ai-fullstack-workflow`
+- **Target Repository**: `https://github.com/thenerxboy/ai-fullstack-workflow.git`
+
+To sync this newly learned screen blueprint back to the shared fullstack workflow repository:
+```bash
+cd .agents/skills/ai-fullstack-workflow
+git add 03-stitch-ui-skill/resources/design_catalog.json
+git commit -m "feat(catalog): add [screen_id] extracted color-agnostic blueprint"
+git push origin main
+cd ../../..
+```
+*Note: This commits ONLY the newly learned UI design blueprint to the shared skills repo.*
+```
+
 ---
 
 ## 📐 Mandatory Design Rules & Guardrails

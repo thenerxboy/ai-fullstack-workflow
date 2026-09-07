@@ -4,12 +4,18 @@ Universal, Enterprise-Grade 5-Phase AI Agent Workflow for Building Multi-Surface
 
 ---
 
-## ⚡ Quick-Start Installation (1 Command)
+## ⚡ Quick-Start Installation (2 Commands)
 
-Install the entire workflow suite directly into your project's `.agents/skills/` directory without creating any extra wrapper folders:
+To ensure your app code commits ONLY to your app repository while keeping `design_catalog.json` learnings linked, initialize your app repository first and add the workflow as a Git Submodule:
 
 ```bash
-git clone https://github.com/thenerxboy/ai-fullstack-workflow.git .agents/skills
+# 1. Create and initialize your app repository
+mkdir my-app && cd my-app
+git init
+git remote add origin https://github.com/your-username/my-app.git
+
+# 2. Add the workflow as a Git Submodule
+git submodule add https://github.com/thenerxboy/ai-fullstack-workflow.git .agents/skills/ai-fullstack-workflow
 ```
 
 Once installed, open your project in your AI assistant (Antigravity, Claude Code, Cursor, Windsurf) and type:
@@ -113,6 +119,7 @@ ai-fullstack-workflow/
 
 ## 🎨 Key Features & Operational Guardrails
 
+- **Git Submodule Pre-Flight Audit Gate**: `/start-workflow` automatically verifies that `.agents/skills/ai-fullstack-workflow` is connected as a Git Submodule, guaranteeing zero repo clashes between app code (`my-app.git`) and design catalog learnings (`ai-fullstack-workflow.git`).
 - **Feature-Branch & CodeRabbit PR Protocol**: 7-step isolated Git lifecycle (Feature Branch $\rightarrow$ Build & Test $\rightarrow$ Stage & Commit $\rightarrow$ Push Branch $\rightarrow$ CodeRabbit PR AI Review $\rightarrow$ Merge to Main $\rightarrow$ Sync Local Main).
 - **Pixel-Perfect Visual AI Diff Micro-Loop (Module 6)**: 4-step visual verification loop (Build $\rightarrow$ Screenshot $\rightarrow$ Compare $\rightarrow$ Refine) using `app-screens/<screen_id>.png` as target reference, powered by a Dual-Mode Screenshot Capture Protocol (iOS `xcrun`, Android `adb`, Web `Playwright` + User fallback) and a 10-Point Multimodal Comparison Matrix.
 - **Mandatory `TECH-STACK.md` Ingestion Gate**: Compels agents to inspect `docs/03-tech-stack/TECH-STACK.md` before planning and record proof under `## 2. What It Read` in `prompts/<task-name>.md`.

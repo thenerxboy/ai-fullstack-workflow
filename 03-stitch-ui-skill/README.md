@@ -80,10 +80,12 @@ stitch-ui-skill/ (GitHub Skill Repository Root)
 ### 🚀 Installation & Usage
 
 #### 1. Install Skill into Your Monorepo Workspace
-Clone this repository directly into your project's `.agents/skills/` directory:
+Add this repository as a Git Submodule into your project's `.agents/skills/` directory:
 
 ```bash
-git clone https://github.com/thenerxboy/stitch-ui-design-skill.git .agents/skills/stitch-ui-skill
+git init
+git remote add origin https://github.com/your-username/my-app.git
+git submodule add https://github.com/thenerxboy/ai-fullstack-workflow.git .agents/skills/ai-fullstack-workflow
 ```
 
 #### 2. Invoke the Skill

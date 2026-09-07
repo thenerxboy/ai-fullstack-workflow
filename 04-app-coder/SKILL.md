@@ -76,7 +76,18 @@ For EVERY feature or bug fix, the agent MUST follow this 7-step isolated Git lif
    git checkout main
    git pull origin main
    ```
-   *Environment is left completely clean and ready for the next feature branch!*
+#### 📍 App Code Commit Specification:
+- **Target Execution Directory**: `./` (App Workspace Root)
+- **Target Repository**: `https://github.com/your-username/my-app.git` (Your Project Repo)
+- **Target Branch**: `feature/<task-name>`
+
+```bash
+git checkout -b feature/<task-name>
+git add .
+git commit -m "feat(scope): implement feature name"
+git push -u origin feature/<task-name>
+```
+*Note: This commits ONLY application code to your project repository.*
 
 ---
 
@@ -216,7 +227,8 @@ Your job: understand the request, inspect relevant code, read docs/03-tech-stack
 7. Implement ONLY after human approval on a dedicated feature branch (`feature/<name>`).
 8. For UI tasks: Execute Visual AI Diff Loop (Build ──> Screenshot ──> Compare ──> Refine) against `app-screens/<screen_id>.png` until 100% match.
 9. Run typecheck (`tsc`) and lint checks.
-10. Push branch, handle CodeRabbit PR review, merge to main, and sync local main (`git checkout main && git pull`).
+10. App Code Commit: Push branch from `./` (App Root) to project repo (`my-app.git`), handle CodeRabbit PR review, merge to main, and sync local main (`git checkout main && git pull`).
+11. Catalog Learner Commit: If `/ui-extract` updated `design_catalog.json`, commit inside `.agents/skills/ai-fullstack-workflow/` to push learnings to `ai-fullstack-workflow.git`.
 
 ## 2. Product Scope
 - **In Scope**: [REAL_FEATURE_LIST_FROM_PRD]
