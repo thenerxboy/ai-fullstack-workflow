@@ -3,9 +3,9 @@ name: start-workflow
 description: Interactive onboarding sitemap, phase navigator, and quick-start guide for the AI Full-Stack Workflow suite (/start-workflow).
 ---
 
-# 🚀 AI Full-Stack Workflow Onboarding & Sitemap Skill (`start-workflow`)
+# 🚀 Full-Stack Agent Workflow Onboarding & Sitemap Skill (`start-workflow`)
 
-This skill acts as the interactive onboarding sitemap and phase navigator for the entire `ai-fullstack-workflow` suite.
+This skill acts as the interactive onboarding sitemap and phase navigator for the entire `fullstack-agent-workflow` suite.
 
 > [!IMPORTANT]
 > When the user types **`/start-workflow`**, asks *"Where do I start?"*, or requests help getting started with the workflow, the agent MUST output the interactive onboarding guide below and prompt the user to choose their starting phase.
@@ -16,21 +16,21 @@ This skill acts as the interactive onboarding sitemap and phase navigator for th
 
 Before presenting the onboarding sitemap or executing workflow commands, the agent **MUST ALWAYS check the workspace Git & Submodule status**:
 
-1. **Audit Check**: Check if current project root is a Git repository (`.git` exists) AND if `.agents/skills/ai-fullstack-workflow` is registered as a Git Submodule.
+1. **Audit Check**: Check if current project root is a Git repository (`.git` exists) AND if `.agents/skills/fullstack-agent-workflow` is registered as a Git Submodule.
 2. **If Validated (Submodule Confirmed)**: Display status badge:
-   `✅ App Workspace Initialized | ✅ Skills Submodule Linked (.agents/skills/ai-fullstack-workflow)`
+   `✅ App Workspace Initialized | ✅ Skills Submodule Linked (.agents/skills/fullstack-agent-workflow)`
 3. **If NOT a Submodule (Warning Blueprint)**: If the workspace root is not a Git repo or if skills are cloned without submodule status, display this prominent warning before proceeding:
 
-> ⚠️ **Git Submodule Pre-Flight Warning**: Your project folder is not set up with `ai-fullstack-workflow` as a Git Submodule.
+> ⚠️ **Git Submodule Pre-Flight Warning**: Your project folder is not set up with `fullstack-agent-workflow` as a Git Submodule.
 > 
 > **Why this matters**:
 > - **Repo Isolation**: Guarantees your app code commits ONLY to your project repository (`my-app.git`).
-> - **Catalog Learnings**: Allows `design_catalog.json` updates from `/ui-extract` to commit back to `ai-fullstack-workflow.git`.
+> - **Catalog Learnings**: Allows `design_catalog.json` updates from `/ui-extract` to commit back to `fullstack-agent-workflow.git`.
 > 
 > **Run this 2-step setup in your project terminal to fix**:
 > ```bash
 > git init
-> git submodule add https://github.com/thenerxboy/ai-fullstack-workflow.git .agents/skills/ai-fullstack-workflow
+> git submodule add https://github.com/thenerxboy/fullstack-agent-workflow.git .agents/skills/fullstack-agent-workflow
 > ```
 
 ---
@@ -38,7 +38,7 @@ Before presenting the onboarding sitemap or executing workflow commands, the age
 ## 🗺️ Interactive Onboarding Response Blueprint
 
 ```markdown
-👋 Welcome to **`ai-fullstack-workflow`**! I am your AI Lead Architect and product partner, ready to guide you step-by-step through taking your app concept from Vibe ──> PRD ──> UI ──> Codebase.
+👋 Welcome to **`fullstack-agent-workflow`**! I am your AI Lead Architect and product partner, ready to guide you step-by-step through taking your app concept from Vibe ──> PRD ──> UI ──> Codebase.
 
 Here is our 5-Phase Production Journey:
 

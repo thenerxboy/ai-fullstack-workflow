@@ -84,7 +84,7 @@ Add this repository as a Git Submodule into your project's `.agents/skills/` dir
 
 ```bash
 git init
-git submodule add https://github.com/thenerxboy/ai-fullstack-workflow.git .agents/skills/ai-fullstack-workflow
+git submodule add https://github.com/thenerxboy/fullstack-agent-workflow.git .agents/skills/fullstack-agent-workflow
 ```
 
 #### 2. Invoke the Skill

@@ -30,5 +30,5 @@ Invoke the skill in any AI assistant:
 Run /fullstack-agent-help to view the complete Phase 5 manual & operational guide.
 Run /fullstack-agent-shortcuts to see all trigger shortcuts.
 Run /init-agents to generate your project-tailored AGENTS.md file.
-Run fullstack-agent to build <feature_name> using @.agents/skills/ai-fullstack-workflow/04-fullstack-agent.
+Run fullstack-agent to build <feature_name> using @.agents/skills/fullstack-agent-workflow/04-fullstack-agent.
 ```
