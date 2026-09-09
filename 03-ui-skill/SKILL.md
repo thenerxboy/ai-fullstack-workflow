@@ -239,8 +239,9 @@ You are acting as an elite Lead Product Designer, Design Systems Architect, and 
     },
     "graphics_and_illustration": {
       "hero_media_treatment": {
-        "role": "Mouth-watering food photography, breathtaking travel landscapes, high-contrast lifestyle portraits, or glossy 3D medical assets anchoring card headers",
-        "aesthetic": "Airy, high-resolution hero imagery, soft gradient overlays for text contrast, 16px–24px rounded image corners"
+        "role": "Full-bleed immersive photography/imagery background with soft gradient overlays on Welcome, Onboarding, and Auth screens; mouth-watering food photography, breathtaking travel landscapes, high-contrast lifestyle portraits, or glossy 3D assets anchoring card headers",
+        "aesthetic": "Airy, high-resolution hero imagery, full-bleed live image backgrounds for auth/welcome flows, soft dark gradient overlays for text legibility, 16px–24px rounded image corners",
+        "feature_carousels": "Large top full-bleed photography carousels with overlaid floating back, share, report, and save/heart action icons on Detail, Recipe, Trip, and Profile screens"
       },
       "icons_and_symbols": {
         "style": "Thin rounded-line vector icons with soft gradient accents or explicit mathematical SVG path data (<svg viewBox=\"0 0 24 24\"><path d=\"...\"/></svg>)"
