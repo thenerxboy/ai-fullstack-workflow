@@ -20,7 +20,37 @@ const candidateCatalogs = [
 ];
 
 const CATALOG_PATH = candidateCatalogs.find(p => fs.existsSync(p)) || candidateCatalogs[0];
-const THEME_PATH = path.join(process.cwd(), 'app_theme.json');
+
+const candidateThemes = [
+  path.join(process.cwd(), 'app_theme.json'),
+  path.join(process.cwd(), 'app-theme.json'),
+  path.join(process.cwd(), 'docs', '04-ui-design', 'app_theme.json')
+];
+
+const THEME_PATH = candidateThemes.find(p => fs.existsSync(p));
+
+const DEFAULT_THEME_CONFIG = {
+  app_name: "App Workspace",
+  active_theme: "default_theme",
+  active_preset: "vibe_preset_01",
+  themes: {
+    default_theme: {
+      name: "Default Startup Theme",
+      color_tokens: {
+        primary_brand_accent: "#00E5FF",
+        primary_accent: "#FF6D00",
+        surface_background: "#090A0F",
+        surface_elevation_1: "#141722",
+        surface_container: "#181B26",
+        surface_container_dark: "#10121A",
+        on_surface_high: "#FFFFFF",
+        on_surface_medium: "#A0A5B5",
+        on_surface_muted: "#606575",
+        outline_subtle: "rgba(255, 255, 255, 0.08)"
+      }
+    }
+  }
+};
 
 function loadJSON(filePath) {
   if (!fs.existsSync(filePath)) {
@@ -28,6 +58,13 @@ function loadJSON(filePath) {
     process.exit(1);
   }
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+}
+
+function loadThemeConfig(filePath) {
+  if (filePath && fs.existsSync(filePath)) {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  }
+  return DEFAULT_THEME_CONFIG;
 }
 
 function applyAppThemeToSpec(specObj, colorTokens) {
@@ -146,7 +183,7 @@ ${JSON.stringify(effectiveNav, null, 2)}
 
 function main() {
   const catalog = loadJSON(CATALOG_PATH);
-  const themeConfig = loadJSON(THEME_PATH);
+  const themeConfig = loadThemeConfig(THEME_PATH);
 
   const rawArgs = process.argv.slice(2);
   const flags = rawArgs.filter(a => a.startsWith('--'));
