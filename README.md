@@ -45,7 +45,7 @@ Once installed, open your project in your AI assistant (Antigravity, Claude Code
                                          │
                                          ▼
 +-----------------------------------------------------------------------------------+
-| Phase 1: Creative Vibe Jamming & Google Fonts Selection (/app-brief)               |
+| Phase 1: Creative Vibe Jamming & Brand Identity (/app-brief)                      |
 | Outputs: docs/01-app-brief/APP-BRIEF.md                                           |
 +-----------------------------------------------------------------------------------+
                                          │
@@ -63,7 +63,7 @@ Once installed, open your project in your AI assistant (Antigravity, Claude Code
                                          │
                                          ▼
 +-----------------------------------------------------------------------------------+
-| Phase 4: Stitch UI Prompts, Dual App Icons & Screenshots (/ui-flow, /app-icon)     |
+| Phase 4: Design Tokens, Stitch UI Prompts, Dual App Icons (/ui-theme, /ui-flow)  |
 | Outputs: app-screens/*.png, app-screens/prompts/, docs/04-ui-design/DESIGN-MEMORY |
 +-----------------------------------------------------------------------------------+
                                          │
@@ -88,9 +88,10 @@ Once installed, open your project in your AI assistant (Antigravity, Claude Code
 | **Universal Shortcuts** | **`/shortcuts`** | Fast cheat-sheet list of all skill shortcuts. | Shortcut Table |
 | **Onboarding** | **`/start-workflow`** | Runs Submodule Pre-Flight Audit Gate & interactive sitemap. | Interactive Guide |
 | **Phase 0** | **`/app-idea`** | Researches market trends, competitor gaps, YouTube transcripts, and pitches 20 data-backed app ideas. | 20 App Ideas Table |
-| **Phase 1** | **`/app-brief`** | Creative vibe jamming for brand identity, mascot, color psychology, and Google Fonts specimen preview selection. | `docs/01-app-brief/APP-BRIEF.md` |
+| **Phase 1** | **`/app-brief`** | Creative vibe jamming for brand identity, mascot quirks, sensory personality, and copy tone. | `docs/01-app-brief/APP-BRIEF.md` |
 | **Phase 2** | **`/prd`** | Executes 8-question discovery loop for ASO keywords, web surface models, compliance triad, and V1 scope. | `docs/02-prd-research/ARCH-PRD.md` |
 | **Phase 3** | **`tech-stack`** | Feature-first stack decomposition across 8 Turborepo monorepo layers and DB client schemas. | `docs/03-tech-stack/TECH-STACK.md` |
+| **Phase 4** | **`/ui-theme`** | Ingests PRD & App Brief, locks 2-3 color palettes and Google Fonts pairings, audits visual assets in `./app_theme.json`. | **Design System Token Lock** |
 | **Phase 4** | **`/ui-flow`** | Compiles UI screen prompt blueprints organized by user flow (Onboarding, Auth, Paywall, Main Tabs, Happy Path). | **Google Stitch Prompt ONLY** |
 | **Phase 4** | **`/app-icon`** | Generates 5 logo exploration concept canvases (Mascot, Metaphor, Lettermark, Geometric, Wordmark). | **Dual-Prompt Standard** (Stitch + Midjourney) |
 | **Phase 4** | **`/app-screenshots`** | Generates 5 panoramic App Store marketing screenshots + 1 Next.js web storefront hero screen. | **Dual-Prompt Standard** (Stitch + Midjourney) |
@@ -116,11 +117,10 @@ fullstack-agent-workflow/
 │   ├── SKILL.md
 │   └── README.md
 │
-├── 03-stitch-ui-skill/                <── Phase 4: Stitch UI Prompts, App Icons & Screenshots (/ui-flow, /stitch-ui-help)
+├── 03-stitch-ui-skill/                <── Phase 4: Stitch UI Prompts, App Icons & Screenshots (/ui-theme, /ui-flow, /stitch-ui-help)
 │   ├── SKILL.md
 │   ├── README.md
-│   ├── scripts/                        <── CLI Prompt Formatter & Blueprint Extractor Helper Scripts
-│   └── resources/                      <── Color-Agnostic Blueprint Catalog (design_catalog.json)
+│   └── scripts/                        <── CLI Prompt Formatter & Blueprint Extractor Helper Scripts
 │
 └── 04-fullstack-agent/                <── Phase 5: Codebase Builder & AGENTS.md Generator (/init-agents, fullstack-agent, /fullstack-agent-help)
     ├── SKILL.md
@@ -131,7 +131,8 @@ fullstack-agent-workflow/
 
 ## 🎨 Key Features & Operational Guardrails
 
-- **Git Submodule Pre-Flight Audit Gate**: `/start-workflow` automatically verifies that `.agents/skills/fullstack-agent-workflow` is connected as a Git Submodule, guaranteeing zero repo clashes between app code (`my-app.git`) and design catalog learnings (`fullstack-agent-workflow.git`).
+- **Git Submodule Pre-Flight Audit Gate**: `/start-workflow` automatically verifies that `.agents/skills/fullstack-agent-workflow` is connected as a Git Submodule, guaranteeing zero repo clashes between app code (`my-app.git`) and workflow skills.
+- **Project-Local UI Catalog**: `design_catalog.json` lives in your app workspace root (`./design_catalog.json`), keeping app extractions 100% isolated with zero submodule commit clutter.
 - **Feature-Branch & CodeRabbit PR Protocol**: 7-step isolated Git lifecycle (Feature Branch $\rightarrow$ Build & Test $\rightarrow$ Stage & Commit $\rightarrow$ Push Branch $\rightarrow$ CodeRabbit PR AI Review $\rightarrow$ Merge to Main $\rightarrow$ Sync Local Main).
 - **Pixel-Perfect Visual AI Diff Micro-Loop (Module 6)**: 4-step visual verification loop (Build $\rightarrow$ Screenshot $\rightarrow$ Compare $\rightarrow$ Refine) using `app-screens/<screen_id>.png` as target reference, powered by a Dual-Mode Screenshot Capture Protocol (iOS `xcrun`, Android `adb`, Web `Playwright` + User fallback) and a 10-Point Multimodal Comparison Matrix.
 - **Mandatory `TECH-STACK.md` Ingestion Gate**: Compels agents to inspect `docs/03-tech-stack/TECH-STACK.md` before planning and record proof under `## 2. What It Read` in `prompts/<task-name>.md`.

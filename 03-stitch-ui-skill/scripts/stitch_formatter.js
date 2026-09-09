@@ -13,12 +13,12 @@ const path = require('path');
 
 const candidateCatalogs = [
   path.join(process.cwd(), 'design_catalog.json'),
+  path.join(process.cwd(), 'docs', '04-ui-design', 'design_catalog.json'),
   path.join(__dirname, '..', 'resources', 'design_catalog.json'),
-  path.join(__dirname, '..', '..', '03-stitch-ui-skill', 'resources', 'design_catalog.json'),
-  path.join(__dirname, '..', '..', 'stitch-ui-skill', 'resources', 'design_catalog.json')
+  path.join(__dirname, '..', '..', '03-stitch-ui-skill', 'resources', 'design_catalog.json')
 ];
 
-const CATALOG_PATH = candidateCatalogs.find(p => fs.existsSync(p)) || candidateCatalogs[1];
+const CATALOG_PATH = candidateCatalogs.find(p => fs.existsSync(p)) || candidateCatalogs[0];
 const THEME_PATH = path.join(process.cwd(), 'app_theme.json');
 
 function loadJSON(filePath) {

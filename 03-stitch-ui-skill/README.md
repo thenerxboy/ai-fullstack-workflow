@@ -18,12 +18,13 @@ You can invoke `stitch-ui-skill` in any AI assistant (Antigravity, Claude Code, 
 | :--- | :--- | :--- |
 | **`/ui-help`** | Displays complete manual overview, file schemas, workflow phases, CLI flags, and rules. | Summary Text |
 | **`/ui-shortcuts`** | Displays fast reference list of all available `/ui-*` shortcut triggers. | Summary Text |
+| **`/ui-theme`** | Ingests `APP-BRIEF.md` & `ARCH-PRD.md`, proposes 2–3 Color Palettes & Google Fonts pairings, audits visual assets (mascot/logo/SVGs), and locks `./app_theme.json`. | **Design System Token Lock** |
 | **`/ui-flow`** | Compiles UI screen prompt blueprints organized by user flow (Onboarding & Auth, Activation & Paywall, Main App Tabs, Happy Path Core Loop). Ingests `docs/` for real copy. | **Google Stitch Prompt ONLY** |
 | **`/app-icon`** | Generates 5 distinct logo exploration concept canvases (Mascot, Metaphor, Lettermark, Geometric, Wordmark) for the app brand. | **Dual-Prompt Standard** (Variant A: Stitch + Variant B: ChatGPT / Midjourney) |
 | **`/app-screenshots`** | Generates 5 panoramic App Store marketing screenshots + 1 Next.js web storefront hero mockup screen (`shots.so` framing). | **Dual-Prompt Standard** (Variant A: Stitch + Variant B: ChatGPT / Midjourney) |
-| **`/ui-init`** | Auto-creates `app_theme.json`, `design_catalog.json`, `app-screens/` folder, and `docs/04-ui-design/DESIGN-MEMORY.md` in current project root. | Workspace Bootstrap |
-| **`/ui-extract`** | Extracts attached reference screenshot into color-agnostic JSON blueprint via `scripts/add_catalog_blueprint.js` and appends to `design_catalog.json`. | Catalog Blueprint JSON |
-| **`/ui-compile`** | Compiles a Stitch prompt for a specific screen from `design_catalog.json` with domain adaptation (`node scripts/stitch_formatter.js --app_domain`). | **Google Stitch Prompt ONLY** |
+| **`/ui-init`** | Auto-creates `app_theme.json`, project-local `design_catalog.json`, `app-screens/` folder, and `docs/04-ui-design/DESIGN-MEMORY.md` in current project root. | Workspace Bootstrap |
+| **`/ui-extract`** | Extracts attached reference screenshot into color-agnostic JSON blueprint via `scripts/add_catalog_blueprint.js` and appends to local `design_catalog.json`. | Local Catalog JSON |
+| **`/ui-compile`** | Compiles a Stitch prompt for a specific screen from local `design_catalog.json` with domain adaptation (`node scripts/stitch_formatter.js --app_domain`). | **Google Stitch Prompt ONLY** |
 | **`/ui-sync`** | Batch compiles & updates ALL archived screen prompts in `app-screens/` to reflect global theme changes (`node scripts/stitch_formatter.js --all`). | Formatter Sync |
 | **`/ui-approve`** | Saves current approved Google Stitch prompt into `app-screens/prompts/<screen_id>.md` and updates `docs/04-ui-design/DESIGN-MEMORY.md`. | Markdown File Archive |
 
@@ -35,18 +36,16 @@ You can invoke `stitch-ui-skill` in any AI assistant (Antigravity, Claude Code, 
 stitch-ui-skill/ (GitHub Skill Repository Root)
 ├── SKILL.md                 <── Master Rulebook, Directives & Hardcoded Output Examples
 ├── README.md                <── Skill Installation & Overview Guide
-├── scripts/
-│   ├── stitch_formatter.js  <── CLI Prompt Compiler Script
-│   └── add_catalog_blueprint.js <── Safe Catalog Blueprint Extractor
-└── resources/
-    └── design_catalog.json  <── Master Color-Agnostic Blueprint Library
+└── scripts/
+    ├── stitch_formatter.js  <── CLI Prompt Compiler Script
+    └── add_catalog_blueprint.js <── Safe Catalog Blueprint Extractor
 ```
 
 #### Workspace Project Integration:
 ```
 [Project Root]/ (App Workspace Folder)
 ├── app_theme.json           <── Local App Theme, Google Fonts & SVG Registry
-├── design_catalog.json      <── Local Copy of Master Blueprint Library
+├── design_catalog.json      <── Project-Local Structural Blueprint Library (Decoupled)
 ├── app-screens/             <── Active Screen Prompts & Screenshots Directory
 │   ├── <screen_id>.png      <── Rendered / Reference UI Screenshots (.png / .jpg)
 │   └── prompts/             <── Compiled Google Stitch Prompt Blueprints (.md)

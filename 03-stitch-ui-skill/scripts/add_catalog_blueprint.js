@@ -7,13 +7,13 @@ const path = require('path');
 
 const candidateCatalogs = [
   path.join(process.cwd(), 'design_catalog.json'),
+  path.join(process.cwd(), 'docs', '04-ui-design', 'design_catalog.json'),
   path.join(__dirname, '..', 'resources', 'design_catalog.json'),
-  path.join(__dirname, '..', '..', '03-stitch-ui-skill', 'resources', 'design_catalog.json'),
-  path.join(__dirname, '..', '..', 'stitch-ui-skill', 'resources', 'design_catalog.json')
+  path.join(__dirname, '..', '..', '03-stitch-ui-skill', 'resources', 'design_catalog.json')
 ];
 
-const catalogPath = candidateCatalogs.find(p => fs.existsSync(p)) || candidateCatalogs[1];
-const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
+const catalogPath = candidateCatalogs.find(p => fs.existsSync(p)) || candidateCatalogs[0];
+const catalog = fs.existsSync(catalogPath) ? JSON.parse(fs.readFileSync(catalogPath, 'utf8')) : { meta: { version: "2.0.0" }, categories: {} };
 
 const newBlueprints = [
   {

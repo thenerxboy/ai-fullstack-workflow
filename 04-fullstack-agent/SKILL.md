@@ -245,7 +245,7 @@ Your job: understand the request, inspect relevant code, read docs/03-tech-stack
 8. For UI tasks: Execute Visual AI Diff Loop (Build ──> Screenshot ──> Compare ──> Refine) against `app-screens/<screen_id>.png` until 100% match.
 9. Run typecheck (`tsc`) and lint checks.
 10. App Code Commit: Push branch from `./` (App Root) to project repo (`my-app.git`), handle CodeRabbit PR review, merge to main, and sync local main (`git checkout main && git pull`).
-11. Catalog Learner Commit: If `/ui-extract` updated `design_catalog.json`, commit inside `.agents/skills/fullstack-agent-workflow/` to push learnings to `fullstack-agent-workflow.git`.
+11. Design Token Sync: If `./app_theme.json` or `./design_catalog.json` were updated during UI iteration, ensure they are committed to your local app repository (`my-app.git`).
 
 ## 2. Product Scope
 - **In Scope**: [REAL_FEATURE_LIST_FROM_PRD]

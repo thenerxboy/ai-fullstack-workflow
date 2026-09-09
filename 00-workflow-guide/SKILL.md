@@ -25,7 +25,7 @@ Before presenting the onboarding sitemap or executing workflow commands, the age
 > 
 > **Why this matters**:
 > - **Repo Isolation**: Guarantees your app code commits ONLY to your project repository (`my-app.git`).
-> - **Catalog Learnings**: Allows `design_catalog.json` updates from `/ui-extract` to commit back to `fullstack-agent-workflow.git`.
+> - **Workflow Updates**: Keeps your skill rules updated via `git submodule update` while app design catalog learnings stay isolated in your local repo.
 > 
 > **Run this 2-step setup in your project terminal to fix**:
 > ```bash
@@ -45,8 +45,8 @@ Here is our 5-Phase Production Journey:
 1️⃣ **Phase 0: Market Research & 20 App Ideas Pitch** (`/app-idea`)
    - Researches micro-niches, competitor complaints, and search trends to pitch 20 data-backed app concepts.
 
-2️⃣ **Phase 1: Creative Vibe Jamming & Google Fonts Selection** (`/app-brief`)
-   - Jams on identity, mascot, color psychology, and Google Fonts pairings with clickable specimen preview links.
+2️⃣ **Phase 1: Creative Vibe Jamming & Brand Identity** (`/app-brief`)
+   - Jams on identity, mascot, brand voice tone, copy personality, and target audience vibe.
    - Outputs: `docs/01-app-brief/APP-BRIEF.md`
 
 3️⃣ **Phase 2: Product Strategy, ASO & System PRD Architecture** (`/prd`)
@@ -57,8 +57,8 @@ Here is our 5-Phase Production Journey:
    - Feature-first stack decomposition across 8 monorepo layers (Expo Router, Next.js, Convex/Supabase, Clerk).
    - Outputs: `docs/03-tech-stack/app-features.md` & `TECH-STACK.md`
 
-5️⃣ **Phase 4: Stitch UI Prompts, Dual App Icons & Screenshots** (`/ui-flow`, `/app-icon`, `/app-screenshots`)
-   - Compiles Google Stitch UI prompts, Dual-Prompt App Icons, and panoramic App Store marketing screenshots.
+5️⃣ **Phase 4: Design Tokens, Stitch UI Prompts, App Icons & Screenshots** (`/ui-theme`, `/ui-flow`, `/app-icon`, `/app-screenshots`)
+   - Locks color palettes & Google Fonts pairings in `./app_theme.json`, extracts vision screens to local `./design_catalog.json`, compiles Stitch prompts, and generates Dual-Prompt icons & App Store screenshots.
    - Outputs: `app-screens/*.png` (reference screens), `app-screens/prompts/<screen_id>.md`, `docs/04-ui-design/DESIGN-MEMORY.md`
 
 6️⃣ **Phase 5: Tailored AGENTS.md Setup & External Skills Mapping** (`/init-agents`)

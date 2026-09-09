@@ -24,15 +24,16 @@ Agents MUST search for input context files and write output artifacts using this
 | **Ingested Tech Stack** | `docs/03-tech-stack/TECH-STACK.md` | `docs/TECH-STACK.md` | `./TECH-STACK.md` |
 | **UI Design Memory Log** | `docs/04-ui-design/DESIGN-MEMORY.md` | `docs/DESIGN-MEMORY.md` | `./DESIGN-MEMORY.md` |
 | **Approved Prompts Archive** | `app-screens/prompts/<screen_id>.md` | `app-screens/<screen_id>.md` | `./<screen_id>.md` |
-| **UI Screenshots Archive** | `app-screens/<screen_id>.png` | `app-screens/images/<screen_id>.png` | `./<screen_id>.png` |
+| **UI Screenshots Archive** | `app-screens/<screen_id>.png` | `app-screens/<screen_id>.png` | `./<screen_id>.png` |
 | **Theme & SVG Registry** | `./app-theme.json` | `./app_theme.json` | `resources/app_theme.json` |
+| **Project Design Catalog** | `./design_catalog.json` | `docs/04-ui-design/design_catalog.json` | `resources/design_catalog.json` |
 
 ### 🛠️ CLI Formatter Catalog Lookup Fallback Array (`scripts/stitch_formatter.js`)
 When running prompt compilation scripts, the script dynamically evaluates candidate paths until `design_catalog.json` is found:
 1. `path.join(process.cwd(), 'design_catalog.json')`
-2. `path.join(__dirname, '..', 'resources', 'design_catalog.json')`
-3. `path.join(__dirname, '..', '..', '03-stitch-ui-skill', 'resources', 'design_catalog.json')`
-4. `path.join(__dirname, '..', '..', 'stitch-ui-skill', 'resources', 'design_catalog.json')`
+2. `path.join(process.cwd(), 'docs', '04-ui-design', 'design_catalog.json')`
+3. `path.join(__dirname, '..', 'resources', 'design_catalog.json')`
+4. `path.join(__dirname, '..', '..', '03-stitch-ui-skill', 'resources', 'design_catalog.json')`
 
 ---
 
@@ -42,12 +43,13 @@ When running prompt compilation scripts, the script dynamically evaluates candid
 | :--- | :--- | :--- |
 | **`/stitch-ui-help`** | `/stitch-ui --help`, `/ui-help` | Displays complete manual overview: what the skill does, file schemas (`app_theme.json`, `design_catalog.json`), phases, and rules. |
 | **`/stitch-ui-shortcuts`** | `/stitch-ui --shortcuts`, `/ui-shortcuts` | Displays fast reference list of all available UI shortcut triggers and what they do. |
+| **`/ui-theme`** | Ingests `APP-BRIEF.md` & `ARCH-PRD.md`, proposes 2–3 Color Palettes and Google Fonts pairings, audits required visual assets (mascot/logo/SVGs), and locks `./app_theme.json`. | **Design System Token Lock** |
 | **`/ui-flow`** | Generates UI screen prompt blueprints organized by single user flow (Onboarding & Auth, Activation & Paywall, Main App Tabs, Happy Path Core Loop). Ingests `docs/` for real copy. | **Google Stitch Prompt ONLY** |
 | **`/app-icon`** | Generates 5 distinct logo exploration concept canvases (Mascot, Metaphor, Lettermark, Geometric, Wordmark) for the app brand. | **Dual-Prompt Standard** (Variant A: Stitch + Variant B: ChatGPT / Midjourney) |
 | **`/app-screenshots`** | Generates 5 panoramic App Store marketing screenshots + 1 Next.js web storefront hero mockup screen (`shots.so` framing). | **Dual-Prompt Standard** (Variant A: Stitch + Variant B: ChatGPT / Midjourney) |
-| **`/ui-init`** | Auto-creates `app_theme.json`, `design_catalog.json`, `app-screens/` folder, and `docs/04-ui-design/DESIGN-MEMORY.md` in current project root. | Operations Script |
-| **`/ui-extract`** | Extracts attached reference screenshot into color-agnostic JSON blueprint via `scripts/add_catalog_blueprint.js` and appends to `design_catalog.json`. | Catalog Blueprint JSON |
-| **`/ui-compile`** | Compiles a Stitch prompt for a specific screen from `design_catalog.json` with domain adaptation (`node scripts/stitch_formatter.js --app_domain`). | **Google Stitch Prompt ONLY** |
+| **`/ui-init`** | Auto-creates `./app_theme.json`, project-local `./design_catalog.json`, `app-screens/` folder, and `docs/04-ui-design/DESIGN-MEMORY.md` in project root. | Operations Script |
+| **`/ui-extract`** | Extracts attached ChatGPT visual concept screenshot into color-agnostic JSON blueprint via `scripts/add_catalog_blueprint.js` and appends to local `./design_catalog.json`. | Local Catalog JSON |
+| **`/ui-compile`** | Compiles a Stitch prompt for a specific screen from local `./design_catalog.json` with domain adaptation (`node scripts/stitch_formatter.js --app_domain`). | **Google Stitch Prompt ONLY** |
 | **`/ui-sync`** | Batch compiles & updates ALL archived screen prompts in `app-screens/` to reflect global theme changes (`node scripts/stitch_formatter.js --all`). | Formatter Sync |
 | **`/ui-approve`** | Saves current approved Google Stitch prompt into `app-screens/prompts/<screen_id>.md` and updates `docs/04-ui-design/DESIGN-MEMORY.md`. | Markdown File Archive |
 
@@ -56,7 +58,7 @@ When running prompt compilation scripts, the script dynamically evaluates candid
 ## 📄 PRD Content Extraction Mandate (Zero Dummy Text Rule)
 
 When compiling UI screens (`/ui-flow`), App Icons (`/app-icon`), or Storefront Screenshots (`/app-screenshots`), the agent **MUST INGEST** the authoritative documentation files using the primary and fallback paths defined above:
-- `APP-BRIEF.md` (Product Identity, Mascot, Colors, Copy & Vibe)
+- `APP-BRIEF.md` (Product Identity, Mascot, Brand Personality, Copy & Vibe)
 - `ARCH-PRD.md` (Features, JTBD, Monorepo, Onboarding Carousel, Paywall, Permissions)
 - `app-features.md` (Feature-First Stack Decomposition)
 - `TECH-STACK.md` (Monorepo Infrastructure & DB Schemas)
@@ -64,7 +66,7 @@ When compiling UI screens (`/ui-flow`), App Icons (`/app-icon`), or Storefront S
 ### Strict Copy Directives:
 1. **Real Domain Copy Only**: All titles, labels, card descriptions, stat counters, badge microcopy, and button text MUST be pulled directly from the PRD or adapted to the app's real domain.
 2. **Zero Placeholder String Policy**: Absolutely NO "Lorem Ipsum", "John Doe", "$99", "Sample User", "Feature Title 1", "Lorem dolor sit amet", or generic placeholders.
-3. **Exact Brand Theme Alignment**: Use the exact Hex codes, color tokens, and Google Fonts pairings defined in `app_theme.json` and `APP-BRIEF.md`.
+3. **Exact Brand Theme Alignment**: Use the exact Hex codes, color tokens, and Google Fonts pairings defined in `./app_theme.json` and `APP-BRIEF.md`.
 
 ---
 
@@ -72,14 +74,14 @@ When compiling UI screens (`/ui-flow`), App Icons (`/app-icon`), or Storefront S
 
 ```
 +-----------------------------------------------------------------+
-| Tier 1: Reference UI Extraction (design_catalog.json)           |
-| Color-agnostic structural layout & hand-curated specs           |
+| Phase 4A: Look & Feel, Theme & Asset Audit (/ui-theme)           |
+| Color Palettes, Google Fonts, Asset Audit & app_theme.json      |
 +-----------------------------------------------------------------+
                                │
                                ▼
 +-----------------------------------------------------------------+
-| Tier 2: App Brand System (app_theme.json)                       |
-| Color tokens, Google Fonts, SVG icon registry & navbar          |
+| Phase 4B: Vision Extraction to Local Catalog (/ui-extract)      |
+| Project-local structural layout in ./design_catalog.json         |
 +-----------------------------------------------------------------+
                                │
                                ▼
@@ -91,7 +93,7 @@ When compiling UI screens (`/ui-flow`), App Icons (`/app-icon`), or Storefront S
                                ▼
 +-----------------------------------------------------------------+
 | Tier 4: Approved Prompts Archive (app-screens/)                 |
-| Permanent markdown files for approved screen prompts            |
+| Prompts in app-screens/prompts/ & screenshots in app-screens/   |
 +-----------------------------------------------------------------+
                                │
                                ▼
@@ -103,46 +105,27 @@ When compiling UI screens (`/ui-flow`), App Icons (`/app-icon`), or Storefront S
 
 ---
 
-## 📋 Interactive App Design Lifecycle Protocol (4 Phases)
+## 📋 Interactive 2-Phase App Design Lifecycle Protocol
 
-### Phase 1: Foundation Component Lock
-Confirm foundational components (Nav Bar, Action Buttons, Headers) from `app_theme.json` and `APP-BRIEF.md` before generating full screens. Write specs to `app_theme.json.locked_navigation_bar`.
+### Phase 4A: Look & Feel, Theme & Asset Audit (`/ui-theme`)
+1. Ingest `APP-BRIEF.md` and `ARCH-PRD.md`.
+2. Propose 2–3 curated **Color Palettes** with color psychology rationales.
+3. Propose 2–3 curated **Google Fonts Pairings** (Header + Body) with clickable specimen preview links (`https://fonts.google.com/specimen/...`).
+4. Perform **Asset Audit**: Proactively identify and list all required visual assets (mascots, custom SVG logos, hero illustrations) and request them from the developer if missing.
+5. Save approved visual tokens into project-local `./app_theme.json`.
 
-### Phase 2: Screen Generation Interview & Reference Image Selection
-1. Ask user: *"For the **[Screen Name] Screen**, do you have a reference UI screenshot / inspiration image you'd like me to extract and use, or should I select and adapt the best layout blueprint from our `design_catalog.json` based on your PRD?"*
-2. **Branch A (Reference Provided)**: Extract visual blueprint into JSON $\rightarrow$ Append to `design_catalog.json` via `scripts/add_catalog_blueprint.js` $\rightarrow$ Compile prompt.
-3. **Branch B (No Reference Provided)**: Query `design_catalog.json` by `domain_tags` $\rightarrow$ Select best blueprint $\rightarrow$ Adapt domain copy from `docs/` $\rightarrow$ Compile prompt.
-4. **Single Active Theme Delivery**: Output ONE prompt matching the active theme profile.
+### Phase 4B: Vision Extraction & Stitch Prompt Compilation (`/ui-extract`, `/ui-flow`)
+1. **Reference Input**: Ingest ChatGPT-generated (or reference) screen concepts provided by user.
+2. **Extraction**: Run `/ui-extract` to extract layout hierarchy, spacing, and element scale into project-local `./design_catalog.json` via `scripts/add_catalog_blueprint.js`.
+3. **Prompt Compilation**: Run `/ui-flow` or `/ui-compile` using `./design_catalog.json`, `./app_theme.json`, real PRD copy, and provided visual assets.
+4. **Single Active Delivery**: Output ONE prompt matching the active design theme profile.
 
-### Phase 3: Screen Approval, Archiving & Visual Hand-off Protocol (`app-screens/`)
+### Phase 4C: Screen Approval, Archiving & Visual Hand-off Protocol (`app-screens/`)
 1. Save generated/approved visual screen image to `app-screens/<screen_id>.png`.
 2. Save approved screen prompt spec to `app-screens/prompts/<screen_id>.md` (fallback `app-screens/<screen_id>.md`).
 3. Update `docs/04-ui-design/DESIGN-MEMORY.md` (fallback `docs/DESIGN-MEMORY.md`).
 4. **Visual Hand-off to `04-app-coder`**: Screen images in `app-screens/<screen_id>.png` serve as the target design references for `04-app-coder`'s Visual AI Diff Loop (Build ──> Screenshot ──> Compare ──> Refine).
 5. Single Active File Overwrite Mandate: Replace previous version files (`_v1`) upon layout approval.
-
-### Phase 4: Hand-Curated Component Library Policy
-Save component snippets to `design_catalog.json.components` only when explicitly approved by user.
-
-### Phase 5: Catalog Learner Commit Protocol (`.agents/skills/fullstack-agent-workflow`)
-When `/ui-extract` appends a newly extracted UI blueprint to `design_catalog.json`, the agent **MUST explicitly state the Catalog Learner Commit Protocol**:
-
-```markdown
-#### 📍 Design Catalog Commit Specification:
-- **Target File**: `03-stitch-ui-skill/resources/design_catalog.json`
-- **Execution Path**: `.agents/skills/fullstack-agent-workflow`
-- **Target Repository**: `https://github.com/thenerxboy/fullstack-agent-workflow.git`
-
-To sync this newly learned screen blueprint back to the shared fullstack workflow repository:
-```bash
-cd .agents/skills/fullstack-agent-workflow
-git add 03-stitch-ui-skill/resources/design_catalog.json
-git commit -m "feat(catalog): add [screen_id] extracted color-agnostic blueprint"
-git push origin main
-cd ../../..
-```
-*Note: This commits ONLY the newly learned UI design blueprint to the shared skills repo.*
-```
 
 ---
 

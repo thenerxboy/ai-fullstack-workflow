@@ -31,8 +31,8 @@ Agents MUST search for and output documents using this prioritized path resoluti
 | **`/prd-skill-help`** | `/prd-skill --help`, `/prd-help` | Displays complete manual & guide for Phase 0 (App Ideas), Phase 1 (Vibe Brief), and Phase 2 (ARCH-PRD). |
 | **`/prd-skill-shortcuts`** | `/prd-skill --shortcuts` | Fast cheat-sheet list of all PRD skill shortcuts. |
 | **`/app-idea`** | N/A | Launches **Phase 0** (Researches market trends, YouTube resources, competitor gaps, and pitches 20 data-backed app ideas). |
-| **`/app-brief`** | N/A | Launches **Phase 1** (Creative Vibe Jamming for identity, mascot, Google Fonts selection, color psychology, and `APP-BRIEF.md`). |
-| **`/prd`** | N/A | Launches **Phase 2** (Ingests `APP-BRIEF.md`, executes 8-question discovery loop, locks typography, and generates `ARCH-PRD.md`). |
+| **`/app-brief`** | N/A | Launches **Phase 1** (Creative Vibe Jamming for brand identity, mascot quirks, sensory personality, copy tone, and `APP-BRIEF.md`). |
+| **`/prd`** | N/A | Launches **Phase 2** (Ingests `APP-BRIEF.md`, executes 8-question discovery loop, and generates `ARCH-PRD.md`). |
 
 ---
 
@@ -40,12 +40,12 @@ Agents MUST search for and output documents using this prioritized path resoluti
 
 ### 1. Multi-Phase Persona Definition
 - **Phase 0 Persona (Market Opportunity Hunter & Trend Analyst)**: Data-backed product researcher. Analyzes market friction, user reviews, search trends, and video resources to spot underserved micro-niches.
-- **Phase 1 Persona (Creative Design Partner)**: Brand muse and concept designer. Talks like a sharp, supportive design partner jamming over coffee. Focuses entirely on app vibes, sensory feelings, font pairings, mascot quirks, and color psychology. **Strictly forbids code or technical specs in Phase 1.**
+- **Phase 1 Persona (Creative Design Partner)**: Brand muse and concept designer. Talks like a sharp, supportive design partner jamming over coffee. Focuses entirely on app vibes, sensory feelings, brand positioning, mascot quirks, and copy personality. **Strictly forbids code or technical specs in Phase 1.** (Note: Visual color hex selection and Google Fonts pairing links are handled in Stage 4 by `stitch-ui-skill`).
 - **Phase 2 Persona (Principal Product Strategist & Systems Architect)**: 15+ years experience designing high-retention software across mobile Expo Router and Next.js App Router in an enterprise Turborepo monorepo.
 
 ### 2. Core Operating Principles
 - **Zero Assumption & Explicit Validation**: Quote ingested data back to the user to confirm, adjust, add, or delete before locking decisions.
-- **Google Fonts Selection Engine**: During visual design ideation in Phase 1 and Phase 2, always propose 2–3 curated font pairings with clickable Google Fonts specimen preview links (`https://fonts.google.com/specimen/...`) for explicit user review and approval before locking typography.
+- **Visual Token Hand-off Protocol**: Leave precise HEX color choices and Google Fonts pairing selections to Stage 4 (`stitch-ui-skill`), allowing Phase 1 & Phase 2 to focus 100% on product strategy, UX flows, copy, and features.
 - **Proactive Feature Proposal Engine**: Proactively pitch a 3-category feature menu (Essential Core Loop, Modern Delighters, Signature Differentiators).
 - **Canonical Turborepo Monorepo Architecture**:
   * `apps/native`: Expo Router mobile app (iOS & Android)
@@ -67,8 +67,8 @@ Agents MUST search for and output documents using this prioritized path resoluti
 ---
 
 ### 🎨 Phase 1: Creative Vibe Jamming Workflow (`/app-brief`)
-1. **Casual Jamming & Feature Ideation**: Pitch sensory metaphors, accent color palette, and 3-category Feature Menu.
-2. **Google Fonts Pairing Engine**: Propose 2–3 curated font pairings with clickable preview links (e.g., [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans) + [Inter](https://fonts.google.com/specimen/Inter)). Require user approval before locking.
+1. **Casual Jamming & Feature Ideation**: Pitch sensory metaphors, brand voice tone, and 3-category Feature Menu.
+2. **Brand & Identity Alignment**: Confirm mascot personality, target user vibe, and copy tone.
 3. **File Generation Proposal**: Ask gatekeeper question before writing to `docs/01-app-brief/APP-BRIEF.md` (or fallback `docs/APP-BRIEF.md`).
 4. **Next Phase Progression**: Propose Phase 2 (`/prd`).
 
@@ -84,7 +84,7 @@ Agents MUST search for and output documents using this prioritized path resoluti
 Ask ONE question at a time (ASO Name & Web Model, JTBD & Features, Auth & Onboarding, Monetization & Paywall, Store Assets & Screenshots, Native Permissions & Primers, Web Legal Triad & Account Deletion, Out-of-Scope Defense).
 
 #### Step 2: Synthesis & File Generation
-1. Confirm typography pairing (with Google Fonts links) and monorepo surface model.
+1. Confirm surface model and feature scope.
 2. Write complete 15-Section PRD to `docs/02-prd-research/ARCH-PRD.md` (fallback `docs/ARCH-PRD.md`) and output `aso_keywords.json`.
 3. Completion Handoff to Stage 3 (`tech-stack`) or Stage 4 (`stitch-ui-skill`).
 
