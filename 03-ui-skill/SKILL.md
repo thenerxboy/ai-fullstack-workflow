@@ -154,7 +154,7 @@ The UI Skill supports **3 Distinct Visual Design Style Presets**. When generatin
 | Preset ID | Preset Name | Core Spatial & Layout Characteristics |
 | :--- | :--- | :--- |
 | **`vibe_preset_01`** | **Exaggerated Focus-First Minimalism** | **56–72px Display Headers**, **18–24px Squircles**, **52–60px Stadium Pills**, **40%+ Whitespace**, **Lower 2/3 Thumb Zone Ergonomics**, **"One Thing at a Time"** focal rule, 2D mascot bottom-crop, and **Full-Bleed Brand Color Inversions** on High-Emotion screens (Splash, Welcome, Milestone, Paywall). |
-| **`vibe_preset_02`** | **Fixed Utility / Clean Grid** | Fixed component heights (64px cards, 48px buttons), tight clean geometric grid, consistent multi-card lists, quiet utility top headers, structured container spacing. |
+| **`vibe_preset_02`** | **Clean Editorial Utility & Translucent Glass Grid** | **16–24px Rounded Corners**, **48–56px Pill CTAs**, **36–40px Filter Chips**, **Translucent Frosted Glassmorphism**, **Hero Media-First Cards (16:9 / 4:3)**, **Prominent Metadata Pills**, **Segmented Tabs**, **Light Mode First** (`#FFFFFF` / `#FAFAF8` / `#FBF8F4`) with Dark Mode option, and **Vibrant Domain Accents**. |
 | **`vibe_preset_03`** | **Adaptive Niche / Modern Industry Standard** | AI analyzes the app's domain (e.g. Fintech, Health/Fitness, SaaS, E-Commerce) and applies current top iOS/Android industry visual trends for that specific niche. |
 
 ### 🧪 On-Demand Preset Switching Protocol
@@ -217,8 +217,43 @@ You are acting as an elite Lead Product Designer, Design Systems Architect, and 
       "immersive_focus_screens": "Bottom pill hidden; explicit top-left exit control (× or ← Exit) + massive thumb-zone CTA",
       "reward_completion_screens": "Bottom pill hidden; oversized forward CTA (Next →) + quiet secondary return action"
     }
+  },
+  "vibe_preset_02": {
+    "name": "Clean Editorial Utility & Translucent Glass Grid",
+    "spatial_specs": {
+      "corner_radius": "16px–24px smooth rounded corners across all cards, containers, and media tiles; 9999px full pill radius on CTAs and filter chips",
+      "elevation": "Subtle, soft ambient drop shadows (e.g. 0px 4px 16px rgba(0,0,0,0.05) to 0px 8px 24px rgba(0,0,0,0.08)); soft frosted glassmorphism overlays (rgba(255,255,255,0.7–0.85)) with subtle inner rim highlights",
+      "shadows": "Gentle, non-intrusive ambient depth; soft planar multi-layered depth without heavy 3D volumetric extrusions",
+      "containers": "Structured editorial grids, hero media-first cards (16:9 / 4:3 ratios), clean segmented tabs, and compact metadata pills"
+    },
+    "scale_and_exaggeration": {
+      "display_typography": "Clean modern sans-serif (Inter / SF Pro style) with optional elegant serif for editorial headlines (H1 28px–36px, H2 20px–24px, Body 14px–16px)",
+      "interactive_elements": "Pill-shaped CTA buttons (48px–56px height), filter chips (36px–40px height), rounded input fields (48px–52px height, 12px–16px radius)",
+      "indicators": "Prominent metadata pills (\"4 Days\", \"30 min\", \"320 cal\", \"92% match\", \"2 km away\", \"Verified\"), progress bars, and star ratings",
+      "cards": "Media-hero editorial cards featuring top full-bleed photography/illustrations, top-right save/heart icons, creator avatars, and bottom metadata pills"
+    },
+    "color_dynamics": {
+      "neutral_mode": "Light mode first with crisp white and warm off-white backgrounds (#FFFFFF / #FAFAF8 / #FBF8F4) and dark mode variant (deep charcoal #0A0A0E / #18181B)",
+      "brand_color_accents": "Vibrant domain primary accents (Ocean Blue #3A86FF, Coral Orange #FF6B4A, Warm Rose-Coral #FF5F7E, Dental Aqua #24D4DF, Electric Cyan #00E5FF) paired with deep charcoal text (#1F1F1F) and soft gray secondary text (#8A8A8A)",
+      "gradient_accents": "Subtle dual-tone linear gradients used selectively on primary CTAs, active pill highlights, hero badges, and match cards"
+    },
+    "graphics_and_illustration": {
+      "hero_media_treatment": {
+        "role": "Mouth-watering food photography, breathtaking travel landscapes, high-contrast lifestyle portraits, or glossy 3D medical assets anchoring card headers",
+        "aesthetic": "Airy, high-resolution hero imagery, soft gradient overlays for text contrast, 16px–24px rounded image corners"
+      },
+      "icons_and_symbols": {
+        "style": "Thin rounded-line vector icons with soft gradient accents or explicit mathematical SVG path data (<svg viewBox=\"0 0 24 24\"><path d=\"...\"/></svg>)"
+      }
+    },
+    "navigation_engine": {
+      "primary_bar": "Single floating stadium pill bottom navbar (80px height, 32px corner radius) containing up to 4 tabs; active item highlighted with an inline pill container, inactive items muted",
+      "search_and_filters": "Top pill-shaped search input (48px–52px height) with inline leading magnifying glass SVG and trailing filter button, paired with horizontal scrollable filter chip rows",
+      "detail_screens": "Sticky bottom bar with high-contrast primary CTA button (e.g. \"Start Cooking\", \"Book Appointment\", \"Generate Trip\") and floating action buttons"
+    }
   }
 }
+```
 ```
 
 ---
