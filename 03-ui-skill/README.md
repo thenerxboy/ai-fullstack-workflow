@@ -77,21 +77,40 @@ You can invoke `ui-skill` in any AI assistant (Antigravity, Claude Code, Cursor,
 
 ---
 
-### 🚀 Installation & Usage
+### 🚀 Installation & Usage (1 Command Per Line)
 
-#### 1. Install Skill into Your Monorepo Workspace
-Add this repository as a Git Submodule into your project's `.agents/skills/` directory:
-
+#### Step 1: Initialize Git in your project root
 ```bash
 git init
+```
+*Initializes a Git version control repository for your application workspace.*
+
+#### Step 2: Add the workflow framework as a Git Submodule
+```bash
 git submodule add https://github.com/thenerxboy/fullstack-agent-workflow.git .agents/skills/fullstack-agent-workflow
 ```
+*Links the fullstack-agent-workflow skill suite into `.agents/skills/` as a clean submodule.*
 
-#### 2. Invoke the Skill
-Instruct any AI assistant:
-> *"Run `/ui-flow` to compile prompt blueprints for my onboarding and main app tabs"*  
-> *"Run `/app-icon` to generate 20-icon logo exploration matrix prompt for ChatGPT/Midjourney"*  
-> *"Run `/app-screenshots` to generate App Store marketing screenshot prompts"*
+#### Step 3: Invoke UI Skill commands in your AI assistant
+```markdown
+/ui-theme
+```
+*Locks color palettes, Google Fonts pairings, and visual asset requirements in app_theme.json.*
+
+```markdown
+/ui-flow
+```
+*Compiles Generative & Stitch UI prompt blueprints organized by user flow.*
+
+```markdown
+/app-icon
+```
+*Generates 20-icon app logo exploration matrix prompt (1080x1080 canvas).*
+
+```markdown
+/app-screenshots
+```
+*Generates 5 panoramic App Store marketing screenshots + web storefront hero screen.*
 
 ---
 

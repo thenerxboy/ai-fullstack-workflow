@@ -4,35 +4,66 @@ Universal, Enterprise-Grade 5-Phase AI Agent Workflow for Building Multi-Surface
 
 ---
 
-## ⚡ Quick-Start Installation (2 Commands)
+## ⚡ Quick-Start Installation (Step-by-Step, 1 Command Per Line)
 
-To ensure your app code commits ONLY to your app repository while keeping `design_catalog.json` learnings linked, initialize your app repository first and add the workflow as a Git Submodule:
+To ensure your app code commits ONLY to your app repository while keeping `design_catalog.json` learnings linked, execute these commands one line at a time in your terminal:
 
+#### Step 1: Create your app project directory
 ```bash
-# 1. Create folder & initialize local git repository
-mkdir my-app && cd my-app
-git init
+mkdir my-app
+```
+*Creates a new directory named `my-app` for your application.*
 
-# 2. Add the workflow as a Git Submodule
+#### Step 2: Navigate into your app project directory
+```bash
+cd my-app
+```
+*Enters your newly created app project directory.*
+
+#### Step 3: Initialize Git in your app project
+```bash
+git init
+```
+*Initializes a fresh Git version control repository for your application.*
+
+#### Step 4: Add the workflow framework as a Git Submodule
+```bash
 git submodule add https://github.com/thenerxboy/fullstack-agent-workflow.git .agents/skills/fullstack-agent-workflow
 ```
+*Links the fullstack-agent-workflow skill suite into `.agents/skills/` as a clean submodule without cluttering your main app repository commit history.*
 
-### 🔄 Working with Submodules (Existing Repos & Updates)
+---
 
+### 🔄 Submodule Maintenance & Updates (1 Command Per Line)
+
+#### Option A: Clone an existing project with all workflow submodules initialized
 ```bash
-# Clone an existing project with the workflow submodule included:
 git clone --recursive <your-app-repo-url>
+```
+*Clones the repository and automatically fetches all embedded skill submodules in a single step.*
 
-# Or if you already cloned without submodules, initialize it:
+#### Option B: Initialize submodules if you already cloned a repository without submodules
+```bash
 git submodule update --init --recursive
+```
+*Fetches and checks out missing submodules for an existing workspace.*
 
-# Update the workflow skill to the latest version at any time:
+#### Option C: Update the workflow skills to the latest version at any time
+```bash
 git submodule update --remote --merge
 ```
+*Pulls and merges the latest updates from the main workflow repository into your project.*
 
-Once installed, open your project in your AI assistant (Antigravity, Claude Code, Cursor, Windsurf) and type:
+---
 
-> **`"Run /start-workflow to guide me through building my app"`**
+### 🏁 Launching the Workflow in Your AI Agent
+
+Open your project in Antigravity, Claude Code, Cursor, or Windsurf and type:
+
+```markdown
+/start-workflow
+```
+*Triggers the Submodule Pre-Flight Audit Gate and launches the interactive 5-phase sitemap.*
 
 ---
 

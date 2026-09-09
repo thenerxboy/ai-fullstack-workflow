@@ -22,21 +22,33 @@ Universal AI Agent Coding Skill based on **Vibe Engineering** and **Practical Vi
 
 ---
 
-### 🚀 Installation & Usage
+### 🚀 Installation & Usage (1 Command Per Line)
 
-#### 1. Install Skill into Your Monorepo Workspace
-Add this repository as a Git Submodule into your project's `.agents/skills/` directory:
-
+#### Step 1: Add the workflow framework as a Git Submodule
 ```bash
 git submodule add https://github.com/thenerxboy/fullstack-agent-workflow.git .agents/skills/fullstack-agent-workflow
 ```
+*Links the fullstack-agent-workflow skill suite into `.agents/skills/` as a clean submodule.*
 
-#### 2. How to Use
-Invoke the skill in any AI assistant:
+#### Step 2: Generate your project-tailored AGENTS.md file
+```markdown
+/init-agents
+```
+*Autonomous Setup: Ingests completed docs/ artifacts to generate a project-tailored ./AGENTS.md at root.*
+
+#### Step 3: View operational manuals and shortcuts
+```markdown
+/fullstack-agent-help
+```
+*Displays the complete Phase 5 manual & Vibe Engineering operational guide.*
 
 ```markdown
-Run /fullstack-agent-help to view the complete Phase 5 manual & operational guide.
-Run /fullstack-agent-shortcuts to see all trigger shortcuts.
-Run /init-agents to generate your project-tailored AGENTS.md file.
-Run fullstack-agent to build <feature_name> using @.agents/skills/fullstack-agent-workflow/04-fullstack-agent.
+/fullstack-agent-shortcuts
 ```
+*Displays fast cheat-sheet table of all coding agent shortcuts.*
+
+#### Step 4: Execute Vibe Engineering build loop for a feature
+```markdown
+fullstack-agent
+```
+*Executes the 8-step build loop, writes implementation plan to prompts/<task>.md, and runs Visual AI Diff.*

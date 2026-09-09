@@ -28,17 +28,26 @@ You can invoke `prd-skill` at any stage using these shortcut commands:
 
 ---
 
-## 🚀 Installation & Usage
+## 🚀 Installation & Usage (1 Command Per Line)
 
-### 1. Install Skill into Your Monorepo
-Add the `fullstack-agent-workflow` repository as a Git Submodule into your project's `.agents/skills/` directory:
-
+#### Step 1: Add the workflow framework as a Git Submodule
 ```bash
 git submodule add https://github.com/thenerxboy/fullstack-agent-workflow.git .agents/skills/fullstack-agent-workflow
 ```
+*Links the fullstack-agent-workflow skill suite into `.agents/skills/` as a clean submodule.*
 
-### 2. Invoke the Skill
-Ask your AI coding assistant:
-> "Run `/app-idea` to research 20 app ideas for productivity"  
-> "Run `/app-brief` to jam on my app vibe and brand identity"  
-> "Run `/prd` to generate the system PRD"
+#### Step 2: Invoke the Skill in your AI assistant
+```markdown
+/app-idea
+```
+*Launches Phase 0 to research market trends and pitch 20 data-backed app ideas.*
+
+```markdown
+/app-brief
+```
+*Launches Phase 1 to jam on brand identity, mascot voice, and create APP-BRIEF.md.*
+
+```markdown
+/prd
+```
+*Launches Phase 2 to execute the 8-question discovery loop and generate ARCH-PRD.md.*
