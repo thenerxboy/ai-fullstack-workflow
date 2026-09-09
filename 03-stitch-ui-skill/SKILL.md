@@ -323,8 +323,35 @@ Matrix Layout Breakdown (4 Distinct Rows × 5 Columns Progressive Simplification
   - Col 4 (Contour Abstract): Clean monoline vector schematic outline of the connected nodes on pale tinted square squircle
   - Col 5 (Minimal Glyph): Pure solid white vector stepped-node glyph centered on full solid primary brand color square squircle
 
+### 3. Stage 3 Output Prompt Template: Core Auth & System Onboarding (`/ui-flow`)
+```text
+[APP NAME] CORE AUTH & ONBOARDING UI PROMPT (8 SCREENS - 1080x1080 CANVAS)
+
+Generate an image of 8 modern mobile app authentication and system entry screen designs presented on a single 1080x1080 canvas for an app called "[APP NAME]".
+[APP NAME] is a [1-sentence description from stage 1].
+
+Design Style
+Ultra modern 2026 startup aesthetic
+Minimalistic, clean, editorial layouts
+[Light/Dark mode from stage 1]
+Uses exact components from Design System (pill buttons, rounded input fields, soft elevation)
+Apple-level clean UX inspired by [Benchmark brands from stage 1]
+
+Color Palette & Typography
+[Inherited Palette and Typography tokens from Stage 1]
+
+Screens (8 Screens on a 1080x1080 Canvas)
+1. Splash Screen: Centered logo, minimal startup branding, ambient background glow
+2. Welcome Screen: Full-bleed hero visual, motivational hook headline, "Continue with Apple", "Continue with Google", "Continue with Email" pill buttons
+3. Account Registration: Clean form fields, password validation check indicators, primary brand CTA
+4. Sign In Screen: Email/password inputs, biometric face ID prompt, forgot password link
+5. OTP / Verification Screen: 4-to-6 digit rounded pin code input boxes, resend timer pill, verify CTA
+6. Password Reset / Recovery: Recovery email input, reset instructions card, back to sign in
+7. System Permissions Screen: Clean modal sheet requesting camera/photos/notification access with clear value-driven micro-copy
+8. Account Confirmed / State: Celebratory state widget, checkmark feedback, "Proceed to Setup" CTA
+
 Direction
-Display strictly 20 app icon squircles in an exact, symmetrical 4x5 grid across the 1080x1080 dark canvas. Every squircle must be a strict 1:1 square (width equal to height). Columns 2, 3, and 4 use pale tinted squircle backgrounds, while Column 5 uses the full solid brand background with a pure white glyph. Absolutely no text, headers, numbers, or labels on the canvas. Crisp Apple squircle outlines, ultra-high-resolution, and production-ready vector fidelity.
+Design the app like a real App Store startup product. Display all 8 screens neatly arranged in a cohesive 1080x1080 presentation canvas. Realistic iPhone mockups with clean spacing and production-ready quality.
 ```
 ```
 
