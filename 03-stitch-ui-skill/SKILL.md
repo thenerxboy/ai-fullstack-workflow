@@ -155,116 +155,176 @@ When compiling UI screens (`/ui-flow`), App Icons (`/app-icon`), or Storefront S
 
 ---
 
-## 📋 Hardcoded Unabridged Output Prompt Examples
+## 🏛️ Master Visual Direction System & Vibe Presets
 
-### 1. Hardcoded Example Output Prompt: `/ui-flow` (Google Stitch Screen Format)
-```markdown
-=== GOOGLE STITCH PROMPT SPECIFICATION ===
-Target Platform: Mobile Smartphone App Screen (Vertical 9:16 Portrait)
-Target App Name: StreakStudio (5-Sec Video Habit Journal)
-Active Theme Profile: "Cyber Obsidian Dark" (cyber_obsidian)
-Design Title: StreakStudio Home Daily Streak Feed & 5s Video Recorder Screen
-Target Viewport: Mobile Smartphone App Screen (Vertical 9:16 Portrait)
-Screen Category: home
+### SYSTEM DIRECTIVE & WORKFLOW INITIALIZATION: VISUAL DIRECTION PRESET 01
 
-[CRITICAL CANVAS ASPECT RATIO INSTRUCTION]
-Canvas Type: Mobile Phone App Screen (Narrow Vertical Portrait 9:16 aspect ratio).
-Do NOT render a widescreen desktop dashboard, web browser canvas, or wide tablet container. The generated UI canvas MUST be a standard narrow vertical smartphone app screen.
+**ROLE DEFINITION:**
+You are acting as an elite Lead Product Designer, Design Systems Architect, and Mobile UI Prompt Specialist for high-growth, modern consumer apps. Your mission is to establish a distinct, uncompromising aesthetic identity and translate product concepts into precise, production-grade visual generation prompts across a multi-stage design workflow.
 
-[GOAL & INSTRUCTIONS FOR GOOGLE STITCH]
-Generate a high-fidelity mobile app screen for StreakStudio using the exact structural layout, component positions, and element scale below. Apply the specified app color palette and styling tokens into the design.
-
-[EMBEDDED MATHEMATICAL SVG VECTOR ICON MANDATE]
-CRITICAL MANDATORY DIRECTIVE FOR ALL ICONS:
-- EVERY SINGLE ICON on this screen MUST BE DRAWN USING EXPLICIT MATHEMATICAL SVG PATH DATA (<svg width="..." height="..." viewBox="0 0 24 24"><path d="..."/></svg>).
-- Do NOT use emojis, text placeholders, or generic font names for icons under any circumstances!
-
-[PROJECT CENTRAL SVG REGISTRY (APP_THEME.JSON)]
+```json
 {
-  "flame_streak": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#FF6D00\" stroke-width=\"2\"><path d=\"M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z\"/></svg>",
-  "video_camera": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#00E5FF\" stroke-width=\"2\"><polygon points=\"23 7 16 12 23 17 23 7\"/><rect x=\"1\" y=\"5\" width=\"15\" height=\"14\" rx=\"2\" ry=\"2\"/></svg>",
-  "plus_add": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2.5\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg>"
+  "vibe_preset_01": {
+    "name": "Exaggerated Focus-First Minimalism",
+    "spatial_specs": {
+      "corner_radius": "18px–24px smooth continuous Apple superellipse squircle curvature",
+      "elevation": "Flat, multi-planar stacked layering; zero heavy volumetric depth or 3D extrusion",
+      "shadows": "Subtle, soft ambient drop shadows (e.g., 0px 8px 24px rgba(0,0,0,0.06))",
+      "containers": "Fewer, larger, isolated 'breathing' card components"
+    },
+    "scale_and_exaggeration": {
+      "display_typography": "Exaggerated large sans-serif headers (Display 56px–72px, H1 36px–48px), bold, expressive, short punchy copy (Max 6 words)",
+      "interactive_elements": "Oversized, tactile, rounded pill-shaped CTA buttons with large touch targets spanning the thumb zone",
+      "indicators": "Oversized single numbers, giant progress rings, and enlarged focal icons instead of small data tables",
+      "cards": "Fewer, larger cards used sparingly, with wide vertical margins and generous horizontal safe zones"
+    },
+    "color_dynamics": {
+      "neutral_mode": "Predominantly calm light mode with warm off-white/neutral background fields and pure white cards",
+      "brand_inversion_state": "SELECT Transition and High-Emotion Milestone screens (Splash, Milestone/Celebration, Welcome) dynamically invert to full-bleed primary brand color with high-contrast white text"
+    },
+    "graphics_and_illustration": {
+      "mascot_treatment": {
+        "role": "Emotional companion and reward anchor, never UI clutter or generic decoration",
+        "aesthetic": "Clean 2D vector style, simple expressive features (e.g., vertical pill eyes 2.2:1 ratio), flat planar color steps, zero 3D claymorphism",
+        "framing": "Oversized and intentional; anchors to and bleeds off bottom/side edges (heads/tops float in upper viewport) or anchors beside MAJOR task status transformations"
+      },
+      "icons_and_symbols": {
+        "style": "Oversized, expressive, bold vector outlines or flat filled shapes; strictly consistent design language across all categories (Primary Nav, Settings Row icons)"
+      }
+    },
+    "navigation_engine": {
+      "primary_bar": "Compact floating pill-shaped bottom bar (Max 4 destinations), large simple icons, minimal labels, active item softly elevated/filled with primary brand color, inactive items muted/quiet, separated by generous whitespace",
+      "secondary_screens": "Oversized minimalist top-left back arrow (←), zero top-bar clutter",
+      "immersive_focus_screens": "Bottom pill hidden; explicit top-left exit control (× or ← Exit) + massive thumb-zone CTA",
+      "reward_completion_screens": "Bottom pill hidden; oversized forward CTA (Next →) + quiet secondary return action"
+    }
+  }
+}
+```
+
+---
+
+## 📋 Hardcoded Unabridged Output Prompt Templates
+
+### 1. Stage 1 Output Prompt Template: Design Tokens & Component Kit (`/ui-theme`)
+```text
+[APP NAME] UI DESIGN SYSTEM & COMPONENT KIT PROMPT
+
+Generate an image of a complete modern mobile app UI design system, component library, and design tokens sheet for an app called "[APP NAME]".
+[APP NAME] is a [1-sentence description based on user input].
+
+Design Style
+Ultra modern 2026 startup aesthetic
+Minimalistic, clean, editorial design token layout
+[Light/Dark mode based on design direction]
+Soft rounded corners (16–20px radius)
+Floating card containers and subtle ambient shadows
+Apple-level clean UI mixed with [Benchmark brands from design direction]
+
+Color Palette
+[Primary surface and background hex codes]
+[Primary brand accent hex code]
+[Secondary and gradient accent hex codes]
+[Deep charcoal/soft white text colors]
+[Semantic status tag colors]
+
+Typography
+Clean modern sans-serif (Inter / SF Pro style)
+Strong Apple-like hierarchy: bold display headers, medium labels, clear body text
+Prominent metadata pill labels
+
+Components to Include
+1. Color Swatches & Tokens (Primary, Secondary, Backgrounds, Accent States)
+2. Typography Scale Hierarchy (Display, H1, H2, Body, Metadata)
+3. Button System (Primary filled pill, secondary outlined, ghost, icon-only)
+4. Form Controls (Search bar, rounded input fields with active/error states, toggle switches)
+5. Navigation Archetypes (Floating bottom tab bar with active icon states, top app bar)
+6. Micro-Components (Pill chips, status tags, rating badges, avatar clusters, step progress bars)
+7. Card Archetypes (Interactive media card, metrics HUD card, comparison table row, compact list item)
+
+Direction
+Design the component sheet like a production-ready Figma design system kit for a top App Store startup. Keep layouts clean, sharp, pixel-perfect, and ultra-high-resolution.
+```
+
+### 2. Stage 2 Output Prompt Template: App Icon & Logo Exploration Matrix (`/app-icon`)
+```text
+APP ICON & LOGO EXPLORATION MATRIX PROMPT (20 ICONS - 1080x1080 CANVAS)
+
+Generate an image of a clean, modern 20-icon app logo exploration matrix with ZERO text, letters, headers, labels, or watermarks anywhere on the canvas, arranged in an exact 4 rows × 5 columns grid on a single 1080x1080 dark canvas for the app designed in Stage 1.
+The app is the product defined in Stage 1, incorporating its core utility and brand personality.
+
+Logo Style Reference & Rendering JSON Library
+{
+  "canvas_and_tile_spec": {
+    "canvas": "1080x1080 pure black / deep obsidian slate canvas (#000000 / #0A0A0E) with zero typography, zero labels, and zero text",
+    "grid_structure": "4 Rows × 5 Columns (20 app icon squircles total, evenly spaced across the canvas)",
+    "tile_geometry": {
+      "aspect_ratio": "Strict 1:1 square aspect ratio (equal width and height dimensions, perfectly symmetrical, zero vertical stretching, strictly square bounding box)",
+      "curvature": "Apple superellipse squircle standard (n=4.5 continuous corner curvature)",
+      "internal_padding": "Safe zone margin of 20% between mark boundary and squircle edge"
+    }
+  },
+  "visual_execution_and_treatments": {
+    "zero_3d_mandate": "ABSOLUTELY NO 3D RENDERING, NO 3D CLAYMORPHISM, NO VOLUMETRIC EXTRUSION. Pure modern 2D graphic vector design with flat tactile depth.",
+    "column_background_architecture": {
+      "col_1_full_hero": "Vibrant duo-tone linear gradient field utilizing the primary and secondary brand accents from Stage 1 with subtle depth and glowing highlights",
+      "col_2_semi_flat": "Soft tinted background (very pale brand-tinted / off-white field derived from Stage 1 background tokens)",
+      "col_3_geometric": "Soft tinted background matching Column 2",
+      "col_4_contour_abstract": "Soft tinted background matching Column 2",
+      "col_5_minimal_glyph": "Full solid primary brand color fill background directly inherited from Stage 1 primary accent"
+    },
+    "mascot_and_graphic_framing": {
+      "bottom_frame_crop_bleed": "Mascots, characters, and objects anchoring and bleeding cleanly off the bottom squircle edge with heads/tops floating in the upper half",
+      "facial_and_eye_primitives": "High-contrast cutout pill eyes (pure white #FFFFFF or obsidian #000000), single oversized circular pupils, minimal sleeping zen arcs, and micro-toothed cutouts",
+      "vector_shading": "Flat 2D graphic styling with subtle planar tonal shading, 1px top-rim highlights, soft planar drop shadows under floating marks, clean vector geometry"
+    },
+    "progressive_5_step_reduction_rule": {
+      "col_1": "Full Hero 2D (rich multi-tone gradients, bottom-crop anchor, subtle planar shadows, accessory detail)",
+      "col_2": "Semi-Flat (simplified 2D vector, unified body color, signature expressive features on pale tinted squircle)",
+      "col_3": "Geometric (abstracted geometric shape using pure circles, pills, and continuous curves on pale tinted squircle)",
+      "col_4": "Contour / Line Abstract (monoline or contour vector outline of the abstracted mark on pale tinted squircle)",
+      "col_5": "Minimal Glyph (pure solid white negative-space iconic vector glyph centered on full solid brand color squircle)"
+    }
+  }
 }
 
-[APP DESIGN SYSTEM COLOR PALETTE & TYPOGRAPHY]
-- Primary Brand Accent: #00E5FF (Electric Cyan)
-- Secondary Vibe Accent: #FF6D00 (Flame Orange)
-- Surface Background: #090A0F (Cyber Obsidian)
-- Container Surface: #181B26
-- High-Contrast Text: #FFFFFF (Font: Plus Jakarta Sans Bold)
-- Body & Muted Text: #A0A5B5 (Font: Inter Medium)
-- Subtle Border: #232736
+Design Style & Material Finish
+Ultra modern 2026 App Store icon aesthetic
+App squircle containers: Strict 1:1 square tiles (width = height), continuous Apple corner radii
+Rendering: Pure 2D flat vector art, ultra-clean edges, subtle planar gradients, bottom-anchored crops, zero 3D modeling
+Color Palette: Directly inherited primary accent, secondary tones, surface backgrounds, and gradient tokens from Stage 1
 
-[EXACT LAYOUT & COMPONENT BLUEPRINT]
-1. Header Bar (56px Height):
-   - Left: App Mascot Icon (Sparky Flame) + Title "StreakStudio" (Font: Plus Jakarta Sans 22px Bold, Color: #FFFFFF).
-   - Right: Active Streak Counter Pill (#181B26 background, 1.5px #232736 border, rounded-full) containing SVG Flame Icon + Text "14 Days 🔥" (#FF6D00, 14px SemiBold).
+Matrix Layout Breakdown (4 Distinct Rows × 5 Columns Progressive Simplification - No Text)
+* ROW 1 (Archetype A: Playful Mascot / Character with Bottom-Frame Bleed):
+  - Col 1 (Full Hero 2D): Expressive character tied to the app concept emerging from bottom edge of vibrant duo-tone gradient square squircle, stylized pill/circle eyes, subtle planar shadows, accessory detail
+  - Col 2 (Semi-Flat): Simplified character silhouette with unified body color, bottom-edge anchor, and signature expressive eyes on pale tinted square squircle
+  - Col 3 (Geometric): Abstracted geometric head/body silhouette using pure rounded shapes and solid high-contrast eye cutouts on pale tinted square squircle
+  - Col 4 (Contour Abstract): Clean monoline contour outline of the mascot head with single-color accents on pale tinted square squircle
+  - Col 5 (Minimal Glyph): Pure solid white flat vector icon/glyph of the character head centered on full solid primary brand color square squircle
 
-2. Hero Daily Action Card (#181B26 background, 24px rounded corners, 1.5px #00E5FF border):
-   - Card Badge: "TODAY'S 5-SEC HABIT" (#00E5FF background, #090A0F text, 11px Bold, 6px padding).
-   - Card Title: "Record Your 5-Second Morning Workout Clip" (Font: Plus Jakarta Sans 18px Bold, #FFFFFF).
-   - Center Visual: Video Viewport Frame (9:16 thumbnail preview with dark low-opacity overlay) featuring camera shutter button icon (64px circle, #00E5FF fill, white inner ring).
-   - CTA Primary Action Button: Full-width 52px height stadium pill button (#00E5FF solid fill, #090A0F text, Plus Jakarta Sans 16px Bold) reading "Hold to Record 5s Clip".
+* ROW 2 (Archetype B: Tactile Action Symbol / Metaphor Badge):
+  - Col 1 (Full Hero 2D): Multi-layered symbol representing the core utility from Stage 1 with soft planar cast shadow, high-contrast rim strokes, and duo-tone gradient square squircle
+  - Col 2 (Semi-Flat): Streamlined 2D symbol with clean geometry and simplified flat surface layers on pale tinted square squircle
+  - Col 3 (Geometric): Solid dual-tone geometric abstraction of the core metaphor embedded inside a continuous line/arc on pale tinted square squircle
+  - Col 4 (Contour Abstract): Monoline vector outline of the metaphor badge and action arc on pale tinted square squircle
+  - Col 5 (Minimal Glyph): Pure solid white negative-space action glyph centered on full solid primary brand color square squircle
 
-3. Daily Streak Milestones Grid:
-   - Section Title: "Weekly Consistency" (#FFFFFF 16px Bold).
-   - 7 Day Tracker Pills (Mon - Sun): Completed days (Mon-Fri) rendered in solid #FF6D00 fill with white checkmarks; Today (Sat) pulsing cyan ring; Sun locked gray.
+* ROW 3 (Archetype C: Dynamic Modern Lettermark / Abstract Initial):
+  - Col 1 (Full Hero 2D): Multi-segment dynamic initial/symbol based on the app name with smooth directional gradient flow, subtle inset shadows, and high-contrast gradient square squircle
+  - Col 2 (Semi-Flat): Clean dual-tone 2D lettermark with simplified color blocks and crisp vector cuts on pale tinted square squircle
+  - Col 3 (Geometric): High-contrast geometric symbol constructed from solid color-blocked primitives on pale tinted square squircle
+  - Col 4 (Contour Abstract): Monoline contour vector form of the lettermark on pale tinted square squircle
+  - Col 5 (Minimal Glyph): Pure solid white vector initial/lettermark cutout centered on full solid primary brand color square squircle
 
-[LOCKED APP NAVIGATION SYSTEM]
-Render ONLY this single floating stadium pill navigation bar (80px height, 32px corner radius, #18181B dark surface container):
-- Tab 1 [Home - Active]: #00E5FF highlighted pill container, icon + "Today" label.
-- Tab 2 [Streaks]: Muted text #A0A5B5, flame icon + "Streaks" label.
-- Tab 3 [Memories]: Muted text #A0A5B5, video gallery icon + "Memories" label.
-- Tab 4 [Profile]: Muted text #A0A5B5, user icon + "Profile" label.
+* ROW 4 (Archetype D: Modular Spatial / Connected Node Flow Mark):
+  - Col 1 (Full Hero 2D): Layered pathway/stepped nodes representing the app workflow with multi-color surface fills, connected flow geometry, and duo-tone gradient square squircle
+  - Col 2 (Semi-Flat): Simplified planar nodes with flat unified connection lines on pale tinted square squircle
+  - Col 3 (Geometric): Abstracted geometric flow mark using pure circles and angled connector segments on pale tinted square squircle
+  - Col 4 (Contour Abstract): Clean monoline vector schematic outline of the connected nodes on pale tinted square squircle
+  - Col 5 (Minimal Glyph): Pure solid white vector stepped-node glyph centered on full solid primary brand color square squircle
 
-[STRICT GENERATION CONSTRAINTS]
-1. MOBILE PORTRAIT CANVAS ONLY (9:16 Portrait Aspect Ratio).
-2. ZERO SHADOWS & ZERO GLOWS (Flat 2D surfaces only).
-3. ZERO ANIMATION RULE (100% static UI render).
-4. LOCKED SINGLE NAVIGATION BAR (Do NOT render multiple nav bars).
-============================================================
-```
-
-### 2. Hardcoded Example Output Prompt: `/app-icon` (Dual-Prompt Standard)
-```markdown
-# 📱 App Icon Design Exploration: StreakStudio — 5-Sec Video Habit Journal
-
-## 🎨 Design Vision & Canvas Specs
-- **App Concept**: 5-Second Video Habit Journal & Daily Streak Tracker
-- **Brand Vibe**: Energetic, Tactile, Modern, Cyber Obsidian & Flame Orange
-- **Canvas Requirements**: Standard App Icon (1:1 Square with rounded squircle mask framing, high contrast, zero tiny text)
-
----
-
-### VARIANT A: Google Stitch Canvas Exploration Prompt
-```
-=== GOOGLE STITCH APP ICON SPECIFICATION ===
-Target Platform: Mobile App Icon Spec (1:1 Aspect Ratio Canvas)
-App Name: StreakStudio
-Brand Colors: #00E5FF (Electric Cyan), #FF6D00 (Flame Orange), #090A0F (Cyber Obsidian)
-
-[GOAL & INSTRUCTIONS FOR GOOGLE STITCH]
-Generate an App Store high-resolution mobile app icon on a 1:1 square canvas with iOS squircle corner mask framing.
-
-[VISUAL COMPOSITION BLUEPRINT]
-- Icon Container: Dark obsidian gradient background (#090A0F top-left to #12141D bottom-right) with a subtle 2px #00E5FF border highlight around the squircle edge.
-- Central Emblem: A stylized dual-symbol fusion of a 5-second video camera shutter aperture ring intertwined with a vibrant #FF6D00 flame vector symbol.
-- Center Shutter Ring: Clean 64px circular aperture ring drawn in #00E5FF solid stroke with a centered play triangle.
-- Lighting & Surface: Flat 2D vector graphic aesthetics. Zero photorealistic glossy glass reflection, zero outer ambient neon glow, zero complex gradient mesh.
-- Composition Rule: Center the emblem with 25% padding on all sides. Do NOT add app title text inside the icon.
-
-[STRICT GENERATION CONSTRAINTS]
-1. 1:1 SQUARE ASPECT RATIO ONLY with rounded squircle boundary.
-2. FLAT 2D VECTOR SURFACE ONLY. No 3D render depth or hyper-realistic textures.
-3. NO SMALL TEXT INSIDE ICON. Emblem symbol ONLY.
-============================================================
-```
-
----
-
-### VARIANT B: ChatGPT / Midjourney / DALL-E / Recraft Generative Prompt
-```
-App store icon for a mobile habit tracker app named StreakStudio, 1:1 aspect ratio, centered emblem composition on a dark obsidian background (#090A0F). The icon features a striking minimalistic flat 2D vector logo combining an electric cyan (#00E5FF) video camera shutter ring and a bright flame orange (#FF6D00) streak icon. Clean geometric lines, smooth curves, iOS squircle shape framing, bold colors, professional App Store aesthetic, vector graphic style, high contrast, no words or text, isolated design on dark background --v 6.0 --ar 1:1 --no text, font, photorealism, glossy glass, shadows
+Direction
+Display strictly 20 app icon squircles in an exact, symmetrical 4x5 grid across the 1080x1080 dark canvas. Every squircle must be a strict 1:1 square (width equal to height). Columns 2, 3, and 4 use pale tinted squircle backgrounds, while Column 5 uses the full solid brand background with a pure white glyph. Absolutely no text, headers, numbers, or labels on the canvas. Crisp Apple squircle outlines, ultra-high-resolution, and production-ready vector fidelity.
 ```
 ```
 
