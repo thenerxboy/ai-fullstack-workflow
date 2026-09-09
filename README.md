@@ -6,7 +6,7 @@ Universal, Enterprise-Grade 5-Phase AI Agent Workflow for Building Multi-Surface
 
 ## ⚡ Quick-Start Installation (Step-by-Step, 1 Command Per Line)
 
-To ensure your app code commits ONLY to your app repository while keeping `design_catalog.json` learnings linked, execute these commands one line at a time in your terminal:
+To install the workflow skills into your app workspace while keeping your application codebase 100% clean and decoupled, execute these commands one line at a time in your terminal:
 
 #### Step 1: Create your app project directory
 ```bash
@@ -170,7 +170,7 @@ fullstack-agent-workflow/
 - **Autonomous `AGENTS.md` Generator (`/init-agents`)**: Compiles a 100% project-tailored `./AGENTS.md` at the project root by ingesting completed `docs/` artifacts.
 - **External Skill & Doc Mapping Engine (`docs/05-external-skills/`)**: Maps required framework/dependency skills (Clerk, Convex, Expo, Stripe, Supabase), checks local cache, guides developer on missing skills/docs, and stores doc snippets for permanent future reference.
 - **Zero Memory Collision Policy**: Tracks UI design system locks, registered SVG icons, and screen versions in `docs/04-ui-design/DESIGN-MEMORY.md` to guarantee zero collisions with main agent memory.
-- **Dual-Prompt Standard**: Generates Dual Prompts (Vector spec + ChatGPT / Midjourney prompt) for App Icons (`/app-icon`) and Storefront Screenshots (`/app-screenshots`).
+- **Dual-Engine Standard**: Generates 100% ChatGPT/Midjourney Exploration Matrix Prompts for App Icons (`/app-icon`) and Dual Prompts (Google Stitch Spec + ChatGPT/Midjourney Prompt) for Storefront Screenshots (`/app-screenshots`).
 - **Google Fonts Pairing Engine**: Suggests 2–3 curated font combinations with clickable specimen preview links (`https://fonts.google.com/specimen/...`) for explicit user approval.
 - **PRD Content Extraction Mandate**: Strictly ingests real domain copy, CTAs, and metrics from `docs/` with zero placeholder text ("Lorem Ipsum", "John Doe", "$99").
 - **Canonical Turborepo Monorepo Architecture**: Enforces `apps/native` (Expo Router), `apps/web` (Next.js App Router), `packages/ui`, `packages/db`, and `packages/auth`.
