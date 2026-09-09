@@ -428,8 +428,38 @@ Screens (8 Screens on a 1080x1080 Canvas)
 7. Saved Collections & Library: Custom collection folders, favorited items grid, clean empty-state variant
 8. Profile & Account Settings: User avatar, 3-column stats counter, grouped settings rows with icons, red log out button
 
+### 6. Stage 6 Output Prompt Template: High-Converting App Store Screenshot Showcase (`/app-screenshots`)
+```text
+[APP NAME] APP STORE SCREENSHOT SHOWCASE PROMPT (8 FRAMES - 1080x1080 CANVAS)
+
+Generate an image of 8 high-converting App Store marketing screenshot mockups arranged in a clean, panoramic presentation sequence on a single 1080x1080 canvas for an app called "[APP NAME]".
+[APP NAME] is a [1-sentence description from stage 1].
+
+Marketing & Visual Design Style
+Ultra modern 2026 App Store marketing aesthetic (Apple Design Award winner style)
+Consistent with [APP NAME] design tokens: [Inherited Palette, Pill styles, and Typography from Stage 1]
+Clean editorial marketing layouts with bold benefit-driven headlines at the top of each frame
+Premium angled and front-facing iPhone mockups with subtle 3D depth, soft drop shadows, and ambient glow
+Selective panoramic bleed: seamlessly split device mockups or floating UI elements across the boundary of designated adjacent frames without cutting off headlines or primary action text
+Dynamic continuous background with subtle gradient aura connecting all 8 frames
+
+Typography & Copy Structure
+Top Headline: Extra bold editorial sans-serif (Inter / SF Pro Display), perfectly legible within frame boundaries
+Subheadline: Medium weight, concise value-driven explanation (Max 8-10 words)
+Prominent metadata badges and rating chips embedded in marketing frames
+
+Screenshot Narrative & Conversion Flow (8 Marketing Frames on a 1080x1080 Canvas)
+1. Hook & Core Value (The Hero): Headline: "[Core Outcome in 3 Words]" | Subheadline: "[1-line primary benefit]" | Hero device mockup showing main Dashboard HUD with floating rating badge "Rated 4.9 ★ by 100k+ Users" [Right edge of device seamlessly cuts and bleeds into Frame 2]
+2. Primary Pain Point Solved: Headline: "[Solve Main Frustration]" | Subheadline: "[How feature makes it effortless]" | [Left edge receives seamless device bleed from Frame 1] showcasing AI Tool / Core Generator with floating before/after or speed metric tag
+3. Speed & Effortless Workflow (Standalone Frame): Headline: "[Action Completed in Seconds]" | Subheadline: "[Frictionless UX benefit]" | Centered front-facing device showing active workflow execution with a magnified floating UI snippet
+4. Deep Personalization & Control (Standalone Frame): Headline: "[Tailored 100% to You]" | Subheadline: "[Custom preferences & smart recommendations]" | Clean device showing interactive setup & preference selector chips
+5. Data, Insights & Progress: Headline: "[Track Every Win & Milestone]" | Subheadline: "[Real-time analytics and habit consistency]" | Device showcasing Analytics HUD and weekly progress charts [Floating progress widget seamlessly bleeds into Frame 6]
+6. Explore & Smart Discovery: Headline: "[Endless Inspiration / Curated For You]" | Subheadline: "[Filter by cuisine, style, or goals]" | [Left side receives seamless UI card bleed from Frame 5] showing Search, Category pills, and rich content cards
+7. Trust & Social Proof (Standalone Frame): Headline: "[Loved by Over 500,000+ People]" | Subheadline: "[Real user results and reviews]" | Device showing community/reviews feed overlaid with 3 floating 5-star customer review bubbles
+8. Premium Transformation & Call to Action (Standalone Frame): Headline: "[Unlock Your Full Potential]" | Subheadline: "[Try Pro free for 3 days]" | Centered device showcasing Paywall/Pro perks with glowing "Start Free Trial" badge
+
 Direction
-Design the app like a real App Store startup product. All 8 screens must feel unified by one cohesive design system. Displayed on a balanced 1080x1080 canvas with pixel-perfect spacing, modern typography, and realistic UI elements.
+Design the showcase like a featured top-ranking App Store product page mockup. Seamlessly blend frames 1-2 and frames 5-6 while keeping all headlines, CTA buttons, and critical copy 100% sharp and unclipped within their respective frames. Ultra-high-resolution, perfectly aligned 8-frame grid, cohesive startup branding, and pixel-perfect iPhone presentation.
 ```
 ```
 
