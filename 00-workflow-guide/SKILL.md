@@ -58,8 +58,8 @@ Here is our 5-Phase Production Journey:
    - Outputs: `docs/03-tech-stack/app-features.md` & `TECH-STACK.md`
 
 5️⃣ **Phase 4: Design Tokens, Generative UI Prompts, App Icons & Screenshots** (`/ui-theme`, `/ui-flow`, `/app-icon`, `/app-screenshots`)
-   - Locks color palettes & Google Fonts pairings in `./app_theme.json`, extracts vision screens to local `./design_catalog.json`, compiles Generative UI prompts, and generates 20-icon logo matrices & App Store screenshots.
-   - Outputs: `app-screens/*.png` (reference screens), `app-screens/prompts/<screen_id>.md`, `docs/04-ui-design/DESIGN-MEMORY.md`
+   - Enforces Component-First sequence (`/ui-theme` token lock -> Stage 3 Auth -> Stage 4 Paywall -> Stage 5 Core Screens). Outputs Lead Designer ChatGPT prompts in chat (never in `app-screens/`) and archives compiled Google Stitch screen prompt specs in `app-screens/prompts/<screen_id>.md`.
+   - Outputs: `app-screens/*.png` (reference screens), `app-screens/prompts/<screen_id>.md` (Stitch specs ONLY), `docs/04-ui-design/DESIGN-MEMORY.md`
 
 6️⃣ **Phase 5: Tailored AGENTS.md Setup & External Skills Mapping** (`/init-agents`)
    - Ingests `docs/` to generate a 100% project-tailored `./AGENTS.md` at project root.

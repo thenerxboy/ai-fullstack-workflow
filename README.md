@@ -123,7 +123,7 @@ Open your project in Antigravity, Claude Code, Cursor, or Windsurf and type:
 | **Phase 2** | **`/prd`** | Executes 8-question discovery loop for ASO keywords, web surface models, compliance triad, and V1 scope. | `docs/02-prd-research/ARCH-PRD.md` |
 | **Phase 3** | **`tech-stack`** | Feature-first stack decomposition across 8 Turborepo monorepo layers and DB client schemas. | `docs/03-tech-stack/TECH-STACK.md` |
 | **Phase 4** | **`/ui-theme`** | Ingests PRD & App Brief, locks 2-3 color palettes and Google Fonts pairings, audits visual assets in `./app_theme.json`. | **Design System Token Lock** |
-| **Phase 4** | **`/ui-flow`** | Compiles Generative UI screen prompt blueprints organized by user flow (Onboarding, Auth, Paywall, Main Tabs, Happy Path). | **Generative UI Screen Prompts** |
+| **Phase 4** | **`/ui-flow`** | Enforces Component-First sequence (`/ui-theme` token lock -> Stage 3 Auth -> Stage 4 Paywall -> Stage 5 Core Screens) and compiles UI screen prompt blueprints. | **Generative UI Screen Prompts** |
 | **Phase 4** | **`/app-icon`** | Generates 20-icon app logo exploration matrix prompt across 4 rows × 5 columns (1080x1080 \| 100% 2D vector). | **20-Icon Matrix Prompt (ChatGPT / Midjourney)** |
 | **Phase 4** | **`/app-screenshots`** | Generates 5 panoramic App Store marketing screenshots + 1 Next.js web storefront hero screen. | **Dual-Prompt Standard** (Vector Spec + Midjourney) |
 | **Phase 5 (Setup)** | **`/init-agents`** | Ingests `docs/` and autonomously generates a 100% project-tailored `./AGENTS.md` file at the root. | Tailored `./AGENTS.md` |

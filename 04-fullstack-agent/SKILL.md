@@ -25,7 +25,7 @@ Agents MUST search for input context files and write output artifacts using this
 | **Tech Stack Spec (MANDATORY)** | `docs/03-tech-stack/TECH-STACK.md` | `docs/TECH-STACK.md` | `./TECH-STACK.md` |
 | **UI Design Memory** | `docs/04-ui-design/DESIGN-MEMORY.md` | `docs/DESIGN-MEMORY.md` | `./DESIGN-MEMORY.md` |
 | **External Skills & Docs Cache** | `docs/05-external-skills/*.md` | `docs/external-skills/*.md` | `./skills/*.md` |
-| **Approved UI Screen Prompts** | `app-screens/prompts/<screen_id>.md` | `app-screens/<screen_id>.md` | `./<screen_id>.md` |
+| **Google Stitch Screen Prompts** | `app-screens/prompts/<screen_id>.md` | `app-screens/<screen_id>.md` | `./<screen_id>.md` |
 | **AI Implementation Plans** | `prompts/<task_name>.md` | `docs/prompts/<task_name>.md` | `./prompts/<task_name>.md` |
 
 ---

@@ -74,6 +74,12 @@ You can invoke `ui-skill` in any AI assistant (Antigravity, Claude Code, Cursor,
    - Hardcodes raw mathematical SVG code into every compiled prompt to eliminate icon drift across screens.
 5. **Mobile Portrait Canvas Mandate (9:16 Aspect Ratio)**:
    - Enforces narrow vertical smartphone app screen canvases with flat 2D surfaces (zero drop-shadows, zero ambient glows, zero animation).
+6. **Exclusive Google Stitch Screen Prompt Archiving Mandate (`app-screens/prompts/`)**:
+   - `app-screens/prompts/` is strictly reserved for **Google Stitch Standalone Screen Prompt specifications** (`<screen_id>.md`) compiled via `scripts/ui_formatter.js` and their rendered screenshots (`<screen_id>.png`).
+   - ChatGPT / Midjourney prompts output in chat for image generation tools are NEVER saved to `app-screens/`.
+7. **Lead Designer Persona & Component-First Stage Protocol**:
+   - `/ui-flow` enforces strict stage progression (Stage 1 `/ui-theme` token lock -> Stage 3 Auth -> Stage 4 Paywall -> Stage 5 Core Screens).
+   - All ChatGPT prompts adopt the Lead Product Designer persona, ingesting active visual presets (`vibe_preset_01`, `vibe_preset_02`, `vibe_preset_03`), exact tokens, and real domain copy from `docs/`.
 
 ---
 

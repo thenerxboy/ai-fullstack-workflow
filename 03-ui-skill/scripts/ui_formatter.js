@@ -93,8 +93,10 @@ function applyAppThemeToSpec(specObj, colorTokens) {
 }
 
 function generateUIPrompt(spec, themeConfig, activeThemeKey, appDomain) {
-  const activeTheme = themeConfig.themes[activeThemeKey] || themeConfig.themes[themeConfig.active_theme];
-  const colorTokens = activeTheme.color_tokens;
+  const profiles = themeConfig.theme_profiles || themeConfig.themes || DEFAULT_THEME_CONFIG.themes;
+  const activeProfileKey = activeThemeKey || themeConfig.active_theme_profile || themeConfig.active_theme || Object.keys(profiles)[0] || 'default_theme';
+  const activeTheme = profiles[activeProfileKey] || Object.values(profiles)[0] || DEFAULT_THEME_CONFIG.themes.default_theme;
+  const colorTokens = activeTheme.colors || activeTheme.color_tokens || DEFAULT_THEME_CONFIG.themes.default_theme.color_tokens;
   const themeInjectedSpec = applyAppThemeToSpec(spec, colorTokens);
 
   let lockedNav = null;
@@ -104,8 +106,8 @@ function generateUIPrompt(spec, themeConfig, activeThemeKey, appDomain) {
     if (rawNav.tabs && Array.isArray(rawNav.tabs)) {
       rawNav.tabs = rawNav.tabs.map(tab => ({
         ...tab,
-        active_state: tab.tab_id.toLowerCase() === currentCategory,
-        active_pill_highlight: tab.tab_id.toLowerCase() === currentCategory
+        active_state: (tab.id || tab.tab_id || '').toLowerCase() === currentCategory,
+        active_pill_highlight: (tab.id || tab.tab_id || '').toLowerCase() === currentCategory
       }));
     }
     lockedNav = applyAppThemeToSpec(rawNav, colorTokens);
@@ -114,11 +116,13 @@ function generateUIPrompt(spec, themeConfig, activeThemeKey, appDomain) {
   const effectiveNav = lockedNav || themeInjectedSpec.single_bottom_navigation_bar;
   const targetAppName = appDomain ? `${themeConfig.app_name} (${appDomain})` : themeConfig.app_name;
   const svgRegistry = themeConfig.svg_registry || {};
+  const primaryBrandAccent = colorTokens.primary_brand_accent || colorTokens.primary_accent || '#00E5FF';
+  const surfaceBackground = colorTokens.surface_background || '#090A0F';
 
   return `=== GENERATIVE UI PROMPT SPECIFICATION ===
 Target Platform: Mobile Smartphone App Screen (Vertical 9:16 Portrait)
 Target App Name: ${targetAppName}
-Active Theme Profile: "${activeTheme.name}" (${activeThemeKey})
+Active Theme Profile: "${activeTheme.name || activeProfileKey}" (${activeProfileKey})
 Design Title: ${spec.title}${appDomain ? ` (Adapted to ${appDomain})` : ''}
 Target Viewport: Mobile Smartphone App Screen (Vertical 9:16 Portrait)
 Screen Category: ${spec.screen_type || spec.component_type}
@@ -144,16 +148,18 @@ CRITICAL MANDATORY DIRECTIVE FOR ALL ICONS:
 ${JSON.stringify(svgRegistry, null, 2)}
 
 [APP DESIGN SYSTEM COLOR PALETTE]
-- Primary Brand Accent: ${colorTokens.primary_brand_accent}
-- Primary Accent: ${colorTokens.primary_accent}
-- Surface Background: ${colorTokens.surface_background}
-- Elevated Surface: ${colorTokens.surface_elevation_1}
-- Container Surface: ${colorTokens.surface_container}
-- Dark Container Surface: ${colorTokens.surface_container_dark || '#18181B'}
-- High-Contrast Text: ${colorTokens.on_surface_high}
-- Medium Text: ${colorTokens.on_surface_medium}
-- Muted Text: ${colorTokens.on_surface_muted}
-- Subtle Border / Outline: ${colorTokens.outline_subtle}
+- Primary Brand Accent: ${primaryBrandAccent}
+- Primary Accent: ${colorTokens.primary_accent || colorTokens.primary_brand_accent || '#FF6D00'}
+- Primary Accent Hover: ${colorTokens.primary_accent_hover || '#059669'}
+- Surface Background: ${surfaceBackground}
+- Surface Card: ${colorTokens.surface_card || colorTokens.surface_container || '#181B26'}
+- Elevated Surface: ${colorTokens.surface_elevated || colorTokens.surface_elevation_1 || '#141722'}
+- Container Surface: ${colorTokens.surface_container || colorTokens.surface_card || '#181B26'}
+- Dark Container Surface: ${colorTokens.surface_container_dark || '#10121A'}
+- High-Contrast Text: ${colorTokens.on_surface_high || '#FFFFFF'}
+- Medium Text: ${colorTokens.on_surface_medium || '#A0A5B5'}
+- Muted Text: ${colorTokens.on_surface_muted || '#606575'}
+- Subtle Border / Outline: ${colorTokens.border_subtle || colorTokens.outline_subtle || 'rgba(255, 255, 255, 0.08)'}
 
 [EXACT LAYOUT & COMPONENT BLUEPRINT (WITH APPLIED APP THEME)]
 Background Configuration:
@@ -176,7 +182,7 @@ ${JSON.stringify(effectiveNav, null, 2)}
 4. LOCKED NAVIGATION BAR CONSISTENCY: Render EXACTLY ONE bottom navigation bar on the entire screen using the locked stadium pill spec above. Do NOT alter the navigation bar shape, tabs, or styling.
 5. SINGLE TOP HEADER RULE: Do NOT duplicate the top header bar.
 6. Reproduce the exact layout flex/grid structure, stacking order, element padding, and vertical positioning as specified in the blueprint above.
-7. Use the target app's exact color values provided above (${colorTokens.primary_brand_accent} for primary elements, ${colorTokens.surface_background} for main surface).
+7. Use the target app's exact color values provided above (${primaryBrandAccent} for primary elements, ${surfaceBackground} for main surface).
 8. Do NOT invent extra section cards or duplicate bottom tabs outside of the specified blueprint.
 ============================================================`;
 }
@@ -189,7 +195,8 @@ function main() {
   const flags = rawArgs.filter(a => a.startsWith('--'));
   const args = rawArgs.filter(a => !a.startsWith('--'));
 
-  let activeThemeKey = themeConfig.active_theme;
+  const profiles = themeConfig.theme_profiles || themeConfig.themes || DEFAULT_THEME_CONFIG.themes;
+  let activeThemeKey = themeConfig.active_theme_profile || themeConfig.active_theme || Object.keys(profiles)[0];
   const themeFlag = flags.find(f => f.startsWith('--theme='));
   if (themeFlag) activeThemeKey = themeFlag.split('=')[1];
 
@@ -198,7 +205,8 @@ function main() {
   if (domainFlag) appDomain = domainFlag.split('=')[1].replace(/^["']|["']$/g, '');
 
   if (args.length < 2) {
-    console.log(`\n🎨 Active App Theme: "${themeConfig.themes[activeThemeKey]?.name || activeThemeKey}"`);
+    const activeProfile = profiles[activeThemeKey] || Object.values(profiles)[0] || {};
+    console.log(`\n🎨 Active App Theme: "${activeProfile.name || activeThemeKey}"`);
     console.log('\n📱 Available Screen Specs in Catalog:');
     for (const [cat, list] of Object.entries(catalog.screens)) {
       console.log(`\nCategory [${cat}]:`);
