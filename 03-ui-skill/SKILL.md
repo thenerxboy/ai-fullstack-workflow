@@ -155,7 +155,7 @@ The UI Skill supports **3 Distinct Visual Design Style Presets**. When generatin
 | :--- | :--- | :--- |
 | **`vibe_preset_01`** | **Exaggerated Focus-First Minimalism** | **56–72px Display Headers**, **18–24px Squircles**, **52–60px Stadium Pills**, **40%+ Whitespace**, **Lower 2/3 Thumb Zone Ergonomics**, **"One Thing at a Time"** focal rule, 2D mascot bottom-crop, and **Full-Bleed Brand Color Inversions** on High-Emotion screens (Splash, Welcome, Milestone, Paywall). |
 | **`vibe_preset_02`** | **Clean Editorial Utility & Translucent Glass Grid** | **16–24px Rounded Corners**, **48–56px Pill CTAs**, **36–40px Filter Chips**, **Translucent Frosted Glassmorphism**, **Hero Media-First Cards (16:9 / 4:3)**, **Prominent Metadata Pills**, **Segmented Tabs**, **Light Mode First** (`#FFFFFF` / `#FAFAF8` / `#FBF8F4`) with Dark Mode option, and **Vibrant Domain Accents**. |
-| **`vibe_preset_03`** | **Adaptive Niche / Modern Industry Standard** | AI analyzes the app's domain (e.g. Fintech, Health/Fitness, SaaS, E-Commerce) and applies current top iOS/Android industry visual trends for that specific niche. |
+| **`vibe_preset_03`** | **Adaptive Niche & Industry Standard Engine** | **Dynamic Domain Detection** (Fintech/Banking, Health/Fitness, B2B SaaS/DevTools, E-Commerce, AI Tools, Crypto/Web3, Social), **Adaptive Radii (8px–24px)**, **Industry Archetype Color Systems**, **Mono/Sans Typography**, and **Niche-Optimized Card Densities**. |
 
 ### 🧪 On-Demand Preset Switching Protocol
 1. **User Request**: If the user asks to test or switch presets at any phase (e.g., *"Generate Stage 4 using Preset 02"* or *"Test Stage 3 with Preset 03"*), the agent MUST immediately regenerate the prompt using the target preset's rules.
@@ -252,8 +252,46 @@ You are acting as an elite Lead Product Designer, Design Systems Architect, and 
       "search_and_filters": "Top pill-shaped search input (48px–52px height) with inline leading magnifying glass SVG and trailing filter button, paired with horizontal scrollable filter chip rows",
       "detail_screens": "Sticky bottom bar with high-contrast primary CTA button (e.g. \"Start Cooking\", \"Book Appointment\", \"Generate Trip\") and floating action buttons"
     }
+  },
+  "vibe_preset_03": {
+    "name": "Adaptive Niche & Industry Standard Engine",
+    "domain_adaptation_protocol": "AI agent dynamically detects the target app domain from docs/ (Fintech, Health & Fitness, B2B SaaS / Developer Tools, E-Commerce & Marketplace, AI Productivity & Creative Tools, Crypto & Web3, Social & Creator Economy) and applies the precise 2026 industry visual standards defined below.",
+    "niche_visual_archetypes": {
+      "fintech_and_banking": {
+        "visual_vibe": "Ultra-secure, sophisticated, high-trust, sleek obsidian or crisp slate minimalism",
+        "spatial_and_cards": "12px–16px tight rounded containers, multi-currency wallet cards, micro-sparkline charts, biometric auth badges, metallic card surface accents",
+        "color_and_typography": "Deep navy/black (#0A0E17) or pristine white (#FFFFFF) with emerald green positive trend indicators (#10B981) and cobalt blue primary accents (#2563EB); mono-spaced numerical figures for monetary values"
+      },
+      "health_and_fitness": {
+        "visual_vibe": "High-energy, empowering, dark-mode first or vibrant organic light mode",
+        "spatial_and_cards": "Circular calorie/macro progress rings, streak flame indicators, 20px–24px rounded workout telemetry cards, large stat counters, tactical biometric telemetry cards",
+        "color_and_typography": "Dark obsidian charcoal (#090A0F) with electric cyan (#00E5FF), neon lime (#A3E635), or vibrant orange (#FF6B00) accents; bold condensed display typography for metric numbers"
+      },
+      "b2b_saas_and_developer_tools": {
+        "visual_vibe": "High-density data clarity, sleek linear dashboard aesthetic, professional developer velocity",
+        "spatial_and_cards": "8px–12px compact rounded cards, multi-column metrics grids, inline command palette bars (Cmd+K), status indicator dots (green/amber/blue), code block snippets with syntax highlighting",
+        "color_and_typography": "Dark slate background (#0F172A) or crisp gray (#F8FAFC), subtle 1px border outlines (#334155), violet/indigo primary accent (#6366F1), high-contrast monospace typography for code/keys"
+      },
+      "ecommerce_and_marketplace": {
+        "visual_vibe": "Immersive product discovery, high-conversion visual retail, editorial photo-driven",
+        "spatial_and_cards": "Large 4:3 product photo tiles with top-right wishlist hearts, 16px rounded cards, sticky bottom \"Add to Cart\" pill bar, discount badge chips, star rating pills",
+        "color_and_typography": "Clean neutral background (#FAFAFA), high-contrast black primary CTA (#000000) or rich terracotta/warm accent, elegant serif headers for editorial collections"
+      },
+      "ai_productivity_and_creative_tools": {
+        "visual_vibe": "Futuristic AI magic, glowing luminous prompt bars, fluid canvas focus",
+        "spatial_and_cards": "Floating AI prompt input pill with multi-color gradient border halos, glassmorphic response cards, streaming token text animations, quick suggestion chips",
+        "color_and_typography": "Deep space dark background (#0B0C10) with multi-hue iridescent gradient accents (purple-to-cyan-to-amber), luminous white high-contrast body typography"
+      }
+    },
+    "general_adaptive_rules": {
+      "corner_radius": "Dynamically adapted to niche: 8px–12px for SaaS/Developer Tools, 12px–16px for Fintech/Banking, 16px–24px for Fitness/Social/Consumer",
+      "interactive_elements": "Niche-tailored CTAs: full-width pill buttons for consumer apps, crisp rectangular rounded buttons (8px–12px) for B2B SaaS, glowing gradient pills for AI tools",
+      "navigation_engine": "Context-aware: floating stadium pill for consumer mobile, fixed bottom tab bar for utility tools, side rail / command bar for desktop/tablet SaaS",
+      "dark_vs_light_mode": "Auto-selected based on domain norm (Dark mode first for Fitness/AI/Crypto/SaaS; Light mode first for Fintech/E-Commerce/Travel/Healthcare)"
+    }
   }
 }
+```
 ```
 ```
 
