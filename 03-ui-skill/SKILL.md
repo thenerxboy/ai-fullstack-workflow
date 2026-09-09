@@ -44,12 +44,12 @@ When running prompt compilation scripts, the script dynamically evaluates candid
 | **`/ui-help`** | `/ui-skill --help`, `/ui-help` | Displays complete manual overview: what the skill does, file schemas (`app_theme.json`, `design_catalog.json`), phases, and rules. |
 | **`/ui-shortcuts`** | `/ui-skill --shortcuts`, `/ui-shortcuts` | Displays fast reference list of all available UI shortcut triggers and what they do. |
 | **`/ui-theme`** | Ingests `APP-BRIEF.md` & `ARCH-PRD.md`, proposes 2–3 Color Palettes and Google Fonts pairings, audits required visual assets (mascot/logo/SVGs), and locks `./app_theme.json`. | **Design System Token Lock** |
-| **`/ui-flow`** | Generates UI screen prompt blueprints organized by single user flow (Onboarding & Auth, Activation & Paywall, Main App Tabs, Happy Path Core Loop). Ingests `docs/` for real copy. | **Generative UI Screen Prompt** |
-| **`/app-icon`** | Generates 5 distinct logo exploration concept canvases (Mascot, Metaphor, Lettermark, Geometric, Wordmark) for the app brand. | **Dual-Prompt Standard** (Variant A: Vector Spec + Variant B: ChatGPT / Midjourney) |
-| **`/app-screenshots`** | Generates 5 panoramic App Store marketing screenshots + 1 Next.js web storefront hero mockup screen (`shots.so` framing). | **Dual-Prompt Standard** (Variant A: Vector Spec + Variant B: ChatGPT / Midjourney) |
+| **`/ui-flow`** | Generates UI screen prompt blueprints organized by single user flow (Onboarding & Auth, Activation & Paywall, Main App Tabs, Happy Path Core Loop). Ingests `docs/` for real copy. | **Dual-Engine Standard** (Google Stitch + ChatGPT) |
+| **`/app-icon`** | Generates 5 distinct logo exploration concept canvases (Mascot, Metaphor, Lettermark, Geometric, Wordmark) for the app brand. | **Dual-Prompt Standard** (Variant A: Google Stitch Vector Spec + Variant B: ChatGPT / Midjourney) |
+| **`/app-screenshots`** | Generates 5 panoramic App Store marketing screenshots + 1 Next.js web storefront hero mockup screen (`shots.so` framing). | **Dual-Prompt Standard** (Variant A: Google Stitch Screenshot Spec + Variant B: ChatGPT / Midjourney) |
 | **`/ui-init`** | Auto-creates `./app_theme.json`, project-local `./design_catalog.json`, `app-screens/` folder, and `docs/04-ui-design/DESIGN-MEMORY.md` in project root. | Operations Script |
 | **`/ui-extract`** | Extracts attached ChatGPT visual concept screenshot into color-agnostic JSON blueprint via `scripts/add_catalog_blueprint.js` and appends to local `./design_catalog.json`. | Local Catalog JSON |
-| **`/ui-compile`** | Compiles a UI prompt for a specific screen from local `./design_catalog.json` with domain adaptation (`node scripts/ui_formatter.js --app_domain`). | **Generative UI Screen Prompt** |
+| **`/ui-compile`** | Compiles a Google Stitch prompt for a specific screen from local `./design_catalog.json` with domain adaptation (`node scripts/ui_formatter.js --app_domain`). | **Google Stitch Prompt Blueprint** |
 | **`/ui-sync`** | Batch compiles & updates ALL archived screen prompts in `app-screens/` to reflect global theme changes (`node scripts/ui_formatter.js --all`). | Formatter Sync |
 | **`/ui-approve`** | Saves current approved UI prompt into `app-screens/prompts/<screen_id>.md` and updates `docs/04-ui-design/DESIGN-MEMORY.md`. | Markdown File Archive |
 
