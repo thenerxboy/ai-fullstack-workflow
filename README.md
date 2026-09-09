@@ -63,7 +63,7 @@ Once installed, open your project in your AI assistant (Antigravity, Claude Code
                                          │
                                          ▼
 +-----------------------------------------------------------------------------------+
-| Phase 4: Design Tokens, Stitch UI Prompts, Dual App Icons (/ui-theme, /ui-flow)  |
+| Phase 4: Design Tokens, Generative UI Prompts, Dual App Icons (/ui-theme, /ui-flow)|
 | Outputs: app-screens/*.png, app-screens/prompts/, docs/04-ui-design/DESIGN-MEMORY |
 +-----------------------------------------------------------------------------------+
                                          │
@@ -92,9 +92,9 @@ Once installed, open your project in your AI assistant (Antigravity, Claude Code
 | **Phase 2** | **`/prd`** | Executes 8-question discovery loop for ASO keywords, web surface models, compliance triad, and V1 scope. | `docs/02-prd-research/ARCH-PRD.md` |
 | **Phase 3** | **`tech-stack`** | Feature-first stack decomposition across 8 Turborepo monorepo layers and DB client schemas. | `docs/03-tech-stack/TECH-STACK.md` |
 | **Phase 4** | **`/ui-theme`** | Ingests PRD & App Brief, locks 2-3 color palettes and Google Fonts pairings, audits visual assets in `./app_theme.json`. | **Design System Token Lock** |
-| **Phase 4** | **`/ui-flow`** | Compiles UI screen prompt blueprints organized by user flow (Onboarding, Auth, Paywall, Main Tabs, Happy Path). | **Google Stitch Prompt ONLY** |
-| **Phase 4** | **`/app-icon`** | Generates 5 logo exploration concept canvases (Mascot, Metaphor, Lettermark, Geometric, Wordmark). | **Dual-Prompt Standard** (Stitch + Midjourney) |
-| **Phase 4** | **`/app-screenshots`** | Generates 5 panoramic App Store marketing screenshots + 1 Next.js web storefront hero screen. | **Dual-Prompt Standard** (Stitch + Midjourney) |
+| **Phase 4** | **`/ui-flow`** | Compiles Generative UI screen prompt blueprints organized by user flow (Onboarding, Auth, Paywall, Main Tabs, Happy Path). | **Generative UI Screen Prompts** |
+| **Phase 4** | **`/app-icon`** | Generates 20-icon app logo exploration matrix prompt across 4 rows × 5 columns (1080x1080 \| 100% 2D vector). | **20-Icon Matrix Prompt (ChatGPT / Midjourney)** |
+| **Phase 4** | **`/app-screenshots`** | Generates 5 panoramic App Store marketing screenshots + 1 Next.js web storefront hero screen. | **Dual-Prompt Standard** (Vector Spec + Midjourney) |
 | **Phase 5 (Setup)** | **`/init-agents`** | Ingests `docs/` and autonomously generates a 100% project-tailored `./AGENTS.md` file at the root. | Tailored `./AGENTS.md` |
 | **Phase 5 (Build)** | **`fullstack-agent`** | Executes Vibe Engineering 8-step loop, Feature-Branch & CodeRabbit PR workflow, and builds monorepo TypeScript code. | `prompts/<task>.md` & Code |
 
@@ -117,7 +117,7 @@ fullstack-agent-workflow/
 │   ├── SKILL.md
 │   └── README.md
 │
-├── 03-stitch-ui-skill/                <── Phase 4: Stitch UI Prompts, App Icons & Screenshots (/ui-theme, /ui-flow, /stitch-ui-help)
+├── 03-ui-skill/                       <── Phase 4: Generative UI Prompts, App Icons & Screenshots (/ui-theme, /ui-flow, /ui-help)
 │   ├── SKILL.md
 │   ├── README.md
 │   └── scripts/                        <── CLI Prompt Formatter & Blueprint Extractor Helper Scripts
@@ -139,7 +139,7 @@ fullstack-agent-workflow/
 - **Autonomous `AGENTS.md` Generator (`/init-agents`)**: Compiles a 100% project-tailored `./AGENTS.md` at the project root by ingesting completed `docs/` artifacts.
 - **External Skill & Doc Mapping Engine (`docs/05-external-skills/`)**: Maps required framework/dependency skills (Clerk, Convex, Expo, Stripe, Supabase), checks local cache, guides developer on missing skills/docs, and stores doc snippets for permanent future reference.
 - **Zero Memory Collision Policy**: Tracks UI design system locks, registered SVG icons, and screen versions in `docs/04-ui-design/DESIGN-MEMORY.md` to guarantee zero collisions with main agent memory.
-- **Dual-Prompt Standard**: Generates Dual Prompts (Google Stitch vector spec + ChatGPT / Midjourney prompt) for App Icons (`/app-icon`) and Storefront Screenshots (`/app-screenshots`).
+- **Dual-Prompt Standard**: Generates Dual Prompts (Vector spec + ChatGPT / Midjourney prompt) for App Icons (`/app-icon`) and Storefront Screenshots (`/app-screenshots`).
 - **Google Fonts Pairing Engine**: Suggests 2–3 curated font combinations with clickable specimen preview links (`https://fonts.google.com/specimen/...`) for explicit user approval.
 - **PRD Content Extraction Mandate**: Strictly ingests real domain copy, CTAs, and metrics from `docs/` with zero placeholder text ("Lorem Ipsum", "John Doe", "$99").
 - **Canonical Turborepo Monorepo Architecture**: Enforces `apps/native` (Expo Router), `apps/web` (Next.js App Router), `packages/ui`, `packages/db`, and `packages/auth`.

@@ -9,7 +9,8 @@ const candidateCatalogs = [
   path.join(process.cwd(), 'design_catalog.json'),
   path.join(process.cwd(), 'docs', '04-ui-design', 'design_catalog.json'),
   path.join(__dirname, '..', 'resources', 'design_catalog.json'),
-  path.join(__dirname, '..', '..', '03-stitch-ui-skill', 'resources', 'design_catalog.json')
+  path.join(__dirname, '..', '..', '03-ui-skill', 'resources', 'design_catalog.json'),
+  path.join(__dirname, '..', '..', 'ui-skill', 'resources', 'design_catalog.json')
 ];
 
 const catalogPath = candidateCatalogs.find(p => fs.existsSync(p)) || candidateCatalogs[0];

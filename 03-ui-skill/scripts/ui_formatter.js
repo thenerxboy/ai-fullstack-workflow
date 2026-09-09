@@ -1,11 +1,11 @@
 /**
- * Stitch Prompt Formatter & Color Token Compiler
+ * UI Prompt Formatter & Color Token Compiler
  * 
  * Usage:
- *   node scripts/stitch_formatter.js [category] [id] [--theme=theme_name] [--app_domain="Target App"]
+ *   node scripts/ui_formatter.js [category] [id] [--theme=theme_name] [--app_domain="Target App"]
  * 
  * Examples:
- *   node .agents/skills/03-stitch-ui-skill/scripts/stitch_formatter.js home home_personalized_greeting_mood_tracker_grid --app_domain="To-Do App"
+ *   node .agents/skills/03-ui-skill/scripts/ui_formatter.js home home_personalized_greeting_mood_tracker_grid --app_domain="To-Do App"
  */
 
 const fs = require('fs');
@@ -15,7 +15,8 @@ const candidateCatalogs = [
   path.join(process.cwd(), 'design_catalog.json'),
   path.join(process.cwd(), 'docs', '04-ui-design', 'design_catalog.json'),
   path.join(__dirname, '..', 'resources', 'design_catalog.json'),
-  path.join(__dirname, '..', '..', '03-stitch-ui-skill', 'resources', 'design_catalog.json')
+  path.join(__dirname, '..', '..', '03-ui-skill', 'resources', 'design_catalog.json'),
+  path.join(__dirname, '..', '..', 'ui-skill', 'resources', 'design_catalog.json')
 ];
 
 const CATALOG_PATH = candidateCatalogs.find(p => fs.existsSync(p)) || candidateCatalogs[0];
@@ -54,7 +55,7 @@ function applyAppThemeToSpec(specObj, colorTokens) {
   return result;
 }
 
-function generateStitchPrompt(spec, themeConfig, activeThemeKey, appDomain) {
+function generateUIPrompt(spec, themeConfig, activeThemeKey, appDomain) {
   const activeTheme = themeConfig.themes[activeThemeKey] || themeConfig.themes[themeConfig.active_theme];
   const colorTokens = activeTheme.color_tokens;
   const themeInjectedSpec = applyAppThemeToSpec(spec, colorTokens);
@@ -77,7 +78,7 @@ function generateStitchPrompt(spec, themeConfig, activeThemeKey, appDomain) {
   const targetAppName = appDomain ? `${themeConfig.app_name} (${appDomain})` : themeConfig.app_name;
   const svgRegistry = themeConfig.svg_registry || {};
 
-  return `=== GOOGLE STITCH PROMPT SPECIFICATION ===
+  return `=== GENERATIVE UI PROMPT SPECIFICATION ===
 Target Platform: Mobile Smartphone App Screen (Vertical 9:16 Portrait)
 Target App Name: ${targetAppName}
 Active Theme Profile: "${activeTheme.name}" (${activeThemeKey})
@@ -94,7 +95,7 @@ CRITICAL: Adapt all content placeholders, section titles, card labels, list item
 Canvas Type: Mobile Phone App Screen (Narrow Vertical Portrait 9:16 aspect ratio).
 Do NOT render a widescreen desktop dashboard, web browser canvas, or wide tablet container. The generated UI canvas MUST be a standard narrow vertical smartphone app screen.
 
-[GOAL & INSTRUCTIONS FOR GOOGLE STITCH]
+[GOAL & INSTRUCTIONS FOR GENERATIVE UI ENGINE]
 Generate a high-fidelity mobile app screen using the exact structural layout, component positions, and element scale below. Apply the specified app color palette and styling tokens into the design.
 
 [EMBEDDED MATHEMATICAL SVG VECTOR ICON MANDATE]
@@ -179,7 +180,7 @@ function main() {
     return;
   }
 
-  console.log(generateStitchPrompt(targetSpec, themeConfig, activeThemeKey, appDomain));
+  console.log(generateUIPrompt(targetSpec, themeConfig, activeThemeKey, appDomain));
 }
 
 main();

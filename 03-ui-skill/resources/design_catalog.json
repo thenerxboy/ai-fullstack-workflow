@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "version": "1.0.0",
-  "description": "Color-Agnostic UI Design Catalog for Google Stitch & Vibe Coding Apps",
+  "description": "Color-Agnostic UI Design Catalog for Generative UI & Vibe Coding Apps",
   "metadata": {
     "color_policy": "No hardcoded HEX/RGB color values. Only semantic color usage roles (e.g. primary_accent, surface_background, on_surface_high, subtle_border).",
-    "target_generator": "Google Stitch / AI Vibe Coding Prompts"
+    "target_generator": "Generative UI / AI Vibe Coding Prompts"
   },
   "screens": {
     "get_started": [

@@ -16,7 +16,7 @@ You can invoke `prd-skill` at any stage using these shortcut commands:
 
 ## 💡 Pure UX & Product Strategy Protocol
 - Focuses 100% on product positioning, target audience, brand voice/personality, V1 feature scoping, ASO keywords, user flows, copy, and PRD requirements.
-- Hand-off to Stage 4 (`stitch-ui-skill`) for precise HEX color selections, Google Fonts pairing previews, asset moodboarding, and component styling.
+- Hand-off to Stage 4 (`ui-skill`) for precise HEX color selections, Google Fonts pairing previews, asset moodboarding, and component styling.
 
 ---
 

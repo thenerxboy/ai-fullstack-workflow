@@ -152,7 +152,7 @@ For EVERY feature or code generation task, the AI agent MUST execute this exact 
 [1. Read Rules & Stack] ➔ [2. Short Task] ➔ [3. Write Plan to prompts/] ➔ [4. Human Review] ➔ [5. Human Approval] ➔ [6. Build on Branch] ➔ [7. Visual AI Diff Loop] ➔ [8. Typecheck & CodeRabbit PR]
 ```
 
-1. **Read Rules & Tech Stack**: Read `./AGENTS.md`, `docs/03-tech-stack/TECH-STACK.md`, `docs/04-ui-design/DESIGN-MEMORY.md`, and named skills (`app-coder`, `stitch-ui-skill`, `tech-stack`).
+1. **Read Rules & Tech Stack**: Read `./AGENTS.md`, `docs/03-tech-stack/TECH-STACK.md`, `docs/04-ui-design/DESIGN-MEMORY.md`, and named skills (`app-coder`, `ui-skill`, `tech-stack`).
 2. **Receive Short Prompt**: Accept a single-feature prompt with a defined scope.
 3. **Write Detailed Implementation Plan**: Write the complete plan file to `prompts/<task-name>.md` (including Proof of Read & External Skills mapping).
 4. **Human Review**: Hit pause and ask the user to review `prompts/<task-name>.md`.

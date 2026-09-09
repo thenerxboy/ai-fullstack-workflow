@@ -57,8 +57,8 @@ Here is our 5-Phase Production Journey:
    - Feature-first stack decomposition across 8 monorepo layers (Expo Router, Next.js, Convex/Supabase, Clerk).
    - Outputs: `docs/03-tech-stack/app-features.md` & `TECH-STACK.md`
 
-5️⃣ **Phase 4: Design Tokens, Stitch UI Prompts, App Icons & Screenshots** (`/ui-theme`, `/ui-flow`, `/app-icon`, `/app-screenshots`)
-   - Locks color palettes & Google Fonts pairings in `./app_theme.json`, extracts vision screens to local `./design_catalog.json`, compiles Stitch prompts, and generates Dual-Prompt icons & App Store screenshots.
+5️⃣ **Phase 4: Design Tokens, Generative UI Prompts, App Icons & Screenshots** (`/ui-theme`, `/ui-flow`, `/app-icon`, `/app-screenshots`)
+   - Locks color palettes & Google Fonts pairings in `./app_theme.json`, extracts vision screens to local `./design_catalog.json`, compiles Generative UI prompts, and generates 20-icon logo matrices & App Store screenshots.
    - Outputs: `app-screens/*.png` (reference screens), `app-screens/prompts/<screen_id>.md`, `docs/04-ui-design/DESIGN-MEMORY.md`
 
 6️⃣ **Phase 5: Tailored AGENTS.md Setup & External Skills Mapping** (`/init-agents`)
@@ -76,7 +76,7 @@ Here is our 5-Phase Production Journey:
 - Type **`/app-brief`** if you already have an app idea and want to jam on the vibe, mascot, and brand identity!
 - Type **`/prd`** if you have `APP-BRIEF.md` ready and want to build the System PRD.
 - Type **`/ui-theme`** to lock color palettes, Google Fonts pairings, and visual asset requirements!
-- Type **`/ui-flow`** if your PRD is locked and you want to generate Google Stitch UI prompt blueprints!
+- Type **`/ui-flow`** if your PRD is locked and you want to generate Generative UI prompt blueprints!
 - Type **`/init-agents`** if your design system and PRD are ready and you want to generate your tailored `./AGENTS.md` file!
 ```
 
@@ -99,8 +99,8 @@ Here is our 5-Phase Production Journey:
 | **`/tech-stack-help`** | `/tech-stack --help` | Displays help guide for `02-tech-stack` (Phase 3). |
 | **`/tech-stack-shortcuts`** | `/tech-stack --shortcuts` | Shortcut list for `02-tech-stack`. |
 | **`tech-stack`** | `/tech-stack` | Launches Phase 3 (Monorepo Infrastructure & DB Schemas). |
-| **`/stitch-ui-help`** | `/stitch-ui --help`, `/ui-help` | Displays help guide for `03-stitch-ui-skill` (Phase 4). |
-| **`/stitch-ui-shortcuts`** | `/stitch-ui --shortcuts`, `/ui-shortcuts` | Shortcut list for `03-stitch-ui-skill`. |
+| **`/ui-help`** | `/ui-skill --help`, `/ui-help` | Displays help guide for `03-ui-skill` (Phase 4). |
+| **`/ui-shortcuts`** | `/ui-skill --shortcuts`, `/ui-shortcuts` | Shortcut list for `03-ui-skill`. |
 | **`/ui-theme`** | N/A | Locks color palettes, Google Fonts pairings, and visual asset requirements in `./app_theme.json`. |
 | **`/ui-flow`** | N/A | Compiles Phase 4 UI screen prompt blueprints. |
 | **`/app-icon`** | N/A | Generates Phase 4 App Icon & 20-Logo Exploration Matrix prompt. |

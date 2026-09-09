@@ -1,11 +1,11 @@
 ---
-name: stitch-ui-skill
-description: End-to-end framework for extracting UI reference screens into color-agnostic JSON blueprints, maintaining brand design tokens & locked component specs, saving approved screen prompts to app-screens/, compiling domain-adapted Google Stitch prompts, and generating Dual-Prompt specs for App Icons and App Store Screenshots with zero dummy text guardrails.
+name: ui-skill
+description: End-to-end framework for extracting UI reference screens into color-agnostic JSON blueprints, maintaining brand design tokens & locked component specs, saving approved screen prompts to app-screens/, compiling Generative UI prompts, and generating Dual-Prompt specs for App Icons and App Store Screenshots with zero dummy text guardrails.
 ---
 
-# 🎨 Google Stitch UI Design & Prompt Compilation Skill (`stitch-ui-skill`)
+# 🎨 Generative UI Design System & Prompt Compilation Skill (`ui-skill`)
 
-This skill defines the complete, 3-tier architecture and execution workflow for extracting reference UI screenshots, cataloging color-agnostic visual blueprints in `design_catalog.json`, applying brand themes in `app_theme.json`, archiving approved screen prompts into `app-screens/`, compiling domain-adapted Google Stitch prompts via `scripts/stitch_formatter.js`, and tracking UI design state in `docs/04-ui-design/DESIGN-MEMORY.md`.
+This skill defines the complete, multi-stage architecture and execution workflow for establishing design token kits, generating logo matrices, extracting reference UI screenshots into project-local `design_catalog.json`, applying brand themes in `app_theme.json`, archiving approved screen prompts into `app-screens/prompts/`, compiling Generative UI prompts via `scripts/ui_formatter.js`, and tracking UI design state in `docs/04-ui-design/DESIGN-MEMORY.md`.
 
 > [!IMPORTANT]
 > **AGENT MANDATE**: Any agent executing a UI extraction, design system setup, or generative prompt compilation task **MUST ALWAYS read this SKILL.md file first** (`view_file`) to adhere to the PRD & Component-First Execution Protocol, Design Guardrails, Hardcoded Output Prompt Standards, Zero Dummy Text Enforcement, and Dedicated UI Design Memory (`docs/04-ui-design/DESIGN-MEMORY.md`).
@@ -28,12 +28,12 @@ Agents MUST search for input context files and write output artifacts using this
 | **Theme & SVG Registry** | `./app-theme.json` | `./app_theme.json` | `resources/app_theme.json` |
 | **Project Design Catalog** | `./design_catalog.json` | `docs/04-ui-design/design_catalog.json` | `resources/design_catalog.json` |
 
-### 🛠️ CLI Formatter Catalog Lookup Fallback Array (`scripts/stitch_formatter.js`)
+### 🛠️ CLI Formatter Catalog Lookup Fallback Array (`scripts/ui_formatter.js`)
 When running prompt compilation scripts, the script dynamically evaluates candidate paths until `design_catalog.json` is found:
 1. `path.join(process.cwd(), 'design_catalog.json')`
 2. `path.join(process.cwd(), 'docs', '04-ui-design', 'design_catalog.json')`
 3. `path.join(__dirname, '..', 'resources', 'design_catalog.json')`
-4. `path.join(__dirname, '..', '..', '03-stitch-ui-skill', 'resources', 'design_catalog.json')`
+4. `path.join(__dirname, '..', '..', '03-ui-skill', 'resources', 'design_catalog.json')`
 
 ---
 
@@ -41,17 +41,17 @@ When running prompt compilation scripts, the script dynamically evaluates candid
 
 | Command / Shortcut | Alias Flag | Action / Behavior |
 | :--- | :--- | :--- |
-| **`/stitch-ui-help`** | `/stitch-ui --help`, `/ui-help` | Displays complete manual overview: what the skill does, file schemas (`app_theme.json`, `design_catalog.json`), phases, and rules. |
-| **`/stitch-ui-shortcuts`** | `/stitch-ui --shortcuts`, `/ui-shortcuts` | Displays fast reference list of all available UI shortcut triggers and what they do. |
+| **`/ui-help`** | `/ui-skill --help`, `/ui-help` | Displays complete manual overview: what the skill does, file schemas (`app_theme.json`, `design_catalog.json`), phases, and rules. |
+| **`/ui-shortcuts`** | `/ui-skill --shortcuts`, `/ui-shortcuts` | Displays fast reference list of all available UI shortcut triggers and what they do. |
 | **`/ui-theme`** | Ingests `APP-BRIEF.md` & `ARCH-PRD.md`, proposes 2–3 Color Palettes and Google Fonts pairings, audits required visual assets (mascot/logo/SVGs), and locks `./app_theme.json`. | **Design System Token Lock** |
-| **`/ui-flow`** | Generates UI screen prompt blueprints organized by single user flow (Onboarding & Auth, Activation & Paywall, Main App Tabs, Happy Path Core Loop). Ingests `docs/` for real copy. | **Google Stitch Prompt ONLY** |
-| **`/app-icon`** | Generates 5 distinct logo exploration concept canvases (Mascot, Metaphor, Lettermark, Geometric, Wordmark) for the app brand. | **Dual-Prompt Standard** (Variant A: Stitch + Variant B: ChatGPT / Midjourney) |
-| **`/app-screenshots`** | Generates 5 panoramic App Store marketing screenshots + 1 Next.js web storefront hero mockup screen (`shots.so` framing). | **Dual-Prompt Standard** (Variant A: Stitch + Variant B: ChatGPT / Midjourney) |
+| **`/ui-flow`** | Generates UI screen prompt blueprints organized by single user flow (Onboarding & Auth, Activation & Paywall, Main App Tabs, Happy Path Core Loop). Ingests `docs/` for real copy. | **Generative UI Screen Prompt** |
+| **`/app-icon`** | Generates 5 distinct logo exploration concept canvases (Mascot, Metaphor, Lettermark, Geometric, Wordmark) for the app brand. | **Dual-Prompt Standard** (Variant A: Vector Spec + Variant B: ChatGPT / Midjourney) |
+| **`/app-screenshots`** | Generates 5 panoramic App Store marketing screenshots + 1 Next.js web storefront hero mockup screen (`shots.so` framing). | **Dual-Prompt Standard** (Variant A: Vector Spec + Variant B: ChatGPT / Midjourney) |
 | **`/ui-init`** | Auto-creates `./app_theme.json`, project-local `./design_catalog.json`, `app-screens/` folder, and `docs/04-ui-design/DESIGN-MEMORY.md` in project root. | Operations Script |
 | **`/ui-extract`** | Extracts attached ChatGPT visual concept screenshot into color-agnostic JSON blueprint via `scripts/add_catalog_blueprint.js` and appends to local `./design_catalog.json`. | Local Catalog JSON |
-| **`/ui-compile`** | Compiles a Stitch prompt for a specific screen from local `./design_catalog.json` with domain adaptation (`node scripts/stitch_formatter.js --app_domain`). | **Google Stitch Prompt ONLY** |
-| **`/ui-sync`** | Batch compiles & updates ALL archived screen prompts in `app-screens/` to reflect global theme changes (`node scripts/stitch_formatter.js --all`). | Formatter Sync |
-| **`/ui-approve`** | Saves current approved Google Stitch prompt into `app-screens/prompts/<screen_id>.md` and updates `docs/04-ui-design/DESIGN-MEMORY.md`. | Markdown File Archive |
+| **`/ui-compile`** | Compiles a UI prompt for a specific screen from local `./design_catalog.json` with domain adaptation (`node scripts/ui_formatter.js --app_domain`). | **Generative UI Screen Prompt** |
+| **`/ui-sync`** | Batch compiles & updates ALL archived screen prompts in `app-screens/` to reflect global theme changes (`node scripts/ui_formatter.js --all`). | Formatter Sync |
+| **`/ui-approve`** | Saves current approved UI prompt into `app-screens/prompts/<screen_id>.md` and updates `docs/04-ui-design/DESIGN-MEMORY.md`. | Markdown File Archive |
 
 ---
 
@@ -86,8 +86,8 @@ When compiling UI screens (`/ui-flow`), App Icons (`/app-icon`), or Storefront S
                                │
                                ▼
 +-----------------------------------------------------------------+
-| Tier 3: Prompt Compiler (scripts/stitch_formatter.js)           |
-| Outputs domain-adapted Stitch prompt with guardrails             |
+| Tier 3: Prompt Compiler (scripts/ui_formatter.js)           |
+| Outputs domain-adapted UI prompt with guardrails             |
 +-----------------------------------------------------------------+
                                │
                                ▼
@@ -114,7 +114,7 @@ When compiling UI screens (`/ui-flow`), App Icons (`/app-icon`), or Storefront S
 4. Perform **Asset Audit**: Proactively identify and list all required visual assets (mascots, custom SVG logos, hero illustrations) and request them from the developer if missing.
 5. Save approved visual tokens into project-local `./app_theme.json`.
 
-### Phase 4B: Vision Extraction & Stitch Prompt Compilation (`/ui-extract`, `/ui-flow`)
+### Phase 4B: Vision Extraction & UI Prompt Compilation (`/ui-extract`, `/ui-flow`)
 1. **Reference Input**: Ingest ChatGPT-generated (or reference) screen concepts provided by user.
 2. **Extraction**: Run `/ui-extract` to extract layout hierarchy, spacing, and element scale into project-local `./design_catalog.json` via `scripts/add_catalog_blueprint.js`.
 3. **Prompt Compilation**: Run `/ui-flow` or `/ui-compile` using `./design_catalog.json`, `./app_theme.json`, real PRD copy, and provided visual assets.
@@ -479,9 +479,9 @@ Design the showcase like a featured top-ranking App Store product page mockup. S
 
 ### SCREEN 1 (THE HOOK): Dual-Prompt Specification
 
-#### VARIANT A: Google Stitch Screenshot Prompt
+#### VARIANT A: Vector Screenshot Specification
 ```
-=== GOOGLE STITCH APP STORE SCREENSHOT SPECIFICATION ===
+=== GENERATIVE UI APP STORE SCREENSHOT SPECIFICATION ===
 Target Platform: Mobile App Store Marketing Screenshot (Vertical 9:16 Portrait)
 App Name: StreakStudio
 Screenshot Index: 1 of 5 (Hero Hook Screenshot)
