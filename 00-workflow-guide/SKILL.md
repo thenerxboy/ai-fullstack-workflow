@@ -73,8 +73,9 @@ Here is our 5-Phase Production Journey:
 ### 🏁 Where would you like to start?
 
 - Type **`/app-idea`** to research 20 data-backed app ideas for a specific niche.
-- Type **`/app-brief`** if you already have an app idea and want to jam on the vibe, mascot, and Google Fonts!
+- Type **`/app-brief`** if you already have an app idea and want to jam on the vibe, mascot, and brand identity!
 - Type **`/prd`** if you have `APP-BRIEF.md` ready and want to build the System PRD.
+- Type **`/ui-theme`** to lock color palettes, Google Fonts pairings, and visual asset requirements!
 - Type **`/ui-flow`** if your PRD is locked and you want to generate Google Stitch UI prompt blueprints!
 - Type **`/init-agents`** if your design system and PRD are ready and you want to generate your tailored `./AGENTS.md` file!
 ```
@@ -93,17 +94,18 @@ Here is our 5-Phase Production Journey:
 | **`/prd-skill-help`** | `/prd-skill --help`, `/prd-help` | Displays help guide for `01-prd-skill` (Phases 0, 1, 2). |
 | **`/prd-skill-shortcuts`** | `/prd-skill --shortcuts` | Shortcut list for `01-prd-skill`. |
 | **`/app-idea`** | N/A | Launches Phase 0 (20 App Ideas Pitch). |
-| **`/app-brief`** | N/A | Launches Phase 1 (Creative Vibe Brief & Google Fonts Selection). |
+| **`/app-brief`** | N/A | Launches Phase 1 (Creative Vibe Brief & Brand Identity). |
 | **`/prd`** | N/A | Launches Phase 2 (System ARCH-PRD & ASO Keywords). |
 | **`/tech-stack-help`** | `/tech-stack --help` | Displays help guide for `02-tech-stack` (Phase 3). |
 | **`/tech-stack-shortcuts`** | `/tech-stack --shortcuts` | Shortcut list for `02-tech-stack`. |
 | **`tech-stack`** | `/tech-stack` | Launches Phase 3 (Monorepo Infrastructure & DB Schemas). |
 | **`/stitch-ui-help`** | `/stitch-ui --help`, `/ui-help` | Displays help guide for `03-stitch-ui-skill` (Phase 4). |
 | **`/stitch-ui-shortcuts`** | `/stitch-ui --shortcuts`, `/ui-shortcuts` | Shortcut list for `03-stitch-ui-skill`. |
+| **`/ui-theme`** | N/A | Locks color palettes, Google Fonts pairings, and visual asset requirements in `./app_theme.json`. |
 | **`/ui-flow`** | N/A | Compiles Phase 4 UI screen prompt blueprints. |
-| **`/app-icon`** | N/A | Generates Phase 4 Dual-Prompt logo exploration canvases. |
+| **`/app-icon`** | N/A | Generates Phase 4 App Icon & 20-Logo Exploration Matrix prompt. |
 | **`/app-screenshots`** | N/A | Generates Phase 4 Dual-Prompt App Store marketing screenshots. |
-| **`/ui-extract`** | N/A | Extracts screenshot into catalog blueprint (`design_catalog.json`). |
+| **`/ui-extract`** | N/A | Extracts screenshot into local catalog blueprint (`design_catalog.json`). |
 | **`/fullstack-agent-help`**| `/fullstack-agent --help`, `/coder-help` | Displays help guide for `04-fullstack-agent` (Phase 5). |
 | **`/fullstack-agent-shortcuts`**| `/fullstack-agent --shortcuts` | Shortcut list for `04-fullstack-agent`. |
 | **`/init-agents`** | N/A | Ingests `docs/` and generates project-tailored `./AGENTS.md` file. |
