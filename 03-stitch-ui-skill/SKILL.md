@@ -350,8 +350,35 @@ Screens (8 Screens on a 1080x1080 Canvas)
 7. System Permissions Screen: Clean modal sheet requesting camera/photos/notification access with clear value-driven micro-copy
 8. Account Confirmed / State: Celebratory state widget, checkmark feedback, "Proceed to Setup" CTA
 
+### 4. Stage 4 Output Prompt Template: Activation & Paywall Strategy Flow (`/ui-flow`)
+```text
+[APP NAME] ACTIVATION & PAYWALL UI PROMPT (8 SCREENS - 1080x1080 CANVAS)
+
+Generate an image of 8 modern mobile app activation, personalization, and monetization screen designs presented on a single 1080x1080 canvas for an app called "[APP NAME]".
+[APP NAME] is a [1-sentence description from stage 1].
+
+Design Style
+Ultra modern 2026 startup aesthetic
+Minimalistic, clean, high-converting UX architecture
+[Light/Dark mode from stage 1]
+Uses exact components from Design System (filter chips, comparison cards, pill CTA buttons)
+Apple-level clean UX inspired by [Benchmark brands from stage 1]
+
+Color Palette & Typography
+[Inherited Palette and Typography tokens from Stage 1]
+
+Screens (8 Screens on a 1080x1080 Canvas)
+1. Problem Alignment / Friction Screen: Pain-point selector cards addressing user obstacles, top progress bar
+2. Personalization Step 1: Multi-select preference chips tailored to [APP NAME]
+3. Personalization Step 2: Goal/level/target range selector with interactive slider
+4. Social Proof / Authority Screen: 5-star rating summary, customer transformation testimonial cards, trusted press badges
+5. Interactive Aha-Moment / Free Demo: In-app live preview/generator showcasing the core feature in action
+6. Feature Gate / Paywall Trigger: Demo result shown with premium deliverable locked (e.g., HD export locked, download gate modal)
+7. High-Converting Paywall Screen: 3-day free trial toggle, monthly/annual pricing cards with "Most Popular" badge, feature checklist, high-contrast CTA
+8. Setup Success & Activation: "Your personalized system is ready" card, summary of configured parameters, "Launch App" primary CTA
+
 Direction
-Design the app like a real App Store startup product. Display all 8 screens neatly arranged in a cohesive 1080x1080 presentation canvas. Realistic iPhone mockups with clean spacing and production-ready quality.
+Design the app like a real high-growth App Store startup product. Display all 8 screens neatly arranged in a cohesive 1080x1080 presentation canvas. Realistic iPhone mockups with clean spacing and production-ready quality.
 ```
 ```
 
