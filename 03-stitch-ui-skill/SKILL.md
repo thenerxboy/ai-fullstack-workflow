@@ -396,8 +396,40 @@ Screens (8 Screens on a 1080x1080 Canvas)
 7. High-Converting Paywall Screen: 3-day free trial toggle, monthly/annual pricing cards with "Most Popular" badge, feature checklist, high-contrast CTA
 8. Setup Success & Activation: "Your personalized system is ready" card, summary of configured parameters, "Launch App" primary CTA
 
+### 5. Stage 5 Output Prompt Template: Major Core App Screens (`/ui-flow`)
+*(Note: If the app has more than 8 core screens, the agent MUST split Stage 5 into Stage 5A and Stage 5B, outputting 8 screens per 1080x1080 canvas).*
+
+```text
+[APP NAME] CORE APP UI PROMPT (8 SCREENS - 1080x1080 CANVAS)
+
+Generate an image of 8 complete modern mobile app screen designs presented on a single 1080x1080 canvas for an app called "[APP NAME]".
+[APP NAME] is a [1-sentence description from stage 1].
+
+The app helps users:
+[List 6-8 core feature bullet points tailored to the app]
+
+Design Style
+Ultra modern 2026 startup aesthetic
+Minimalistic, clean, editorial layouts
+[Light/Dark mode from stage 1]
+Uses exact components from Design System (floating bottom bar, hero cards, metadata tags)
+Apple-level clean UX mixed with [Benchmark brands from stage 1]
+
+Color Palette & Typography
+[Inherited Palette and Typography tokens from Stage 1]
+
+Screens (8 Screens on a 1080x1080 Canvas)
+1. Home / Dashboard Screen: Top app bar with avatar and notifications, primary hero HUD summary card, category icon row, vertical content feed
+2. Search & Explore Screen: Pill search bar with filter icon, trending discovery chips, category grid layout
+3. Core Tool / Generator Screen: Primary utility interface tailored to [APP NAME], parameter selector chips, primary action CTA
+4. Active Workflow / Live State Screen: Step-by-step interactive view / live session HUD, progress indicator, floating bottom controls
+5. Item Detail & Deep-Dive Screen: Large hero image carousel, title, ratings, metadata pills row, sticky bottom conversion bar
+6. Tracking & Analytics Screen: Visual metric charts, progress breakdown cards, chronological activity feed
+7. Saved Collections & Library: Custom collection folders, favorited items grid, clean empty-state variant
+8. Profile & Account Settings: User avatar, 3-column stats counter, grouped settings rows with icons, red log out button
+
 Direction
-Design the app like a real high-growth App Store startup product. Display all 8 screens neatly arranged in a cohesive 1080x1080 presentation canvas. Realistic iPhone mockups with clean spacing and production-ready quality.
+Design the app like a real App Store startup product. All 8 screens must feel unified by one cohesive design system. Displayed on a balanced 1080x1080 canvas with pixel-perfect spacing, modern typography, and realistic UI elements.
 ```
 ```
 
