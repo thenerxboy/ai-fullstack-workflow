@@ -145,6 +145,25 @@ When compiling UI screens (`/ui-flow`), App Icons (`/app-icon`), or Storefront S
 
 ---
 
+## 🎛️ Multi-Preset Switching Engine & Dynamic Style Injection
+
+The UI Skill supports **3 Distinct Visual Design Style Presets**. When generating or compiling prompts for any stage (Stage 1 through Stage 6), the agent MUST dynamically populate the `Design Style` block using the active preset locked in `./app_theme.json.active_preset` (or overridden on-demand via user request / `--preset=01|02|03`).
+
+### 📐 The 3 Design Style Presets & Ingestion Matrix
+
+| Preset ID | Preset Name | Core Spatial & Layout Characteristics |
+| :--- | :--- | :--- |
+| **`vibe_preset_01`** | **Exaggerated Focus-First Minimalism** | **56–72px Display Headers**, **18–24px Squircles**, **52–60px Stadium Pills**, **40%+ Whitespace**, **Lower 2/3 Thumb Zone Ergonomics**, **"One Thing at a Time"** focal rule, 2D mascot bottom-crop, and **Full-Bleed Brand Color Inversions** on High-Emotion screens (Splash, Welcome, Milestone, Paywall). |
+| **`vibe_preset_02`** | **Fixed Utility / Clean Grid** | Fixed component heights (64px cards, 48px buttons), tight clean geometric grid, consistent multi-card lists, quiet utility top headers, structured container spacing. |
+| **`vibe_preset_03`** | **Adaptive Niche / Modern Industry Standard** | AI analyzes the app's domain (e.g. Fintech, Health/Fitness, SaaS, E-Commerce) and applies current top iOS/Android industry visual trends for that specific niche. |
+
+### 🧪 On-Demand Preset Switching Protocol
+1. **User Request**: If the user asks to test or switch presets at any phase (e.g., *"Generate Stage 4 using Preset 02"* or *"Test Stage 3 with Preset 03"*), the agent MUST immediately regenerate the prompt using the target preset's rules.
+2. **Theme State Sync**: Update `active_preset` in `./app_theme.json` to reflect the newly selected preset.
+3. **Multi-Preset Comparison**: If requested (e.g., *"Compare Stage 4 across all 3 presets"*), output 3 distinct Markdown codeblocks for Preset 01, Preset 02, and Preset 03 side-by-side.
+
+---
+
 ## 🔒 Component Consistency & Explicit Locking Protocol
 
 1. **Embedded SVG Vector Mandate**: Every locked component in `app_theme.json` includes an immutable `svg_vector` path string.
