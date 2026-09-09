@@ -20,8 +20,8 @@ You can invoke `stitch-ui-skill` in any AI assistant (Antigravity, Claude Code, 
 | **`/ui-shortcuts`** | Displays fast reference list of all available `/ui-*` shortcut triggers. | Summary Text |
 | **`/ui-theme`** | Ingests `APP-BRIEF.md` & `ARCH-PRD.md`, proposes 2–3 Color Palettes & Google Fonts pairings, audits visual assets (mascot/logo/SVGs), and locks `./app_theme.json`. | **Design System Token Lock** |
 | **`/ui-flow`** | Compiles UI screen prompt blueprints organized by user flow (Onboarding & Auth, Activation & Paywall, Main App Tabs, Happy Path Core Loop). Ingests `docs/` for real copy. | **Google Stitch Prompt ONLY** |
-| **`/app-icon`** | Generates 5 distinct logo exploration concept canvases (Mascot, Metaphor, Lettermark, Geometric, Wordmark) for the app brand. | **Dual-Prompt Standard** (Variant A: Stitch + Variant B: ChatGPT / Midjourney) |
-| **`/app-screenshots`** | Generates 5 panoramic App Store marketing screenshots + 1 Next.js web storefront hero mockup screen (`shots.so` framing). | **Dual-Prompt Standard** (Variant A: Stitch + Variant B: ChatGPT / Midjourney) |
+| **`/app-icon`** | Generates 20-icon app logo exploration matrix prompt across 4 rows × 5 columns (1080x1080 | 100% 2D vector). | **20-Icon Matrix Prompt (ChatGPT / Midjourney)** |
+| **`/app-screenshots`** | Generates 5 panoramic App Store marketing screenshots + 1 Next.js web storefront hero mockup screen (`shots.so` framing). | **Dual-Prompt Standard** (Stitch + Midjourney) |
 | **`/ui-init`** | Auto-creates `app_theme.json`, project-local `design_catalog.json`, `app-screens/` folder, and `docs/04-ui-design/DESIGN-MEMORY.md` in current project root. | Workspace Bootstrap |
 | **`/ui-extract`** | Extracts attached reference screenshot into color-agnostic JSON blueprint via `scripts/add_catalog_blueprint.js` and appends to local `design_catalog.json`. | Local Catalog JSON |
 | **`/ui-compile`** | Compiles a Stitch prompt for a specific screen from local `design_catalog.json` with domain adaptation (`node scripts/stitch_formatter.js --app_domain`). | **Google Stitch Prompt ONLY** |
@@ -60,8 +60,9 @@ stitch-ui-skill/ (GitHub Skill Repository Root)
 
 ### 🎨 Key Capabilities & Guardrails
 
-1. **Dual-Prompt Standard (`/app-icon` & `/app-screenshots`)**:
-   - Delivers **Variant A** (Google Stitch design system vector spec) and **Variant B** (ChatGPT / Midjourney / Ideogram / Recraft generative prompt) for App Icons and App Store Marketing Screenshots.
+1. **App Icon 20-Logo Exploration Matrix (`/app-icon`)**:
+   - Generates a 20-icon logo exploration matrix prompt (4 Rows × 5 Columns | 1080x1080 canvas) for ChatGPT / Midjourney.
+   - Enforces strict 1:1 Apple superellipse squircles, zero text, zero 3D extrusions, and progressive 5-step reduction columns.
 2. **PRD Content Extraction Mandate (Zero Dummy Text Rule)**:
    - Ingests real copy, titles, feature names, mascot voice snippets, and CTA microcopy directly from `docs/`.
    - Zero tolerance for placeholder strings ("Lorem Ipsum", "John Doe", "$99", "Sample User").
@@ -89,7 +90,7 @@ git submodule add https://github.com/thenerxboy/fullstack-agent-workflow.git .ag
 #### 2. Invoke the Skill
 Instruct any AI assistant:
 > *"Run `/ui-flow` to compile prompt blueprints for my onboarding and main app tabs"*  
-> *"Run `/app-icon` to generate 5 logo exploration prompts for Google Stitch and Midjourney"*  
+> *"Run `/app-icon` to generate 20-icon logo exploration matrix prompt for ChatGPT/Midjourney"*  
 > *"Run `/app-screenshots` to generate App Store marketing screenshot prompts"*
 
 ---
