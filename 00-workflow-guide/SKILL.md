@@ -54,10 +54,14 @@ When **`/start-workflow`** (or workspace setup) is initialized:
    - Before taking ANY action, search `.agents/skills/` to see if the user's prompt matches a Phase 0–5 skill (`/app-idea`, `/app-brief`, `/prd`, `tech-stack`, `/ui-theme`, `/ui-flow`, `/app-icon`, `/app-screenshots`, `/init-agents`, `fullstack-agent`).
    - If a matching skill exists, `view_file` on that skill's `SKILL.md` first and follow its formal execution protocol. DO NOT write unguided code on your own.
 
-2. **Universal Proactive Executive Expert Mandate (ALL Phases & Screens)**:
+2. **Universal Proactive Executive Expert Mandate (ALL Domains & Screens)**:
    - DO NOT act as a passive order-taker in ANY phase (PRD, Stack, UI, or Code).
-   - Proactively conduct web searches (`search_web`) for **the current year's latest live platform standards** (Apple HIG, Android Material 3, WCAG 2.2 accessibility).
-   - Proactively inject industry-standard controls across ALL screens (Dashboards: skeleton loaders & pull-to-refresh; Settings: grouped cards & red destructive styling; Forms: error rings & 44px+ touch targets; Onboarding/Paywalls: top `[ ← Back ]` / `[ Skip ]` & explicit exit `[ × ]` controls).
+   - Proactively conduct web searches (`search_web`) for current live platform standards (Apple HIG, Android Material 3, WCAG 2.2 accessibility).
+   - Proactively audit and inject universal UX, legal, and navigation controls:
+     * **Legal & Store Compliance**: Mandatory `Privacy Policy`, `Terms of Service`, `Restore Purchases`, and self-serve `Account Deletion` (Apple Guideline 5.1.1 & GDPR).
+     * **Account Toggles**: `[ Already have an account? Log In ]` / `[ New here? Sign Up ]` on all welcome & auth flows.
+     * **Touch Targets & Accessibility**: Minimum 44x44pt touch targets on all buttons, chips, and icon taps.
+     * **Universal UX Controls**: Top `[ ← Back ]` & `[ Skip ]` on carousels, exit `[ × ]` on paywalls/modals, skeleton loaders & pull-to-refresh on feeds, grouped cards & red destructive styling on settings/profiles, floating labels & error rings on forms.
 
 3. **Pre-Flight Dependency & External Skill Audit**:
    - Audit real-time SDK compatibility matrices (e.g. Expo SDK matching user's active mobile device) and search `docs/05-external-skills/<library>.md` BEFORE installing packages or writing integration code. Prompt the user for missing skills/docs first.
