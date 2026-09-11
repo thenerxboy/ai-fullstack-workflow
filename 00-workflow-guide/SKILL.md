@@ -155,5 +155,7 @@ Here is our 5-Phase Production Journey:
 | **`/fullstack-agent-help`**| `/fullstack-agent --help`, `/coder-help` | Displays help guide for `04-fullstack-agent` (Phase 5). |
 | **`/fullstack-agent-shortcuts`**| `/fullstack-agent --shortcuts` | Shortcut list for `04-fullstack-agent`. |
 | **`/init-agents`** | N/A | Ingests `docs/` and generates project-tailored `./AGENTS.md` file. |
+| **`/vibe-loop <task>`** | `/build <task>`, `/code <task>`, `fullstack-agent build` | **Macro Build Loop**: Executes 8-Step Vibe Engineering Feature Build Lifecycle (Plan ──> Review ──> Branch ──> Build ──> Visual Diff ──> PR). |
+| **`/diff-loop <screen_id>`** | `/visual-diff <screen_id>`, `/diff <screen_id>` | **Micro Visual Loop**: Executes Module 6 Visual AI Diff Screenshot Comparison Loop against `app-screens/<screen_id>.png` until 100% match. |
 | **`fullstack-agent`** | `/code`, `/build`, `/plan` | Launches Phase 5 full-stack monorepo code generation on feature branch. |
 | **`/clean`** | `/repo-clean`, `/clean-workspace` | **Utility Skill**: Runs 4-category workspace cleanup audit and presents interactive deletion proposal table. |

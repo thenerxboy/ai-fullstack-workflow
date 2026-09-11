@@ -37,7 +37,18 @@ Agents MUST search for input context files and write output artifacts using this
 | **`/fullstack-agent-help`** | `/fullstack-agent --help`, `/coder-help` | Displays complete Phase 5 manual: Vibe Engineering loop, `./AGENTS.md` rules, feature branch PRs, and Visual AI Diff. |
 | **`/fullstack-agent-shortcuts`** | `/fullstack-agent --shortcuts` | Fast cheat-sheet list of all Phase 5 trigger shortcuts. |
 | **`/init-agents`** | N/A | Ingests `docs/` (App Brief, PRD, Tech Stack, UI Design Memory) and generates a 100% project-tailored `./AGENTS.md` file at root. |
+| **`/vibe-loop <task>`** | `/build <task>`, `/code <task>`, `fullstack-agent build` | **Macro Build Loop**: Executes the 8-Step Vibe Engineering Feature Build Lifecycle (Plan ──> Review ──> Branch ──> Build ──> Visual Diff ──> PR). |
+| **`/diff-loop <screen_id>`** | `/visual-diff <screen_id>`, `/diff <screen_id>` | **Micro Visual Loop**: Executes Module 6 Visual AI Diff Screenshot Comparison Loop against `app-screens/<screen_id>.png` until 100% match. |
 | **`fullstack-agent`** | `/code`, `/build`, `/plan` | Launches Phase 5 (Full-Stack Monorepo Code Generation & Feature Building on dedicated branch). |
+
+---
+
+## 🔄 Loop Terminology Disambiguation Protocol
+
+To prevent any AI confusion when the user mentions "loop" or "loop feature":
+1. **Macro Build Loop (`/vibe-loop <task>`)**: Refers to the complete 8-step Vibe Engineering process (creating implementation plan `prompts/<task>.md`, feature branch `feature/<task>`, building code, visual verification, and PR review).
+2. **Micro Visual Verification Loop (`/diff-loop <screen_id>`)**: Refers strictly to Module 6 Visual AI Diff screenshot comparison (taking native `adb`/`xcrun` screenshot, comparing against `app-screens/<screen_id>.png`, and refining code until 100% match).
+3. **Disambiguation Rule**: When asked about the "loop feature", the agent MUST state both loops clearly with their specific trigger commands (`/vibe-loop` vs `/diff-loop`) so the user can select their exact intent.
 
 ---
 
