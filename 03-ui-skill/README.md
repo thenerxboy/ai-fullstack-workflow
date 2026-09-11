@@ -48,8 +48,8 @@ You can invoke `ui-skill` in any AI assistant (Antigravity, Claude Code, Cursor,
    - Tracks active screen versions (`home_v1.md`), active brand themes, approved Google Fonts pairings, locked stadium pill navbar specs, and registered SVG icons with **zero collisions** against main agent memory.
 7. **Central SVG Icon Registry (`app_theme.json.svg_registry`)**:
    - Single source of truth for raw mathematical SVG geometries (`<svg viewBox="..." ...><path d="..."/></svg>`).
-8. **Exclusive Google Stitch Screen Prompt Archiving Mandate (`app-screens/prompts/`)**:
-   - `app-screens/prompts/` is strictly reserved for Google Stitch screen prompt specs (`<screen_id>.md`) and rendered screenshots (`<screen_id>.png`). Image generation prompts output in chat are NEVER stored here.
+8. **Exclusive Google Stitch Screen Prompt Archiving Mandate (`docs/04-ui-design/app-screens/prompts/`)**:
+   - `docs/04-ui-design/app-screens/prompts/` (fallback `app-screens/prompts/`) is strictly reserved for Google Stitch screen prompt specs (`<screen_id>.md`) and rendered screenshots (`<screen_id>.png`). Image generation prompts output in chat are NEVER stored here.
 
 ---
 

@@ -104,15 +104,15 @@ Here is our 5-Phase Production Journey:
    - Outputs: `docs/03-tech-stack/app-features.md` & `TECH-STACK.md`
 
 5️⃣ **Phase 4: Design Tokens, Generative UI Prompts, App Icons & Screenshots** (`/ui-theme`, `/ui-flow`, `/app-icon`, `/app-screenshots`)
-   - Enforces Component-First sequence (`/ui-theme` token lock -> Stage 3 Auth -> Stage 4 Paywall -> Stage 5 Core Screens). Outputs Lead Designer ChatGPT prompts in chat (never in `app-screens/`) and archives compiled Google Stitch screen prompt specs in `app-screens/prompts/<screen_id>.md`.
-   - Outputs: `app-screens/*.png` (reference screens), `app-screens/prompts/<screen_id>.md` (Stitch specs ONLY), `docs/04-ui-design/DESIGN-MEMORY.md`
+   - Enforces Component-First sequence (`/ui-theme` token lock -> Stage 3 Auth -> Stage 4 Paywall -> Stage 5 Core Screens). Outputs Lead Designer ChatGPT prompts in chat (never in `docs/04-ui-design/app-screens/`) and archives compiled Google Stitch screen prompt specs in `docs/04-ui-design/app-screens/prompts/<screen_id>.md`.
+   - Outputs: `docs/04-ui-design/app-screens/*.png` (reference screens), `docs/04-ui-design/app-screens/prompts/<screen_id>.md` (Stitch specs ONLY), `docs/04-ui-design/DESIGN-MEMORY.md`
 
 6️⃣ **Phase 5: Tailored AGENTS.md Setup & External Skills Mapping** (`/init-agents`)
    - Ingests `docs/` to generate a 100% project-tailored `./AGENTS.md` at project root.
    - Maps framework/dependency skills and caches docs in `docs/05-external-skills/`.
 
 7️⃣ **Phase 5 (Build): Vibe Engineering & Visual AI Diff Micro-Loop** (`app-coder`)
-   - Executes 8-step Vibe Engineering loop, writes plans to `prompts/<task>.md`, runs Visual AI Diff Loop (Build ──> Screenshot ──> Compare ──> Refine) against `app-screens/*.png`, and merges feature branch after CodeRabbit PR review.
+   - Executes 8-step Vibe Engineering loop, writes plans to `prompts/<task>.md`, runs Visual AI Diff Loop (Build ──> Screenshot ──> Compare ──> Refine) against `docs/04-ui-design/app-screens/*.png`, and merges feature branch after CodeRabbit PR review.
 
 ---
 

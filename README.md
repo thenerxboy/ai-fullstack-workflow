@@ -95,7 +95,7 @@ Open your project in Antigravity, Claude Code, Cursor, or Windsurf and type:
                                          ▼
 +-----------------------------------------------------------------------------------+
 | Phase 4: Design Tokens, Generative UI Prompts, Dual App Icons (/ui-theme, /ui-flow)|
-| Outputs: app-screens/*.png, app-screens/prompts/, docs/04-ui-design/DESIGN-MEMORY |
+| Outputs: docs/04-ui-design/app-screens/*.png, docs/04-ui-design/app-screens/prompts/, docs/04-ui-design/DESIGN-MEMORY |
 +-----------------------------------------------------------------------------------+
                                          │
                                          ▼
@@ -171,7 +171,7 @@ fullstack-agent-workflow/
 - **Interactive Learning Clarification Engine**: Displays explicit Interactive Learning Menus for multi-engine or underspecified requests, showing exact shortcut commands.
 - **Project-Local UI Catalog**: `design_catalog.json` lives in your app workspace root (`./design_catalog.json`), keeping app extractions 100% isolated with zero submodule commit clutter.
 - **Feature-Branch & CodeRabbit PR Protocol**: 7-step isolated Git lifecycle (Feature Branch $\rightarrow$ Build & Test $\rightarrow$ Stage & Commit $\rightarrow$ Push Branch $\rightarrow$ CodeRabbit PR AI Review $\rightarrow$ Merge to Main $\rightarrow$ Sync Local Main).
-- **Pixel-Perfect Visual AI Diff Micro-Loop (Module 6)**: 4-step visual verification loop (Build $\rightarrow$ Screenshot $\rightarrow$ Compare $\rightarrow$ Refine) using `app-screens/<screen_id>.png` as target reference and a 10-Point Multimodal Comparison Matrix.
+- **Pixel-Perfect Visual AI Diff Micro-Loop (Module 6)**: 4-step visual verification loop (Build $\rightarrow$ Screenshot $\rightarrow$ Compare $\rightarrow$ Refine) using `docs/04-ui-design/app-screens/<screen_id>.png` (fallback `app-screens/<screen_id>.png`) as target reference and a 10-Point Multimodal Comparison Matrix.
 - **Mandatory `TECH-STACK.md` Ingestion Gate**: Compels agents to inspect `docs/03-tech-stack/TECH-STACK.md` before planning and record proof under `## 2. What It Read` in `prompts/<task-name>.md`.
 - **Autonomous `AGENTS.md` Generator (`/init-agents`)**: Compiles a 100% project-tailored `./AGENTS.md` at the project root by ingesting completed `docs/` artifacts.
 - **External Skill & Doc Mapping Engine (`docs/05-external-skills/`)**: Maps required framework/dependency skills (Clerk, Convex, Expo, Stripe, Supabase), checks local cache, guides developer on missing skills/docs, and stores doc snippets for permanent future reference.

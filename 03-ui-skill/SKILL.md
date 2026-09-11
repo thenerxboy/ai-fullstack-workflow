@@ -23,8 +23,8 @@ Agents MUST search for input context files and write output artifacts using this
 | **Ingested Features Map** | `docs/03-tech-stack/app-features.md` | `docs/app-features.md` | `./app-features.md` |
 | **Ingested Tech Stack** | `docs/03-tech-stack/TECH-STACK.md` | `docs/TECH-STACK.md` | `./TECH-STACK.md` |
 | **UI Design Memory Log** | `docs/04-ui-design/DESIGN-MEMORY.md` | `docs/DESIGN-MEMORY.md` | `./DESIGN-MEMORY.md` |
-| **Approved Prompts Archive** | `app-screens/prompts/<screen_id>.md` | `app-screens/<screen_id>.md` | `./<screen_id>.md` |
-| **UI Screenshots Archive** | `app-screens/<screen_id>.png` | `app-screens/<screen_id>.png` | `./<screen_id>.png` |
+| **Approved Prompts Archive** | `docs/04-ui-design/app-screens/prompts/<screen_id>.md` | `app-screens/prompts/<screen_id>.md` | `./<screen_id>.md` |
+| **UI Screenshots Archive** | `docs/04-ui-design/app-screens/<screen_id>.png` | `app-screens/<screen_id>.png` | `./<screen_id>.png` |
 | **Theme & SVG Registry** | `./app-theme.json` | `./app_theme.json` | `resources/app_theme.json` |
 | **Project Design Catalog** | `./design_catalog.json` | `docs/04-ui-design/design_catalog.json` | `resources/design_catalog.json` |
 
@@ -120,11 +120,11 @@ When compiling UI screens (`/ui-flow`), App Icons (`/app-icon`), or Storefront S
 3. **Prompt Compilation**: Run `/ui-flow` or `/ui-compile` using `./design_catalog.json`, `./app_theme.json`, real PRD copy, and provided visual assets.
 4. **Single Active Delivery**: Output ONE prompt matching the active design theme profile.
 
-### Phase 4C: Screen Approval, Archiving & Visual Hand-off Protocol (`app-screens/`)
-1. Save generated/approved visual screen image to `app-screens/<screen_id>.png`.
-2. Save approved screen prompt spec to `app-screens/prompts/<screen_id>.md` (fallback `app-screens/<screen_id>.md`).
+### Phase 4C: Screen Approval, Archiving & Visual Hand-off Protocol (`docs/04-ui-design/app-screens/`)
+1. Save generated/approved visual screen image to `docs/04-ui-design/app-screens/<screen_id>.png` (fallback `app-screens/<screen_id>.png`).
+2. Save approved screen prompt spec to `docs/04-ui-design/app-screens/prompts/<screen_id>.md` (fallback `app-screens/prompts/<screen_id>.md`).
 3. Update `docs/04-ui-design/DESIGN-MEMORY.md` (fallback `docs/DESIGN-MEMORY.md`).
-4. **Visual Hand-off to `04-app-coder`**: Screen images in `app-screens/<screen_id>.png` serve as the target design references for `04-app-coder`'s Visual AI Diff Loop (Build ──> Screenshot ──> Compare ──> Refine).
+4. **Visual Hand-off to `04-app-coder`**: Screen images in `docs/04-ui-design/app-screens/<screen_id>.png` serve as the target design references for `04-app-coder`'s Visual AI Diff Loop (Build ──> Screenshot ──> Compare ──> Refine).
 5. Single Active File Overwrite Mandate: Replace previous version files (`_v1`) upon layout approval.
 
 ---
@@ -142,7 +142,7 @@ When compiling UI screens (`/ui-flow`), App Icons (`/app-icon`), or Storefront S
 9. **Central Project SVG Registry (`app_theme.json.svg_registry`)**: Register all mathematical SVG icon geometries in `app_theme.json.svg_registry`.
 10. **Contextual Git Commit Protocol**: Ask for explicit user approval before executing `git commit` or `git push`.
 11. **Dedicated UI Design Memory Log Protocol (`docs/04-ui-design/DESIGN-MEMORY.md`)**: Track active screen versions, theme locks, and registered SVG icons in `docs/04-ui-design/DESIGN-MEMORY.md` (isolated from agent memory).
-12. **Exclusive Google Stitch Screen Prompt Archiving Mandate (`app-screens/prompts/`)**: The `app-screens/prompts/` directory (and `app-screens/`) is STRICTLY RESERVED for **Google Stitch Standalone Screen Prompt specifications** (`<screen_id>.md`) compiled via `scripts/ui_formatter.js` and their rendered screenshot references (`<screen_id>.png`). **ABSOLUTE PROHIBITION**: Agents MUST NEVER store ChatGPT generation prompts, Midjourney prompts, App Icon matrix prompts (`/app-icon`), or App Store screenshot prompts (`/app-screenshots` Variant B) inside `app-screens/`. ChatGPT/Midjourney prompts generated for image tools are displayed directly in the chat UI and MUST NOT pollute `app-screens/`.
+12. **Exclusive Google Stitch Screen Prompt Archiving Mandate (`docs/04-ui-design/app-screens/prompts/`)**: The `docs/04-ui-design/app-screens/prompts/` directory (and fallback `app-screens/prompts/`) is STRICTLY RESERVED for **Google Stitch Standalone Screen Prompt specifications** (`<screen_id>.md`) compiled via `scripts/ui_formatter.js` and their rendered screenshot references (`<screen_id>.png`). **ABSOLUTE PROHIBITION**: Agents MUST NEVER store ChatGPT generation prompts, Midjourney prompts, App Icon matrix prompts (`/app-icon`), or App Store screenshot prompts (`/app-screenshots` Variant B) inside `app-screens/`. ChatGPT/Midjourney prompts generated for image tools are displayed directly in the chat UI and MUST NOT pollute `app-screens/`.
 13. **Lead Product Designer Persona & Unabridged ChatGPT Prompt Standard**: When generating prompts for ChatGPT, Midjourney, or DALL-E, the agent MUST adopt the Lead Product Designer & Design Systems Architect Persona. Prompts MUST ingest the active visual preset (`vibe_preset_01`, `vibe_preset_02`, `vibe_preset_03`), exact Hex tokens, spatial rules, display typography, hero card specs, live image background specs (e.g. live hero image backgrounds for auth/welcome in Preset 02), and real domain copy from `docs/`. Producing brief, generic, or truncated ChatGPT prompts is strictly prohibited.
 14. **Interactive Learning Clarification Protocol for Multi-Engine UI Requests**: When the user makes a broad UI request (e.g. *"Create UI for settlement screen"* or *"Design an icon"*), the agent MUST NOT guess or pick an engine blindly. It MUST present an **Interactive Learning Menu** displaying valid engines/tools (`/ui-compile` for Google Stitch spec vs `/ui-flow` for ChatGPT visual prompt vs `/ui-theme` for design tokens vs `/app-icon` for 20-icon matrix), explaining what each engine does, and showing the **EXACT shortcut command** formatted with the user's original request text.
 15. **Proactive Executive Expert & Universal Screen Usability Mandate**: DO NOT act as a passive order-taker. The agent MUST proactively conduct web searches (`search_web`) for current live platform standards (Apple HIG, Android Material 3, WCAG 2.2 accessibility $\ge 44\times44\text{pt}$) and inject universal UX, legal, and navigation controls across ALL screen types:
