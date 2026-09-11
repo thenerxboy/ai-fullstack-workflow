@@ -179,23 +179,39 @@ For EVERY feature or code generation task, the AI agent MUST execute this exact 
 
 ---
 
-## 🔮 Module 6: The Pixel-Perfect Visual AI Diff & Verification Micro-Loop
+## 🔮 Module 6: The Pixel-Perfect Refresh-First Visual AI Diff & Verification Micro-Loop
 
-For all UI components, screens, and layout changes, the agent MUST NOT ask *"Does this look right?"*. It MUST execute the 4-step Visual Verification Loop:
+For all UI components, screens, and layout changes, the agent MUST NOT ask *"Does this look right?"*. It MUST execute the mandatory 5-Step Refresh-First Visual Verification Loop:
 
 ```
-╔═════════════╗      ╔══════════════════════╗      ╔═══════════════════════╗      ╔════════════════════════╗
-║   1. BUILD  ║ ───> ║  2. TAKE SCREENSHOT  ║ ───> ║  3. COMPARE TO DESIGN ║ ───> ║  4. IDENTICAL? (100%)  ║
-╚═════════════╝      ╚══════════════════════╝      ╚═══════════════════════╝      ╚════════════════════════╝
-       ▲                                                                                      │
-       │                                    ❌ NO (Refine Code)                               │
-       └──────────────────────────────────────────────────────────────────────────────────────┘
-                                                                                              │
-                                                                                      ✅ YES (100% Match)
-                                                                                              │
-                                                                                              ▼
-                                                                                    [CodeRabbit PR & Merge]
+╔═════════════╗      ╔══════════════════════════╗      ╔══════════════════════╗      ╔═══════════════════════╗      ╔════════════════════════╗
+║   1. BUILD  ║ ───> ║ 2. REFRESH TARGET SURFACE║ ───> ║ 3. TAKE SCREENSHOT   ║ ───> ║ 4. COMPARE TO DESIGN  ║ ───> ║ 5. IDENTICAL? (100%)   ║
+╚═════════════╝      ╚══════════════════════════╝      ╚══════════════════════╝      ╚═══════════════════════╝      ╚════════════════════════╝
+       ▲                                                                                                                        │
+       │                                                      ❌ NO (Print 1-Line Status & Refine Code)                           │
+       └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+                                                                                                                                │
+                                                                                                                        ✅ YES (100% Match)
+                                                                                                                                │
+                                                                                                                                ▼
+                                                                                                                     [CodeRabbit PR & Merge]
 ```
+
+### 🔄 Mandatory Refresh-First & Step-by-Step Transparency Rules:
+
+1. **Step 1: Save Code Changes**: Implement component/layout code updates on feature branch.
+2. **Step 2: FORCE REFRESH / RELOAD TARGET SURFACE (MANDATORY)**:
+   - **Android Emulator / Device**: Run `adb shell input keyevent 82` (or reload key event) to force Expo to re-render the fresh bundle on screen.
+   - **iOS Simulator Target**: Force simulator focus and app bundle reload before capture.
+   - **Web Surface Target**: Trigger browser page reload on `http://localhost:3000` before running Playwright capture.
+3. **Step 3: Capture Fresh Screenshot**: Save fresh surface render to `docs/04-ui-design/verification/<screen_id>-actual.png`.
+4. **Step 4: 10-Point Visual Comparison**: Compare target `docs/04-ui-design/app-screens/<screen_id>.png` (fallback `app-screens/<screen_id>.png`) vs `docs/04-ui-design/verification/<screen_id>-actual.png`.
+5. **Step 5: Visible Progress Status Output (NO SILENT LOOPS)**:
+   - **STRICT MANDATE**: The agent MUST NOT run silent loops in the background. On EVERY iteration, emit a short, 1-line progress update:
+     > 📸 **Visual Diff Iteration N**: Surface reloaded. Captured fresh screenshot. Score: **X% Match**. (Applying targeted fix to: [Element Name]).
+6. **Completion Gate**:
+   - If 100% Match $\rightarrow$ Print `🎉 Visual Diff Passed (100% Match)` and proceed to PR review.
+   - If <100% Match $\rightarrow$ Apply targeted fix, force refresh, capture, and compare again.
 
 ### 📸 Surface-Specific Screenshot Capture Protocol & Hardcoded Emulator Rules
 
