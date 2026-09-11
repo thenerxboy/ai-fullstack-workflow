@@ -44,7 +44,7 @@ When **`/start-workflow`** (or workspace setup) is initialized:
 ```markdown
 # 🤖 Project Agent Router (`AGENTS.md`)
 
-> **AGENT MANDATE**: This project uses a 5-Phase AI Agent Workflow. You MUST follow the Pre-Flight Skill Router, Proactive Executive Expert Mandate, and Native Mobile Target Alignment Protocol below before executing tasks or modifying code.
+> **AGENT MANDATE**: This project uses a 5-Phase AI Agent Workflow. You MUST follow the Pre-Flight Skill Router, Universal Proactive Executive Expert Mandate, and Native Mobile Target Alignment Protocol below before executing tasks or modifying code.
 
 ---
 
@@ -54,16 +54,21 @@ When **`/start-workflow`** (or workspace setup) is initialized:
    - Before taking ANY action, search `.agents/skills/` to see if the user's prompt matches a Phase 0–5 skill (`/app-idea`, `/app-brief`, `/prd`, `tech-stack`, `/ui-theme`, `/ui-flow`, `/app-icon`, `/app-screenshots`, `/init-agents`, `fullstack-agent`).
    - If a matching skill exists, `view_file` on that skill's `SKILL.md` first and follow its formal execution protocol. DO NOT write unguided code on your own.
 
-2. **Proactive Executive Expert Mandate**:
-   - DO NOT act as a passive order-taker. Proactively enforce Apple HIG, Android Material 3, and WCAG 2.2 accessibility standards (44px+ touch targets, top `[ ← Back ]` and `[ Skip ]` controls on carousels, exit controls on paywalls). Use web search (`search_web`) to audit live 2026 UX standards.
+2. **Universal Proactive Executive Expert Mandate (ALL Phases & Screens)**:
+   - DO NOT act as a passive order-taker in ANY phase (PRD, Stack, UI, or Code).
+   - Proactively conduct web searches (`search_web`) for **the current year's latest live platform standards** (Apple HIG, Android Material 3, WCAG 2.2 accessibility).
+   - Proactively inject industry-standard controls across ALL screens (Dashboards: skeleton loaders & pull-to-refresh; Settings: grouped cards & red destructive styling; Forms: error rings & 44px+ touch targets; Onboarding/Paywalls: top `[ ← Back ]` / `[ Skip ]` & explicit exit `[ × ]` controls).
 
 3. **Pre-Flight Dependency & External Skill Audit**:
-   - Check real runtime SDK compatibility (e.g., Expo SDK 57/58 vs SDK 52) and search `docs/05-external-skills/<library>.md` BEFORE installing packages or writing integration code. Prompt the user for missing skills/docs first.
+   - Audit real-time SDK compatibility matrices (e.g. Expo SDK matching user's active mobile device) and search `docs/05-external-skills/<library>.md` BEFORE installing packages or writing integration code. Prompt the user for missing skills/docs first.
 
 4. **Native Mobile Target Alignment Protocol**:
    - For mobile native apps (`apps/native`), Visual AI Diff testing MUST run against Native Mobile targets (Android `adb`, iOS `xcrun`, or mobile screenshots). Web verification (`--web`) is strictly forbidden as a substitute for native mobile UI screens.
 
-5. **Interactive Learning Clarification Mandate**:
+5. **Universal Zero-Token Follow-Up Quality Gate**:
+   - On EVERY follow-up turn across ALL phases, internally audit draft responses against all mandatory skill constraints (zero dummy text, embedded SVGs, Dual Prompts, TypeScript strictness) before emitting output.
+
+6. **Interactive Learning Clarification Mandate**:
    - Whenever a user request can be executed via multiple engines, stages, or skills (e.g. "Create UI", "Make an icon", "Draft specs", "Build feature"):
      a) **DO NOT** guess or execute blindly.
      b) **STOP & ASK**: Present an **Interactive Learning Menu** listing each valid option, explaining what it does, and showing the **EXACT shortcut command** the user could type next time using their exact prompt text.

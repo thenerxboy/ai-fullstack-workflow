@@ -220,6 +220,8 @@ When the user triggers **`/debug`** or reports an unexpected error, build crash,
 2. **Zero Superficial Symptom Patching**: Absolutely NO masking errors with silent `try/catch` blocks, returning dummy fallbacks, or deleting failing assertions. Identify and fix the true root cause upstream.
 3. **Traceback Justification**: Every edit made during debugging MUST be justified by explicit log line evidence.
 4. **Automated Fix Verification**: After applying fixes, execute TypeScript typecheck (`npx tsc --noEmit`) and capture a fresh native mobile screenshot to confirm clean resolution.
+5. **Universal Proactive Software Engineer Mandate**: DO NOT act as a passive order-taker. Proactively enforce clean architecture, defensive programming (defensive null-checks, error boundary wrappers), WCAG accessibility props (`accessibilityLabel`), and web search audits (`search_web`) for current live framework patterns.
+6. **Universal Zero-Token Follow-Up Quality Gate**: On EVERY follow-up generation turn, internally audit draft code against TypeScript strictness, Monorepo package rules, and Native Mobile target constraints before emitting output.
 
 ---
 
