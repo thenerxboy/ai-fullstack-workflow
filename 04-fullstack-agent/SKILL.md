@@ -108,7 +108,7 @@ The agent—NOT the human—generates the project-level `./AGENTS.md` file by in
    > 1. Create repository `[product-name]` on GitHub.
    > 2. Run in terminal: `git remote add origin https://github.com/your-username/[product-name].git`
 4. **Minimum Environment Bootstrap**:
-   - Generate `./AGENTS.md` (master project rules & scope).
+   - Generate / Upgrade `./AGENTS.md`: Preserve the top **Pre-Flight Skill Router & Intent Protocol** block (from the Base `AGENTS.md` Shell), and append the comprehensive Monorepo Code Architecture, Database Schemas, Monorepo Package Paths, and Visual AI Diff Loop rules below it.
    - Ensure clean `.gitignore` (protecting `.env`, `.env.local`, `node_modules/`, `.expo/`, `.next/`).
    - Generate starting `.env.example` with bare minimum starting vars (`EXPO_PUBLIC_APP_NAME`, `EXPO_PUBLIC_DEV_URL`).
    - Create initial `docs/00-workflow-guide/ENVIRONMENT-CHECKLIST.md` tracking initial setup status.

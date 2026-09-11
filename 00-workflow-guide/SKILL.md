@@ -35,6 +35,32 @@ Before presenting the onboarding sitemap or executing workflow commands, the age
 
 ---
 
+## 🤖 Base `AGENTS.md` Shell Generation Gate
+
+When **`/start-workflow`** (or workspace setup) is initialized:
+1. **Root Check**: Check if `./AGENTS.md` exists at the project root.
+2. **If Missing**: Automatically create a lightweight, 20-line **Base `AGENTS.md` Shell** at the workspace root to enforce Pre-Flight Skill Routing and Clarification Mandates from Day 1 without UI/UX bloat:
+
+```markdown
+# 🤖 Project Agent Router (`AGENTS.md`)
+
+> **AGENT MANDATE**: This project uses a 5-Phase AI Agent Workflow. You MUST follow the Pre-Flight Skill Router and Clarification Protocol below before executing tasks or modifying code.
+
+---
+
+## 🛑 Pre-Flight Skill Router & Intent Protocol
+
+1. **Skill Discovery Gate**:
+   - Before taking ANY action, search `.agents/skills/` to see if the user's prompt matches a Phase 0–5 skill (`/app-idea`, `/app-brief`, `/prd`, `tech-stack`, `/ui-theme`, `/ui-flow`, `/app-icon`, `/app-screenshots`, `/init-agents`, `fullstack-agent`).
+   - If a matching skill exists, `view_file` on that skill's `SKILL.md` first and follow its formal execution protocol. DO NOT write unguided code on your own.
+
+2. **Clarification Mandate for Underspecified Requests**:
+   - If a request is ambiguous, lacks concrete specifications, or has multiple execution options, DO NOT guess or execute blindly.
+   - STOP, list 2–3 clear options or ask 1–2 clarifying questions, and wait for user approval.
+```
+
+---
+
 ## 🗺️ Interactive Onboarding Response Blueprint
 
 ```markdown
