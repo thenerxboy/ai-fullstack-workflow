@@ -185,14 +185,15 @@ For all UI components, screens, and layout changes, the agent MUST NOT ask *"Doe
                                                                                    [CodeRabbit PR & Merge]
 ```
 
-### 📸 Dual-Mode Screenshot Capture Protocol
+### 📸 Dual-Mode Native Mobile Screenshot Capture Protocol
 
-1. **Mode A (Autonomous CLI Capture)**: If running on a command-line enabled simulator, emulator, or web browser, capture the screenshot via `run_command`:
+> ⚠️ **NATIVE MOBILE TARGET MANDATE**: For mobile native apps (`apps/native` Expo Router), Visual AI Diff verification MUST run against **Native Mobile Targets ONLY**. Running `--web` Playwright verification as a substitute for Native Mobile screen validation is STRICTLY FORBIDDEN.
+
+1. **Mode A (Autonomous Native CLI Capture)**: Capture the native mobile screenshot via `run_command`:
    - **iOS Simulator**: `xcrun simctl io booted screenshot docs/04-ui-design/verification/<screen_id>-actual.png`
-   - **Android Emulator**: `adb exec-out screencap -p > docs/04-ui-design/verification/<screen_id>-actual.png`
-   - **Web / Next.js**: `node scripts/capture-screen.js http://localhost:3000/<route> docs/04-ui-design/verification/<screen_id>-actual.png`
-2. **Mode B (User-Assisted Fallback)**: If CLI capture is unavailable or testing on physical hardware, prompt the user:
-   > *"Initial UI build complete. Please take a screenshot on your device and save/upload it to `docs/04-ui-design/verification/<screen_id>-actual.png` so I can run the visual diff check."*
+   - **Android Emulator / Device**: `adb exec-out screencap -p > docs/04-ui-design/verification/<screen_id>-actual.png`
+2. **Mode B (User Native Device Screenshot Fallback)**: If running on a physical phone or Expo Go app:
+   > *"Initial native mobile UI build complete. Please take a screenshot on your mobile device (Expo Go / Simulator) and save/upload it to `docs/04-ui-design/verification/<screen_id>-actual.png` so I can run the visual diff check."*
 
 ### 📋 10-Point Multimodal Visual Comparison Matrix
 During Step 3 (Compare to Design), evaluate `app-screens/<screen_id>.png` (Target) vs `docs/04-ui-design/verification/<screen_id>-actual.png` (Actual) across:
@@ -208,6 +209,17 @@ During Step 3 (Compare to Design), evaluate `app-screens/<screen_id>.png` (Targe
 10. **Visual Hierarchy**: Primary vs. secondary element prominence, overall layout balance.
 
 *If any item scores <100% match, apply visual fixes, update code, capture a new screenshot, and repeat until 100% identical.*
+
+---
+
+## 🐛 Dedicated Bug Diagnostic Engine (`/debug`)
+
+When the user triggers **`/debug`** or reports an unexpected error, build crash, or missing feature:
+
+1. **Raw Log Inspection Mandate**: The agent MUST NOT form diagnostic hypotheses or write code without reading un-truncated runtime terminal logs, build outputs, or stack traces (`view_file` on log files or running diagnostic log commands).
+2. **Zero Superficial Symptom Patching**: Absolutely NO masking errors with silent `try/catch` blocks, returning dummy fallbacks, or deleting failing assertions. Identify and fix the true root cause upstream.
+3. **Traceback Justification**: Every edit made during debugging MUST be justified by explicit log line evidence.
+4. **Automated Fix Verification**: After applying fixes, execute TypeScript typecheck (`npx tsc --noEmit`) and capture a fresh native mobile screenshot to confirm clean resolution.
 
 ---
 

@@ -45,8 +45,11 @@ Agents MUST search for input context files and write output artifacts using this
 
 ---
 
-## 🔄 Dual-Artifact Generation Protocol
-
-Upon execution, the agent MUST generate TWO distinct markdown files:
-- **Artifact 1 (`docs/03-tech-stack/app-features.md`)**: Complete feature breakdown mapping every v1 feature to its exact monorepo layer and dependency justification.
 - **Artifact 2 (`docs/03-tech-stack/TECH-STACK.md`)**: Full technical specification, DB schema proto definitions, package.json dependencies, and environment variable matrix.
+
+---
+
+## 🛡️ Pre-Flight Dependency & Version Audit Gate
+Before locking any framework or package dependency (Expo SDK, React Native, Convex, Clerk, Supabase, NativeWind):
+1. **Real-Time Compatibility Audit**: Audit actual runtime SDK version compatibility (e.g. checking Expo SDK 57/58 vs legacy SDK 52) and search `docs/05-external-skills/` for cached documentation.
+2. **Just-in-Time Skill Mapping**: Ensure all required external framework skills/docs are mapped in `docs/05-external-skills/` before generating package installation instructions.
