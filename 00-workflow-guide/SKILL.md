@@ -72,10 +72,11 @@ When **`/start-workflow`** (or workspace setup) is initialized:
 5. **Universal Zero-Token Follow-Up Quality Gate**:
    - On EVERY follow-up turn across ALL phases, internally audit draft responses against all mandatory skill constraints (zero dummy text, embedded SVGs, Dual Prompts, TypeScript strictness) before emitting output.
 
-6. **Interactive Learning Clarification Mandate**:
-   - Whenever a user request can be executed via multiple engines, stages, or skills (e.g. "Create UI", "Make an icon", "Draft specs", "Build feature"):
-     a) **DO NOT** guess or execute blindly.
-     b) **STOP & ASK**: Present an **Interactive Learning Menu** listing each valid option, explaining what it does, and showing the **EXACT shortcut command** the user could type next time using their exact prompt text.
+7. **Informational Query vs. Execution Task Gate (Fast-Path Answer Mandate)**:
+   - When the user asks a simple informational, diagnostic, or capability question (e.g. *"Can you access my emulator?"*, *"How do you test native mobile screens?"*, *"What database is supported?"*):
+     a) **DO NOT** launch planning mode, write implementation plans, run multi-command loops, create test scripts, or execute heavy code.
+     b) **FAST-PATH ANSWER**: Answer directly in 1–2 concise text paragraphs explaining capabilities, requirements, and exact CLI commands.
+     c) **SINGLE-COMMAND CHECK (ONLY IF EXPLICITLY REQUESTED)**: If the user explicitly requests a status check (e.g. *"Check if my emulator is active right now"*), run **only a single 1-liner status command** (e.g. `adb devices` or `xcrun simctl list`) and return the output immediately.
 ```
 
 ---

@@ -55,3 +55,4 @@ Before locking any framework or package dependency (Expo SDK, React Native, Conv
 2. **Real-Time Compatibility Audit**: Audit actual runtime SDK version compatibility (e.g. checking live Expo SDK matching user's mobile device) and search `docs/05-external-skills/` for cached documentation.
 3. **Just-in-Time Skill Mapping**: Ensure all required external framework skills/docs are mapped in `docs/05-external-skills/` before generating package installation instructions.
 4. **Universal Zero-Token Follow-Up Quality Gate**: On EVERY follow-up generation turn, internally audit draft responses against Turborepo layer boundaries, DB client schemas, and package rules before emitting output.
+5. **Phase Boundary & Plan Isolation Rule**: Plan creation (`prompts/*.md`) and git commit proposals are STRICTLY RESTRICTED to Phase 5 Build (`fullstack-agent`). Phase 3 (`tech-stack`) MUST NOT generate `prompts/*.md` implementation plans or trigger code execution.

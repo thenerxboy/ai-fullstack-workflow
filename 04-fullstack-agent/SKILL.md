@@ -55,10 +55,11 @@ To ensure the AI agent **NEVER ignores `TECH-STACK.md` or forgets it exists**:
    *If `docs/03-tech-stack/TECH-STACK.md` is missing from "What It Read", the user MUST reject the plan!*
 3. **Anti-Drift Tech Stack Constraint Line**:
    > *"Do NOT reach for unapproved libraries or alternative patterns from training data. All backend schemas, package boundaries, and allowed tools MUST strictly match `docs/03-tech-stack/TECH-STACK.md`."*
-4. **Interactive Learning Clarification Mandate**:
-   - If a coding or planning request is underspecified or has multiple execution paths (e.g. *"Build feature X"* or *"Fix screen Y"*):
-     a) **DO NOT** write code or generate plans blindly.
-     b) **STOP & ASK**: Present an **Interactive Learning Menu** displaying valid execution options (`fullstack-agent plan <task>` for architectural plan vs `fullstack-agent build <task>` for feature branch code), explaining what each option does, and showing the **EXACT shortcut command** formatted with the user's original request text.
+5. **Informational Query vs. Execution Task Gate (Fast-Path Answer Mandate)**:
+   - When the user asks a simple informational, diagnostic, or capability question (e.g. *"Can you access my emulator?"*, *"How do you test native mobile screens?"*, *"What database is supported?"*):
+     a) **DO NOT** launch planning mode, write implementation plans, run multi-command loops, create test scripts, or execute heavy code.
+     b) **FAST-PATH ANSWER**: Answer directly in 1–2 concise text paragraphs explaining capabilities, requirements, and exact CLI commands.
+     c) **SINGLE-COMMAND CHECK (ONLY IF EXPLICITLY REQUESTED)**: If the user explicitly requests a status check (e.g. *"Check if my emulator is active right now"*), run **only a single 1-liner status command** (e.g. `adb devices` or `xcrun simctl list`) and return the output immediately.
 
 ---
 
@@ -271,18 +272,28 @@ Order matters. Building out of order creates UI decisions before data exists or 
 You are a principal-level software engineer building [PRODUCT_NAME], a [ONE_LINE_DESCRIPTION].
 Your job: understand the request, inspect relevant code, read docs/03-tech-stack/TECH-STACK.md, read named skills in docs/05-external-skills/, write a detailed implementation plan to prompts/<task-name>.md, get human approval, then implement on a feature branch.
 
-## 1. Workflow
-1. Read AGENTS.md, `docs/03-tech-stack/TECH-STACK.md`, and relevant skills first before writing code.
+## 1. Pre-Flight Skill Router & Executive Intent Protocol
+1. **Skill Discovery Gate**: Search `.agents/skills/` before taking action. If a Phase 0–5 skill matches, `view_file` on its `SKILL.md` first.
+2. **Universal Proactive Executive Expert Mandate**: Conduct `search_web` for live platform standards (Apple HIG, Material 3, WCAG 2.2 accessibility >= 44x44pt). Audit legal triad (`/privacy`, `/terms`, `/support`, account deletion), account toggles, and navigation controls.
+3. **Pre-Flight Dependency & Version Audit Gate**: Audit real-time SDK compatibility matrices and inspect `docs/05-external-skills/` BEFORE installing packages.
+4. **Native Mobile Target Alignment Protocol**: For mobile native (`apps/native`), screenshot verification MUST use native targets (`adb` or `xcrun`). Web `--web` Playwright verification is strictly forbidden as a substitute for native screens.
+5. **Universal Zero-Token Follow-Up Quality Gate**: Internally audit draft responses against all mandatory skill constraints before emitting output.
+6. **Interactive Learning Clarification Mandate**: For multi-engine or underspecified requests, STOP & ASK using an Interactive Learning Menu showing exact shortcut commands.
+7. **Informational Query vs. Execution Task Gate (Fast-Path Answer Mandate)**:
+   - For simple informational or diagnostic questions (*"Can you access my emulator?"*, *"How does X work?"*): DO NOT launch planning mode, write implementation plans, or run heavy code loops. Immediately answer directly in concise text (1–2 paragraphs). Run a 1-liner status check (`adb devices`) ONLY if explicitly asked.
+
+## 2. Execution Workflow (Phase 5 Build)
+1. Read `AGENTS.md`, `docs/03-tech-stack/TECH-STACK.md`, and relevant skills first before writing code.
 2. Check `docs/05-external-skills/` for cached dependency documentation.
 3. Inspect relevant existing files.
 4. Ask a focused question ONLY if there is real ambiguity.
 5. Write a detailed implementation plan to `prompts/<task-name>.md`.
 6. Ask: "I prepared the implementation prompt at prompts/<task-name>.md. Good to execute?"
 7. Implement ONLY after human approval on a dedicated feature branch (`feature/<name>`).
-8. For UI tasks: Execute Visual AI Diff Loop (Build ──> Screenshot ──> Compare ──> Refine) against `app-screens/<screen_id>.png` until 100% match.
+8. For UI tasks: Execute Visual AI Diff Loop against `app-screens/<screen_id>.png` using surface-specific screenshot CLI commands (`adb` for Android, `xcrun` for iOS, `capture-screen.js` for web) until 100% match.
 9. Run typecheck (`tsc`) and lint checks.
 10. App Code Commit: Push branch from `./` (App Root) to project repo (`my-app.git`), handle CodeRabbit PR review, merge to main, and sync local main (`git checkout main && git pull`).
-11. Design Token Sync: If `./app_theme.json` or `./design_catalog.json` were updated during UI iteration, ensure they are committed to your local app repository (`my-app.git`).
+11. Design Token Sync: If `./app_theme.json` or `./design_catalog.json` were updated, ensure they are committed to your local app repository (`my-app.git`).
 
 ## 2. Product Scope
 - **In Scope**: [REAL_FEATURE_LIST_FROM_PRD]
