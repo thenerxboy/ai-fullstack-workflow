@@ -24,8 +24,8 @@ Agents MUST search for input context files and write output artifacts using this
 | **App Features Map** | `docs/03-tech-stack/app-features.md` | `docs/app-features.md` | `./app-features.md` |
 | **Tech Stack Spec (MANDATORY)** | `docs/03-tech-stack/TECH-STACK.md` | `docs/TECH-STACK.md` | `./TECH-STACK.md` |
 | **UI Design Memory** | `docs/04-ui-design/DESIGN-MEMORY.md` | `docs/DESIGN-MEMORY.md` | `./DESIGN-MEMORY.md` |
-| **Google Stitch Screen Prompts** | `docs/04-ui-design/app-screens/prompts/<screen_id>.md` | `docs/04-ui-design/app-screens/<screen_id>.md` | `app-screens/prompts/<screen_id>.md` |
-| **UI Reference Screens** | `docs/04-ui-design/app-screens/<screen_id>.png` | `app-screens/<screen_id>.png` | N/A |
+| **Google Stitch Screen Prompts** | `docs/04-ui-design/app-screens/prompts/<screen_id>.md` | N/A (Strict Path) | N/A |
+| **UI Reference Screens** | `docs/04-ui-design/app-screens/<screen_id>.png` | N/A (Strict Path) | N/A |
 | **AI Implementation Plans** | `prompts/<task_name>.md` | `docs/prompts/<task_name>.md` | `./prompts/<task_name>.md` |
 
 ---
@@ -125,6 +125,7 @@ The agent—NOT the human—generates the project-level `./AGENTS.md` file by in
    > 2. Run in terminal: `git remote add origin https://github.com/your-username/[product-name].git`
 4. **Minimum Environment Bootstrap**:
    - Generate / Upgrade `./AGENTS.md`: Preserve the top **Pre-Flight Skill Router & Intent Protocol** block (from the Base `AGENTS.md` Shell), and append the comprehensive Monorepo Code Architecture, Database Schemas, Monorepo Package Paths, and Visual AI Diff Loop rules below it.
+   - **Root Proxy Scripts Generator**: Generate `./scripts/ui_formatter.js` and `./scripts/capture-screen.js` proxy files at workspace root forwarding calls to `.agents/skills/fullstack-agent-workflow/scripts/` so root CLI execution works seamlessly.
    - Ensure clean `.gitignore` (protecting `.env`, `.env.local`, `node_modules/`, `.expo/`, `.next/`).
    - Generate starting `.env.example` with bare minimum starting vars (`EXPO_PUBLIC_APP_NAME`, `EXPO_PUBLIC_DEV_URL`).
    - Create initial `docs/00-workflow-guide/ENVIRONMENT-CHECKLIST.md` tracking initial setup status.

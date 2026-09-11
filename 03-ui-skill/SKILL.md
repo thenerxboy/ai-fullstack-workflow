@@ -23,8 +23,8 @@ Agents MUST search for input context files and write output artifacts using this
 | **Ingested Features Map** | `docs/03-tech-stack/app-features.md` | `docs/app-features.md` | `./app-features.md` |
 | **Ingested Tech Stack** | `docs/03-tech-stack/TECH-STACK.md` | `docs/TECH-STACK.md` | `./TECH-STACK.md` |
 | **UI Design Memory Log** | `docs/04-ui-design/DESIGN-MEMORY.md` | `docs/DESIGN-MEMORY.md` | `./DESIGN-MEMORY.md` |
-| **Approved Prompts Archive** | `docs/04-ui-design/app-screens/prompts/<screen_id>.md` | `docs/04-ui-design/app-screens/<screen_id>.md` | `app-screens/prompts/<screen_id>.md` |
-| **UI Screenshots Archive** | `docs/04-ui-design/app-screens/<screen_id>.png` | `app-screens/<screen_id>.png` | N/A |
+| **Approved Prompts Archive** | `docs/04-ui-design/app-screens/prompts/<screen_id>.md` | N/A (Strict Path) | N/A |
+| **UI Screenshots Archive** | `docs/04-ui-design/app-screens/<screen_id>.png` | N/A (Strict Path) | N/A |
 | **Theme & SVG Registry** | `./app-theme.json` | `./app_theme.json` | `resources/app_theme.json` |
 | **Project Design Catalog** | `./design_catalog.json` | `docs/04-ui-design/design_catalog.json` | `resources/design_catalog.json` |
 
