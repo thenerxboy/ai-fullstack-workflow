@@ -55,6 +55,10 @@ To ensure the AI agent **NEVER ignores `TECH-STACK.md` or forgets it exists**:
    *If `docs/03-tech-stack/TECH-STACK.md` is missing from "What It Read", the user MUST reject the plan!*
 3. **Anti-Drift Tech Stack Constraint Line**:
    > *"Do NOT reach for unapproved libraries or alternative patterns from training data. All backend schemas, package boundaries, and allowed tools MUST strictly match `docs/03-tech-stack/TECH-STACK.md`."*
+4. **Interactive Learning Clarification Mandate**:
+   - If a coding or planning request is underspecified or has multiple execution paths (e.g. *"Build feature X"* or *"Fix screen Y"*):
+     a) **DO NOT** write code or generate plans blindly.
+     b) **STOP & ASK**: Present an **Interactive Learning Menu** displaying valid execution options (`fullstack-agent plan <task>` for architectural plan vs `fullstack-agent build <task>` for feature branch code), explaining what each option does, and showing the **EXACT shortcut command** formatted with the user's original request text.
 
 ---
 

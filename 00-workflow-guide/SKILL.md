@@ -44,7 +44,7 @@ When **`/start-workflow`** (or workspace setup) is initialized:
 ```markdown
 # 🤖 Project Agent Router (`AGENTS.md`)
 
-> **AGENT MANDATE**: This project uses a 5-Phase AI Agent Workflow. You MUST follow the Pre-Flight Skill Router and Clarification Protocol below before executing tasks or modifying code.
+> **AGENT MANDATE**: This project uses a 5-Phase AI Agent Workflow. You MUST follow the Pre-Flight Skill Router and Interactive Learning Clarification Protocol below before executing tasks or modifying code.
 
 ---
 
@@ -54,9 +54,10 @@ When **`/start-workflow`** (or workspace setup) is initialized:
    - Before taking ANY action, search `.agents/skills/` to see if the user's prompt matches a Phase 0–5 skill (`/app-idea`, `/app-brief`, `/prd`, `tech-stack`, `/ui-theme`, `/ui-flow`, `/app-icon`, `/app-screenshots`, `/init-agents`, `fullstack-agent`).
    - If a matching skill exists, `view_file` on that skill's `SKILL.md` first and follow its formal execution protocol. DO NOT write unguided code on your own.
 
-2. **Clarification Mandate for Underspecified Requests**:
-   - If a request is ambiguous, lacks concrete specifications, or has multiple execution options, DO NOT guess or execute blindly.
-   - STOP, list 2–3 clear options or ask 1–2 clarifying questions, and wait for user approval.
+2. **Interactive Learning Clarification Mandate**:
+   - Whenever a user request can be executed via multiple engines, stages, or skills (e.g. "Create UI", "Make an icon", "Draft specs", "Build feature"):
+     a) **DO NOT** guess or execute blindly.
+     b) **STOP & ASK**: Present an **Interactive Learning Menu** listing each valid option, explaining what it does, and showing the **EXACT shortcut command** the user could type next time using their exact prompt text.
 ```
 
 ---
