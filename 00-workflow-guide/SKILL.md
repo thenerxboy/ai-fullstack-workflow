@@ -156,3 +156,4 @@ Here is our 5-Phase Production Journey:
 | **`/fullstack-agent-shortcuts`**| `/fullstack-agent --shortcuts` | Shortcut list for `04-fullstack-agent`. |
 | **`/init-agents`** | N/A | Ingests `docs/` and generates project-tailored `./AGENTS.md` file. |
 | **`fullstack-agent`** | `/code`, `/build`, `/plan` | Launches Phase 5 full-stack monorepo code generation on feature branch. |
+| **`/clean`** | `/repo-clean`, `/clean-workspace` | **Utility Skill**: Runs 4-category workspace cleanup audit and presents interactive deletion proposal table. |
