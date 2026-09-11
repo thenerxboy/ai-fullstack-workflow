@@ -24,8 +24,8 @@ Agents MUST search for input context files and write output artifacts using this
 | **App Features Map** | `docs/03-tech-stack/app-features.md` | `docs/app-features.md` | `./app-features.md` |
 | **Tech Stack Spec (MANDATORY)** | `docs/03-tech-stack/TECH-STACK.md` | `docs/TECH-STACK.md` | `./TECH-STACK.md` |
 | **UI Design Memory** | `docs/04-ui-design/DESIGN-MEMORY.md` | `docs/DESIGN-MEMORY.md` | `./DESIGN-MEMORY.md` |
-| **External Skills & Docs Cache** | `docs/05-external-skills/*.md` | `docs/external-skills/*.md` | `./skills/*.md` |
-| **Google Stitch Screen Prompts** | `docs/04-ui-design/app-screens/prompts/<screen_id>.md` | `app-screens/prompts/<screen_id>.md` | `./<screen_id>.md` |
+| **Google Stitch Screen Prompts** | `docs/04-ui-design/app-screens/prompts/<screen_id>.md` | `docs/04-ui-design/app-screens/<screen_id>.md` | `app-screens/prompts/<screen_id>.md` |
+| **UI Reference Screens** | `docs/04-ui-design/app-screens/<screen_id>.png` | `app-screens/<screen_id>.png` | N/A |
 | **AI Implementation Plans** | `prompts/<task_name>.md` | `docs/prompts/<task_name>.md` | `./prompts/<task_name>.md` |
 
 ---
@@ -308,9 +308,12 @@ Your job: understand the request, inspect relevant code, read docs/03-tech-stack
 6. **Interactive Learning Clarification Mandate**: For multi-engine or underspecified requests, STOP & ASK using an Interactive Learning Menu showing exact shortcut commands.
 7. **Informational Query vs. Execution Task Gate (Fast-Path Answer Mandate)**:
    - For simple informational or diagnostic questions (*"Can you access my emulator?"*, *"How does X work?"*): DO NOT launch planning mode, write implementation plans, or run heavy code loops. Immediately answer directly in concise text (1–2 paragraphs). Run a 1-liner status check (`adb devices`) ONLY if explicitly asked.
-8. **Mandatory Turborepo Monorepo Default Architecture Mandate**:
-   - Unless the user EXPLICITLY states otherwise (e.g. *"build a single-folder standalone web app"*), ALL application projects MUST be designed, scaffolded, and built as a 5-layer Turborepo Monorepo (`apps/native`, `apps/web`, `packages/ui`, `packages/db`, `packages/auth`).
-   - Scaffolded flat single-folder app layouts (`./App.tsx`, `./components`, `./app` at project root) are STRICTLY FORBIDDEN by default.
+8. **Architecture Decision Ingestion & Monorepo Inspection Gate**:
+   - The workspace architecture model (Turborepo Monorepo vs Standalone Flat App) is determined during **Phase 2 (`ARCH-PRD.md`)** and **Phase 3 (`TECH-STACK.md`)**.
+   - Before scaffolding files or generating code in Phase 5 (`fullstack-agent`), the agent **MUST INSPECT `docs/02-prd-research/ARCH-PRD.md` and `docs/03-tech-stack/TECH-STACK.md`**:
+     * If `ARCH-PRD.md` / `TECH-STACK.md` specifies a **Turborepo Monorepo**, the agent builds inside `apps/` (`apps/native`, `apps/web`) and `packages/` (`packages/ui`, `packages/db`, `packages/auth`).
+     * If `ARCH-PRD.md` / `TECH-STACK.md` specifies a **Standalone Flat App**, the agent builds a flat app layout.
+     * If unspecified in `docs/`, the agent defaults to the 5-layer Turborepo Monorepo standard.
 
 ## 2. Execution Workflow (Phase 5 Build)
 1. Read `AGENTS.md`, `docs/03-tech-stack/TECH-STACK.md`, and relevant skills first before writing code.

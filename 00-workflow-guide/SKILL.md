@@ -78,9 +78,12 @@ When **`/start-workflow`** (or workspace setup) is initialized:
      b) **FAST-PATH ANSWER**: Answer directly in 1–2 concise text paragraphs explaining capabilities, requirements, and exact CLI commands.
      c) **SINGLE-COMMAND CHECK (ONLY IF EXPLICITLY REQUESTED)**: If the user explicitly requests a status check (e.g. *"Check if my emulator is active right now"*), run **only a single 1-liner status command** (e.g. `adb devices` or `xcrun simctl list`) and return the output immediately.
 
-8. **Mandatory Turborepo Monorepo Default Architecture Mandate**:
-   - Unless the user EXPLICITLY states otherwise (e.g. *"build a single-folder standalone web app"*), ALL application projects MUST be designed, scaffolded, and built as a 5-layer Turborepo Monorepo (`apps/native`, `apps/web`, `packages/ui`, `packages/db`, `packages/auth`).
-   - Scaffolded flat single-folder app layouts (`./App.tsx`, `./components`, `./app` at project root) are STRICTLY FORBIDDEN by default.
+8. **Architecture Decision Ingestion & Monorepo Inspection Gate**:
+   - The workspace architecture model (Turborepo Monorepo vs Standalone Flat App) is determined during **Phase 2 (`ARCH-PRD.md`)** and **Phase 3 (`TECH-STACK.md`)**.
+   - Before scaffolding files or generating code in Phase 5 (`fullstack-agent`), the agent **MUST INSPECT `docs/02-prd-research/ARCH-PRD.md` and `docs/03-tech-stack/TECH-STACK.md`**:
+     * If `ARCH-PRD.md` / `TECH-STACK.md` specifies a **Turborepo Monorepo**, the agent builds inside `apps/` (`apps/native`, `apps/web`) and `packages/` (`packages/ui`, `packages/db`, `packages/auth`).
+     * If `ARCH-PRD.md` / `TECH-STACK.md` specifies a **Standalone Flat App**, the agent builds a flat app layout.
+     * If unspecified in `docs/`, the agent defaults to the 5-layer Turborepo Monorepo standard.
 ```
 
 ---
