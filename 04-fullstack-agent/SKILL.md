@@ -185,15 +185,34 @@ For all UI components, screens, and layout changes, the agent MUST NOT ask *"Doe
                                                                                    [CodeRabbit PR & Merge]
 ```
 
-### 📸 Dual-Mode Native Mobile Screenshot Capture Protocol
+### 📸 Surface-Specific Screenshot Capture Protocol & Hardcoded Emulator Rules
 
-> ⚠️ **NATIVE MOBILE TARGET MANDATE**: For mobile native apps (`apps/native` Expo Router), Visual AI Diff verification MUST run against **Native Mobile Targets ONLY**. Running `--web` Playwright verification as a substitute for Native Mobile screen validation is STRICTLY FORBIDDEN.
+> ⚠️ **SURFACE TARGET ISOLATION MANDATE**: The agent MUST inspect the active project surface type before running verification:
+> - **Mobile App Surface (`apps/native` Expo Router)**: MUST execute native mobile emulator capture (`adb` or `xcrun`). Web Playwright verification is STRICTLY FORBIDDEN as a substitute for mobile screens.
+> - **Web App / Landing Surface (`apps/web` Next.js)**: MUST execute web browser capture against the Next.js server (`http://localhost:3000`).
 
-1. **Mode A (Autonomous Native CLI Capture)**: Capture the native mobile screenshot via `run_command`:
-   - **iOS Simulator**: `xcrun simctl io booted screenshot docs/04-ui-design/verification/<screen_id>-actual.png`
-   - **Android Emulator / Device**: `adb exec-out screencap -p > docs/04-ui-design/verification/<screen_id>-actual.png`
-2. **Mode B (User Native Device Screenshot Fallback)**: If running on a physical phone or Expo Go app:
-   > *"Initial native mobile UI build complete. Please take a screenshot on your mobile device (Expo Go / Simulator) and save/upload it to `docs/04-ui-design/verification/<screen_id>-actual.png` so I can run the visual diff check."*
+#### Hardcoded Autonomous CLI Capture Commands:
+
+1. **Android Emulator / Connected Device Target**:
+   ```bash
+   adb exec-out screencap -p > docs/04-ui-design/verification/<screen_id>-actual.png
+   ```
+   *Auto-checks `adb devices` to confirm a booted Android emulator/device exists.*
+
+2. **iOS Simulator Target (macOS)**:
+   ```bash
+   xcrun simctl io booted screenshot docs/04-ui-design/verification/<screen_id>-actual.png
+   ```
+   *Auto-checks `xcrun simctl list devices` to confirm a booted iOS simulator exists.*
+
+3. **Web Surface Target (`apps/web` Next.js)**:
+   ```bash
+   node scripts/capture-screen.js http://localhost:3000/<route> docs/04-ui-design/verification/<screen_id>-actual.png
+   ```
+
+4. **Physical Mobile Device Fallback (Expo Go on Handset)**:
+   If no emulator/simulator CLI is booted and testing on a physical phone:
+   > *"Native UI build complete. Please take a quick screenshot on your phone and save it to `docs/04-ui-design/verification/<screen_id>-actual.png` so I can run the visual AI diff check."*
 
 ### 📋 10-Point Multimodal Visual Comparison Matrix
 During Step 3 (Compare to Design), evaluate `app-screens/<screen_id>.png` (Target) vs `docs/04-ui-design/verification/<screen_id>-actual.png` (Actual) across:
