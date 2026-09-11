@@ -14,9 +14,12 @@ You can invoke `prd-skill` at any stage using these shortcut commands:
 
 ---
 
-## 💡 Pure UX & Product Strategy Protocol
-- Focuses 100% on product positioning, target audience, brand voice/personality, V1 feature scoping, ASO keywords, user flows, copy, and PRD requirements.
-- Hand-off to Stage 4 (`ui-skill`) for precise HEX color selections, Google Fonts pairing previews, asset moodboarding, and component styling.
+## 🛡️ Core Operating Principles & Universal Guardrails
+
+- **Universal Proactive Executive Expert Mandate**: Enforces Apple HIG, Material 3, WCAG 2.2 accessibility ($\ge 44\times44\text{pt}$ touch targets), legal compliance triad (`/privacy`, `/terms`, `/support`, self-serve account deletion), and account toggles (`[ Already have an account? Log In ]` / `[ New here? Sign Up ]`).
+- **Phase Boundary & Plan Isolation Rule**: Restricts implementation plan creation (`prompts/*.md`) and git commit proposals exclusively to Phase 5 Build (`fullstack-agent`). Phase 0–2 skills MUST NOT generate implementation plans or execute code.
+- **Pure Product Strategy Protocol**: Focuses 100% on product positioning, target audience, brand voice/personality, V1 feature scoping, ASO keywords, user flows, copy, and PRD requirements.
+- **Hand-Off to Stage 4 (`ui-skill`)**: Hand-off to Stage 4 for precise HEX color selections, Google Fonts pairing previews, asset moodboarding, and component styling.
 
 ---
 
@@ -51,3 +54,9 @@ git submodule add https://github.com/thenerxboy/fullstack-agent-workflow.git .ag
 /prd
 ```
 *Launches Phase 2 to execute the 8-question discovery loop and generate ARCH-PRD.md.*
+
+---
+
+## 📄 License
+
+MIT License. Free for open-source and commercial software development.

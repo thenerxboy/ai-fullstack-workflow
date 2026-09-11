@@ -30,56 +30,26 @@ You can invoke `ui-skill` in any AI assistant (Antigravity, Claude Code, Cursor,
 
 ---
 
-### 🏛️ System Architecture
-
-```
-03-ui-skill/ (GitHub Skill Repository Root)
-├── SKILL.md                 <── Master Rulebook, Directives & Hardcoded Output Examples
-├── README.md                <── Skill Installation & Overview Guide
-└── scripts/
-    ├── ui_formatter.js     <── CLI Prompt Compiler Script
-    └── add_catalog_blueprint.js <── Safe Catalog Blueprint Extractor
-```
-
-#### Workspace Project Integration:
-```
-[Project Root]/ (App Workspace Folder)
-├── app_theme.json           <── Local App Theme, Google Fonts & SVG Registry
-├── design_catalog.json      <── Project-Local Structural Blueprint Library (Decoupled)
-├── app-screens/             <── Active Screen Prompts & Screenshots Directory
-│   ├── <screen_id>.png      <── Rendered / Reference UI Screenshots (.png / .jpg)
-│   └── prompts/             <── Compiled Generative UI Prompt Blueprints (.md)
-└── docs/
-    ├── 01-app-brief/        <── Product Identity, Mascot, Vibe & Copy
-    ├── 02-prd-research/     <── ARCH-PRD System Architecture & Features
-    ├── 03-tech-stack/       <── TECH-STACK & app-features Monorepo Decompositions
-    └── 04-ui-design/        <── DESIGN-MEMORY.md (Dedicated UI State & Version Log)
-```
-
----
-
 ### 🎨 Key Capabilities & Guardrails
 
-1. **App Icon 20-Logo Exploration Matrix (`/app-icon`)**:
+1. **Universal Proactive Executive Expert Mandate (Guardrail #15)**:
+   - Proactively audits Apple HIG, Material 3, and WCAG 2.2 accessibility ($\ge 44\times44\text{pt}$ touch targets).
+   - Injects universal UX, legal triad (`/privacy`, `/terms`, `/support`, account deletion), and account toggles (`[ Already have an account? Log In ]` / `[ New here? Sign Up ]`) across all screens.
+2. **Follow-Up Rule Re-Verification Mandate (Zero-Token Quality Gate, Guardrail #16)**:
+   - Re-verifies embedded mathematical SVG path data and Dual Prompt specifications on every follow-up turn.
+3. **Phase Boundary & Plan Isolation Rule (Guardrail #17)**:
+   - Plan creation (`prompts/*.md`) and git commit proposals are strictly restricted to Phase 5 Build (`fullstack-agent`). Phase 4 UI compilation MUST NOT generate `prompts/*.md` plans.
+4. **App Icon 20-Logo Exploration Matrix (`/app-icon`)**:
    - Generates a 20-icon logo exploration matrix prompt (4 Rows × 5 Columns | 1080x1080 canvas) for ChatGPT / Midjourney.
-   - Enforces strict 1:1 Apple superellipse squircles, zero text, zero 3D extrusions, and progressive 5-step reduction columns.
-2. **PRD Content Extraction Mandate (Zero Dummy Text Rule)**:
+5. **PRD Content Extraction Mandate (Zero Dummy Text Rule)**:
    - Ingests real copy, titles, feature names, mascot voice snippets, and CTA microcopy directly from `docs/`.
    - Zero tolerance for placeholder strings ("Lorem Ipsum", "John Doe", "$99", "Sample User").
-3. **Dedicated UI Memory Log (`docs/04-ui-design/DESIGN-MEMORY.md`)**:
-   - Dedicated workspace memory log tracking active screen versions (`home_v1.md`), active brand themes (`cyber_obsidian`), approved Google Fonts pairings, locked stadium pill navbar specs, and registered SVG icons.
-   - **Guarantees zero collisions** with main AI agent memory (`MEMORY.md`).
-4. **Central SVG Icon Registry (`app_theme.json.svg_registry`)**:
-   - Single source of truth for all mathematical SVG icon geometries (`<svg viewBox="..." ...><path d="..."/></svg>`).
-   - Hardcodes raw mathematical SVG code into every compiled prompt to eliminate icon drift across screens.
-5. **Mobile Portrait Canvas Mandate (9:16 Aspect Ratio)**:
-   - Enforces narrow vertical smartphone app screen canvases with flat 2D surfaces (zero drop-shadows, zero ambient glows, zero animation).
-6. **Exclusive Google Stitch Screen Prompt Archiving Mandate (`app-screens/prompts/`)**:
-   - `app-screens/prompts/` is strictly reserved for **Google Stitch Standalone Screen Prompt specifications** (`<screen_id>.md`) compiled via `scripts/ui_formatter.js` and their rendered screenshots (`<screen_id>.png`).
-   - ChatGPT / Midjourney prompts output in chat for image generation tools are NEVER saved to `app-screens/`.
-7. **Lead Designer Persona & Component-First Stage Protocol**:
-   - `/ui-flow` enforces strict stage progression (Stage 1 `/ui-theme` token lock -> Stage 3 Auth -> Stage 4 Paywall -> Stage 5 Core Screens).
-   - All ChatGPT prompts adopt the Lead Product Designer persona, ingesting active visual presets (`vibe_preset_01`, `vibe_preset_02`, `vibe_preset_03`), exact tokens, and real domain copy from `docs/`.
+6. **Dedicated UI Memory Log (`docs/04-ui-design/DESIGN-MEMORY.md`)**:
+   - Tracks active screen versions (`home_v1.md`), active brand themes, approved Google Fonts pairings, locked stadium pill navbar specs, and registered SVG icons with **zero collisions** against main agent memory.
+7. **Central SVG Icon Registry (`app_theme.json.svg_registry`)**:
+   - Single source of truth for raw mathematical SVG geometries (`<svg viewBox="..." ...><path d="..."/></svg>`).
+8. **Exclusive Google Stitch Screen Prompt Archiving Mandate (`app-screens/prompts/`)**:
+   - `app-screens/prompts/` is strictly reserved for Google Stitch screen prompt specs (`<screen_id>.md`) and rendered screenshots (`<screen_id>.png`). Image generation prompts output in chat are NEVER stored here.
 
 ---
 
@@ -89,34 +59,25 @@ You can invoke `ui-skill` in any AI assistant (Antigravity, Claude Code, Cursor,
 ```bash
 git init
 ```
-*Initializes a Git version control repository for your application workspace.*
 
 #### Step 2: Add the workflow framework as a Git Submodule
 ```bash
 git submodule add https://github.com/thenerxboy/fullstack-agent-workflow.git .agents/skills/fullstack-agent-workflow
 ```
-*Links the fullstack-agent-workflow skill suite into `.agents/skills/` as a clean submodule.*
 
 #### Step 3: Invoke UI Skill commands in your AI assistant
 ```markdown
 /ui-theme
 ```
-*Locks color palettes, Google Fonts pairings, and visual asset requirements in app_theme.json.*
-
 ```markdown
 /ui-flow
 ```
-*Compiles Generative & Stitch UI prompt blueprints organized by user flow.*
-
 ```markdown
 /app-icon
 ```
-*Generates 20-icon app logo exploration matrix prompt (1080x1080 canvas).*
-
 ```markdown
 /app-screenshots
 ```
-*Generates 5 panoramic App Store marketing screenshots + web storefront hero screen.*
 
 ---
 

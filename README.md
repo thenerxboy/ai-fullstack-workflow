@@ -63,7 +63,7 @@ Open your project in Antigravity, Claude Code, Cursor, or Windsurf and type:
 ```markdown
 /start-workflow
 ```
-*Triggers the Submodule Pre-Flight Audit Gate and launches the interactive 5-phase sitemap.*
+*Triggers the Submodule Pre-Flight Audit Gate, creates Base `./AGENTS.md` Shell (if missing), and launches the interactive 5-phase sitemap.*
 
 ---
 
@@ -106,8 +106,8 @@ Open your project in Antigravity, Claude Code, Cursor, or Windsurf and type:
                                          │
                                          ▼
 +-----------------------------------------------------------------------------------+
-| Phase 5 (Build): Vibe Engineering & Visual AI Diff Micro-Loop (app-coder)         |
-| Feature Branch ──> Visual AI Diff (100%) ──> CodeRabbit PR ──> Merge to Main      |
+| Phase 5 (Build): Vibe Engineering & Visual AI Diff Micro-Loop (fullstack-agent)   |
+| Feature Branch ──> Surface-Specific Screenshot Diff ──> CodeRabbit PR ──> Merge   |
 +-----------------------------------------------------------------------------------+
 ```
 
@@ -117,7 +117,7 @@ Open your project in Antigravity, Claude Code, Cursor, or Windsurf and type:
 | :--- | :--- | :--- | :--- |
 | **Universal Help** | **`/help`** *(alias: `/workflow-help`)* | Master Directory of ALL commands across all 5 skills. | Complete Help Menu |
 | **Universal Shortcuts** | **`/shortcuts`** | Fast cheat-sheet list of all skill shortcuts. | Shortcut Table |
-| **Onboarding** | **`/start-workflow`** | Runs Submodule Pre-Flight Audit Gate & interactive sitemap. | Interactive Guide |
+| **Onboarding** | **`/start-workflow`** | Runs Submodule Pre-Flight Audit Gate, Base `./AGENTS.md` Shell generator & interactive sitemap. | Interactive Guide |
 | **Phase 0** | **`/app-idea`** | Researches market trends, competitor gaps, YouTube transcripts, and pitches 20 data-backed app ideas. | 20 App Ideas Table |
 | **Phase 1** | **`/app-brief`** | Creative vibe jamming for brand identity, mascot quirks, sensory personality, and copy tone. | `docs/01-app-brief/APP-BRIEF.md` |
 | **Phase 2** | **`/prd`** | Executes 8-question discovery loop for ASO keywords, web surface models, compliance triad, and V1 scope. | `docs/02-prd-research/ARCH-PRD.md` |
@@ -138,7 +138,8 @@ fullstack-agent-workflow/
 ├── README.md                          <── Root Documentation & Quick-Start Guide
 │
 ├── 00-workflow-guide/                 <── Interactive Onboarding Skill (/start-workflow, /help)
-│   └── SKILL.md
+│   ├── SKILL.md
+│   └── README.md
 │
 ├── 01-prd-skill/                      <── Phase 0, 1, 2: Ideation, Vibe Brief & PRD (/app-idea, /app-brief, /prd, /prd-skill-help)
 │   ├── SKILL.md
@@ -163,16 +164,18 @@ fullstack-agent-workflow/
 ## 🎨 Key Features & Operational Guardrails
 
 - **Git Submodule Pre-Flight Audit Gate**: `/start-workflow` automatically verifies that `.agents/skills/fullstack-agent-workflow` is connected as a Git Submodule, guaranteeing zero repo clashes between app code (`my-app.git`) and workflow skills.
+- **Informational Query vs. Execution Task Gate (`Fast-Path Answer Mandate`)**: Direct text answers for simple informational or capability questions without launching planning mode, script loops, or unnecessary code execution.
+- **Surface Target Isolation Protocol**: Strictly isolates screenshot verification targets. `apps/native` Expo Router screens run native CLI commands (`adb exec-out screencap` for Android, `xcrun simctl io booted screenshot` for iOS); `apps/web` Next.js screens run Playwright.
+- **Universal Proactive Executive Expert Mandate**: Enforces Apple HIG, Material 3, WCAG 2.2 accessibility ($\ge 44\times44\text{pt}$ touch targets), legal compliance triad (`/privacy`, `/terms`, `/support`, self-serve account deletion), and account toggles (`Sign In` / `Sign Up`) across all screens and PRDs.
+- **Phase Boundary & Plan Isolation Rule**: Restricts `prompts/*.md` implementation plan creation and git commit proposals exclusively to Phase 5 Build (`fullstack-agent`).
+- **Interactive Learning Clarification Engine**: Displays explicit Interactive Learning Menus for multi-engine or underspecified requests, showing exact shortcut commands.
 - **Project-Local UI Catalog**: `design_catalog.json` lives in your app workspace root (`./design_catalog.json`), keeping app extractions 100% isolated with zero submodule commit clutter.
 - **Feature-Branch & CodeRabbit PR Protocol**: 7-step isolated Git lifecycle (Feature Branch $\rightarrow$ Build & Test $\rightarrow$ Stage & Commit $\rightarrow$ Push Branch $\rightarrow$ CodeRabbit PR AI Review $\rightarrow$ Merge to Main $\rightarrow$ Sync Local Main).
-- **Pixel-Perfect Visual AI Diff Micro-Loop (Module 6)**: 4-step visual verification loop (Build $\rightarrow$ Screenshot $\rightarrow$ Compare $\rightarrow$ Refine) using `app-screens/<screen_id>.png` as target reference, powered by a Dual-Mode Screenshot Capture Protocol (iOS `xcrun`, Android `adb`, Web `Playwright` + User fallback) and a 10-Point Multimodal Comparison Matrix.
+- **Pixel-Perfect Visual AI Diff Micro-Loop (Module 6)**: 4-step visual verification loop (Build $\rightarrow$ Screenshot $\rightarrow$ Compare $\rightarrow$ Refine) using `app-screens/<screen_id>.png` as target reference and a 10-Point Multimodal Comparison Matrix.
 - **Mandatory `TECH-STACK.md` Ingestion Gate**: Compels agents to inspect `docs/03-tech-stack/TECH-STACK.md` before planning and record proof under `## 2. What It Read` in `prompts/<task-name>.md`.
 - **Autonomous `AGENTS.md` Generator (`/init-agents`)**: Compiles a 100% project-tailored `./AGENTS.md` at the project root by ingesting completed `docs/` artifacts.
 - **External Skill & Doc Mapping Engine (`docs/05-external-skills/`)**: Maps required framework/dependency skills (Clerk, Convex, Expo, Stripe, Supabase), checks local cache, guides developer on missing skills/docs, and stores doc snippets for permanent future reference.
 - **Zero Memory Collision Policy**: Tracks UI design system locks, registered SVG icons, and screen versions in `docs/04-ui-design/DESIGN-MEMORY.md` to guarantee zero collisions with main agent memory.
-- **Dual-Engine Standard**: Generates 100% ChatGPT/Midjourney Exploration Matrix Prompts for App Icons (`/app-icon`) and Dual Prompts (Google Stitch Spec + ChatGPT/Midjourney Prompt) for Storefront Screenshots (`/app-screenshots`).
-- **Google Fonts Pairing Engine**: Suggests 2–3 curated font combinations with clickable specimen preview links (`https://fonts.google.com/specimen/...`) for explicit user approval.
-- **PRD Content Extraction Mandate**: Strictly ingests real domain copy, CTAs, and metrics from `docs/` with zero placeholder text ("Lorem Ipsum", "John Doe", "$99").
 - **Canonical Turborepo Monorepo Architecture**: Enforces `apps/native` (Expo Router), `apps/web` (Next.js App Router), `packages/ui`, `packages/db`, and `packages/auth`.
 
 ---
