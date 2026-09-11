@@ -308,6 +308,9 @@ Your job: understand the request, inspect relevant code, read docs/03-tech-stack
 6. **Interactive Learning Clarification Mandate**: For multi-engine or underspecified requests, STOP & ASK using an Interactive Learning Menu showing exact shortcut commands.
 7. **Informational Query vs. Execution Task Gate (Fast-Path Answer Mandate)**:
    - For simple informational or diagnostic questions (*"Can you access my emulator?"*, *"How does X work?"*): DO NOT launch planning mode, write implementation plans, or run heavy code loops. Immediately answer directly in concise text (1–2 paragraphs). Run a 1-liner status check (`adb devices`) ONLY if explicitly asked.
+8. **Mandatory Turborepo Monorepo Default Architecture Mandate**:
+   - Unless the user EXPLICITLY states otherwise (e.g. *"build a single-folder standalone web app"*), ALL application projects MUST be designed, scaffolded, and built as a 5-layer Turborepo Monorepo (`apps/native`, `apps/web`, `packages/ui`, `packages/db`, `packages/auth`).
+   - Scaffolded flat single-folder app layouts (`./App.tsx`, `./components`, `./app` at project root) are STRICTLY FORBIDDEN by default.
 
 ## 2. Execution Workflow (Phase 5 Build)
 1. Read `AGENTS.md`, `docs/03-tech-stack/TECH-STACK.md`, and relevant skills first before writing code.

@@ -50,7 +50,7 @@ Agents MUST search for and output documents using this prioritized path resoluti
 - **Visual Token Hand-off Protocol**: Leave precise HEX color choices and Google Fonts pairing selections to Stage 4 (`ui-skill`), allowing Phase 1 & Phase 2 to focus 100% on product strategy, UX flows, copy, and features.
 - **Proactive Feature Proposal Engine**: Proactively pitch a 3-category feature menu (Essential Core Loop, Modern Delighters, Signature Differentiators).
 - **Phase Boundary & Plan Isolation Rule**: Plan creation (`prompts/*.md`) and git commit proposals are STRICTLY RESTRICTED to Phase 5 Build (`fullstack-agent`). Phase 0, 1, and 2 skills MUST NOT generate `prompts/*.md` implementation plans or trigger code execution.
-- **Canonical Turborepo Monorepo Architecture**:
+- **Mandatory Turborepo Monorepo Default Architecture**: Unless the user EXPLICITLY states otherwise (e.g. *"build a single-folder standalone web app"*), ALL PRD specifications MUST target a 5-layer Turborepo Monorepo structure by default:
   * `apps/native`: Expo Router mobile app (iOS & Android)
   * `apps/web`: Next.js App Router (Marketing landing page, legal compliance hub, operator dashboard)
   * `packages/ui`: Shared design tokens & cross-platform primitives

@@ -77,6 +77,10 @@ When **`/start-workflow`** (or workspace setup) is initialized:
      a) **DO NOT** launch planning mode, write implementation plans, run multi-command loops, create test scripts, or execute heavy code.
      b) **FAST-PATH ANSWER**: Answer directly in 1–2 concise text paragraphs explaining capabilities, requirements, and exact CLI commands.
      c) **SINGLE-COMMAND CHECK (ONLY IF EXPLICITLY REQUESTED)**: If the user explicitly requests a status check (e.g. *"Check if my emulator is active right now"*), run **only a single 1-liner status command** (e.g. `adb devices` or `xcrun simctl list`) and return the output immediately.
+
+8. **Mandatory Turborepo Monorepo Default Architecture Mandate**:
+   - Unless the user EXPLICITLY states otherwise (e.g. *"build a single-folder standalone web app"*), ALL application projects MUST be designed, scaffolded, and built as a 5-layer Turborepo Monorepo (`apps/native`, `apps/web`, `packages/ui`, `packages/db`, `packages/auth`).
+   - Scaffolded flat single-folder app layouts (`./App.tsx`, `./components`, `./app` at project root) are STRICTLY FORBIDDEN by default.
 ```
 
 ---
